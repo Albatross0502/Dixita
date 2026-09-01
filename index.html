@@ -62,8 +62,6 @@
 
         /* 
            EDITORIAL COLOR RHYTHM MAP 
-           Preserves Theme Switcher functionality while enforcing
-           the Dark -> Ivory -> Light alternating rhythm.
         */
         [data-theme="noir"],
         :root {
@@ -72,7 +70,6 @@
             --accent: #B9A27A;
             --theme-invert: 0;
 
-            /* Section Rhythm Colors */
             --sec-dark-bg: #080808;
             --sec-dark-txt: #FAF9F6;
             --sec-dark-border: rgba(255, 255, 255, 0.08);
@@ -87,30 +84,12 @@
             --sec-light-mut: #77736C;
         }
 
-        [data-theme="verdant"] {
-            --bg-primary: #0a120c;
-            --bg-secondary: #0a120c;
-            --accent: #899c82;
-            --theme-invert: 0;
-            --sec-dark-bg: #0a120c;
-            --sec-dark-txt: #e8eee9;
-            --sec-dark-border: rgba(232, 238, 233, 0.08);
-            --sec-dark-mut: #8b9991;
-            --sec-ivory-bg: #e8eee9;
-            --sec-ivory-txt: #0a120c;
-            --sec-ivory-border: rgba(10, 18, 12, 0.08);
-            --sec-ivory-mut: #8b9991;
-            --sec-light-bg: #f2f7f3;
-            --sec-light-txt: #0a120c;
-            --sec-light-border: rgba(10, 18, 12, 0.08);
-            --sec-light-mut: #8b9991;
-        }
-
         [data-theme="ivory"] {
             --bg-primary: #F3EFE7;
             --bg-secondary: #F3EFE7;
             --accent: #9A7B4F;
             --theme-invert: 1;
+
             --sec-dark-bg: #F3EFE7;
             --sec-dark-txt: #080808;
             --sec-dark-border: rgba(0, 0, 0, 0.08);
@@ -123,44 +102,6 @@
             --sec-light-txt: #080808;
             --sec-light-border: rgba(0, 0, 0, 0.08);
             --sec-light-mut: #77736C;
-        }
-
-        [data-theme="sapphire"] {
-            --bg-primary: #03060a;
-            --bg-secondary: #03060a;
-            --accent: #B9A27A;
-            --theme-invert: 0;
-            --sec-dark-bg: #03060a;
-            --sec-dark-txt: #eef2f8;
-            --sec-dark-border: rgba(238, 242, 248, 0.08);
-            --sec-dark-mut: #7a8b9f;
-            --sec-ivory-bg: #eef2f8;
-            --sec-ivory-txt: #03060a;
-            --sec-ivory-border: rgba(3, 6, 10, 0.08);
-            --sec-ivory-mut: #7a8b9f;
-            --sec-light-bg: #f5f8fc;
-            --sec-light-txt: #03060a;
-            --sec-light-border: rgba(3, 6, 10, 0.08);
-            --sec-light-mut: #7a8b9f;
-        }
-
-        [data-theme="crimson"] {
-            --bg-primary: #0d0505;
-            --bg-secondary: #0d0505;
-            --accent: #B9A27A;
-            --theme-invert: 0;
-            --sec-dark-bg: #0d0505;
-            --sec-dark-txt: #f8eeee;
-            --sec-dark-border: rgba(248, 238, 238, 0.08);
-            --sec-dark-mut: #9f7a7a;
-            --sec-ivory-bg: #f8eeee;
-            --sec-ivory-txt: #0d0505;
-            --sec-ivory-border: rgba(13, 5, 5, 0.08);
-            --sec-ivory-mut: #9f7a7a;
-            --sec-light-bg: #fff5f5;
-            --sec-light-txt: #0d0505;
-            --sec-light-border: rgba(13, 5, 5, 0.08);
-            --sec-light-mut: #9f7a7a;
         }
 
         /* Rhythm Classes */
@@ -195,10 +136,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            cursor: none !important;
         }
-
-        /* Custom cursor enforced */
 
         *:focus-visible {
             outline: 1px solid var(--accent);
@@ -220,7 +158,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
 
-        /* Subtle Film Grain - Kept minimal */
+        /* Subtle Film Grain */
         body::before {
             content: '';
             position: fixed;
@@ -254,6 +192,7 @@
             color: inherit;
             font-family: inherit;
             outline: none;
+            cursor: pointer;
         }
 
         ul {
@@ -291,30 +230,28 @@
             text-transform: uppercase;
         }
 
-        /* Massive Editorial Types */
         .title-massive {
-            font-size: clamp(6rem, 20vw, 24rem);
+            font-size: clamp(3rem, 20vw, 24rem);
             letter-spacing: -0.04em;
             line-height: 0.8;
         }
 
         .title-huge {
-            font-size: clamp(4rem, 12vw, 14rem);
+            font-size: clamp(2.5rem, 12vw, 14rem);
             letter-spacing: -0.02em;
             line-height: 0.9;
         }
 
         .title-large {
-            font-size: clamp(3rem, 8vw, 7rem);
+            font-size: clamp(2rem, 8vw, 7rem);
             letter-spacing: -0.01em;
         }
 
         .title-medium {
-            font-size: clamp(1.5rem, 4vw, 3.5rem);
+            font-size: clamp(1.25rem, 4vw, 3.5rem);
             letter-spacing: 0;
         }
 
-        /* Accents & Body */
         .editorial-italic {
             font-family: var(--font-sub);
             font-style: italic;
@@ -349,16 +286,12 @@
             font-weight: 400;
         }
 
-        .accent-color {
-            color: var(--accent);
-        }
-
         .text-center {
             text-align: center;
         }
 
         /* ==========================================
-           4. COMPONENTS & RESTRAINT (NO GLASS)
+           4. COMPONENTS
         ========================================== */
         .btn-luxury {
             display: inline-flex;
@@ -373,6 +306,7 @@
             overflow: hidden;
             transition: border-color 0.6s var(--ease-out), color 0.6s var(--ease-out);
             font-weight: 400;
+            cursor: pointer;
         }
 
         .btn-luxury::after {
@@ -401,71 +335,6 @@
             background: var(--border-current);
             margin: 0 auto;
             display: block;
-        }
-
-        /* Custom Cursor */
-        #custom-cursor {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 8px;
-            height: 8px;
-            background: var(--accent);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: width 0.4s var(--ease-out), height 0.4s var(--ease-out), background 0.4s, mix-blend-mode 0.4s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-body);
-            font-size: 0.5rem;
-            letter-spacing: 2px;
-            color: #000;
-            text-transform: uppercase;
-            mix-blend-mode: difference;
-        }
-
-        #custom-cursor.hover-view {
-            width: 80px;
-            height: 80px;
-            background: #fff;
-            mix-blend-mode: normal;
-        }
-
-        #custom-cursor.hover-drag {
-            width: 80px;
-            height: 80px;
-            background: transparent;
-            border: 1px solid #fff;
-            mix-blend-mode: difference;
-            color: #fff;
-        }
-
-        #custom-cursor.hidden {
-            opacity: 0;
-        }
-
-        .cursor-text {
-            opacity: 0;
-            transition: opacity 0.3s;
-            white-space: nowrap;
-        }
-
-        #custom-cursor.hover-view .cursor-text,
-        #custom-cursor.hover-drag .cursor-text {
-            opacity: 1;
-        }
-
-        @media(max-width: 768px) {
-            * {
-                cursor: auto !important;
-            }
-
-            #custom-cursor {
-                display: none;
-            }
         }
 
         /* Scroll Progress */
@@ -498,23 +367,13 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             transition: transform 0.4s var(--ease-out), border-color 0.4s;
             position: relative;
+            cursor: pointer;
         }
 
         .theme-swatch:hover,
         .theme-swatch.active {
             transform: scale(2);
             border-color: var(--accent);
-        }
-
-        @media(max-width: 768px) {
-            .theme-switcher {
-                right: auto;
-                left: 1rem;
-                top: auto;
-                bottom: 2rem;
-                flex-direction: row;
-                transform: none;
-            }
         }
 
         /* ==========================================
@@ -704,18 +563,6 @@
             letter-spacing: 2px;
         }
 
-        @media (max-width: 992px) {
-
-            .nav-links,
-            .nav-book {
-                display: none !important;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
-        }
-
         /* ==========================================
            7. HERO SECTION (CINEMATIC)
         ========================================== */
@@ -776,10 +623,6 @@
             width: 100%;
             color: #fff;
             margin-top: 10vh;
-        }
-
-        .hero-title .char {
-            display: inline-block;
         }
 
         .hero-meta-grid {
@@ -869,7 +712,6 @@
             color: var(--accent);
         }
 
-        /* 3D Orbit - Cleaned */
         .orbit-container {
             height: 60vh;
             min-height: 500px;
@@ -879,6 +721,11 @@
             justify-content: center;
             overflow: hidden;
             margin-top: 8rem;
+            cursor: grab;
+        }
+
+        .orbit-container:active {
+            cursor: grabbing;
         }
 
         .orbit-scene {
@@ -896,6 +743,7 @@
             overflow: hidden;
             background: #000;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
         }
 
         .orbit-card img {
@@ -931,30 +779,19 @@
             opacity: 1;
         }
 
-        @media(max-width: 992px) {
-            .maison-grid {
-                grid-template-columns: 1fr;
-                gap: 4rem;
-            }
-
-            .maison-image-wrap {
-                margin-top: 0;
-            }
-
-            .orbit-scene {
-                width: 200px;
-                height: 300px;
-            }
-        }
-
         /* ==========================================
-           10. COLLECTIONS (MINIMAL DRAG)
+           10. COLLECTIONS
         ========================================== */
         .collections-track {
             display: flex;
             gap: 4vw;
             padding: 0 10vw;
             width: max-content;
+            cursor: grab;
+        }
+
+        .collections-track:active {
+            cursor: grabbing;
         }
 
         .collection-card {
@@ -963,7 +800,7 @@
             aspect-ratio: 3/4;
             position: relative;
             overflow: hidden;
-            cursor: none;
+            cursor: pointer;
         }
 
         .collection-card img {
@@ -999,12 +836,6 @@
             transform: translateY(-5px);
         }
 
-        @media(max-width: 768px) {
-            .collection-card {
-                width: 80vw;
-            }
-        }
-
         /* ==========================================
            11. TRANSFORMATION (BEFORE/AFTER)
         ========================================== */
@@ -1015,7 +846,7 @@
             aspect-ratio: 16/9;
             margin: 4rem auto 0;
             overflow: hidden;
-            cursor: none;
+            cursor: col-resize;
         }
 
         .ba-image {
@@ -1084,6 +915,7 @@
             color: var(--text-mut-current);
             transition: color 0.4s;
             position: relative;
+            cursor: pointer;
         }
 
         .filter-btn::after {
@@ -1117,7 +949,7 @@
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
-            cursor: none;
+            cursor: pointer;
             display: block;
             width: 100%;
             text-align: left;
@@ -1142,20 +974,8 @@
             display: none;
         }
 
-        @media(max-width: 992px) {
-            .masonry-grid {
-                column-count: 2;
-            }
-        }
-
-        @media(max-width: 768px) {
-            .masonry-grid {
-                column-count: 1;
-            }
-        }
-
         /* ==========================================
-           13. ATELIER PROCESS (ARCHITECTURAL)
+           13. ATELIER PROCESS
         ========================================== */
         .process-container {
             position: relative;
@@ -1210,35 +1030,8 @@
             margin-right: 50%;
         }
 
-        @media(max-width: 992px) {
-            .process-container {
-                height: auto;
-                padding: 4rem 0;
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .process-bg-num {
-                display: none;
-            }
-
-            .process-stage {
-                position: relative;
-                opacity: 1;
-                visibility: visible;
-                margin-bottom: 4rem;
-            }
-
-            .process-content {
-                width: 100%;
-                padding: 0 !important;
-                text-align: left !important;
-                margin: 0 !important;
-            }
-        }
-
         /* ==========================================
-           14. LOOKBOOK (MAGAZINE SPREAD)
+           14. LOOKBOOK
         ========================================== */
         .lookbook-wrap {
             display: flex;
@@ -1269,7 +1062,7 @@
             width: 100%;
             display: block;
             position: relative;
-            cursor: none;
+            cursor: pointer;
         }
 
         .look-img {
@@ -1277,30 +1070,6 @@
             max-height: 85vh;
             object-fit: contain;
             filter: brightness(0.95) contrast(1.05);
-        }
-
-        @media(max-width: 992px) {
-            .lookbook-wrap {
-                flex-direction: column;
-                gap: 2rem;
-            }
-
-            .lookbook-left {
-                width: 100%;
-                height: auto;
-                position: static;
-                padding: 2rem 0;
-            }
-
-            .lookbook-right {
-                width: 100%;
-                padding: 0;
-                gap: 4rem;
-            }
-
-            .look-img {
-                max-height: 70vh;
-            }
         }
 
         /* ==========================================
@@ -1318,7 +1087,7 @@
             aspect-ratio: 9/16;
             background: var(--sec-dark-bg);
             position: relative;
-            cursor: none;
+            cursor: pointer;
             overflow: hidden;
         }
 
@@ -1378,7 +1147,7 @@
             border-bottom: 1px solid var(--border-current);
             transition: padding 0.6s var(--ease-out);
             position: relative;
-            cursor: none;
+            cursor: pointer;
         }
 
         .list-row:hover {
@@ -1399,7 +1168,6 @@
         ========================================== */
         .swiper-testimonial {
             padding: 4rem 0;
-            cursor: none;
         }
 
         .swiper-slide {
@@ -1426,7 +1194,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: none;
+            cursor: pointer;
             font-family: inherit;
         }
 
@@ -1527,7 +1295,7 @@
 
         .footer-massive {
             font-family: var(--font-display);
-            font-size: clamp(5rem, 25vw, 25rem);
+            font-size: clamp(3rem, 22vw, 25rem);
             line-height: 0.7;
             text-align: center;
             color: var(--border-current);
@@ -1571,7 +1339,7 @@
             top: 3rem;
             right: 4vw;
             font-size: 1.5rem;
-            cursor: none;
+            cursor: pointer;
             z-index: 2;
             transition: transform 0.4s;
             color: inherit;
@@ -1583,7 +1351,7 @@
             top: 50%;
             transform: translateY(-50%);
             font-size: 2rem;
-            cursor: none;
+            cursor: pointer;
             z-index: 2;
             padding: 2rem;
             transition: transform 0.4s;
@@ -1638,16 +1406,136 @@
             opacity: 0;
         }
 
-        .reveal-line {
-            transform: scaleY(0);
-            transform-origin: top;
+        /* ==========================================
+           21. MOBILE & RESPONSIVE OVERRIDES
+        ========================================== */
+        @media (max-width: 992px) {
+
+            .nav-links,
+            .nav-book {
+                display: none !important;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+
+            .maison-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .maison-image-wrap {
+                margin-top: 0;
+            }
+
+            .orbit-scene {
+                width: 200px;
+                height: 300px;
+            }
+
+            .masonry-grid {
+                column-count: 2;
+            }
+
+            .process-container {
+                height: auto;
+                padding: 4rem 0;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .process-bg-num {
+                display: none;
+            }
+
+            .process-stage {
+                position: relative;
+                opacity: 1;
+                visibility: visible;
+                margin-bottom: 4rem;
+            }
+
+            .process-content {
+                width: 100%;
+                padding: 0 !important;
+                text-align: left !important;
+                margin: 0 !important;
+            }
+
+            .lookbook-wrap {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .lookbook-left {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 2rem 0;
+            }
+
+            .lookbook-right {
+                width: 100%;
+                padding: 0;
+                gap: 4rem;
+            }
+
+            .look-img {
+                max-height: 70vh;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .theme-switcher {
+                right: auto;
+                left: 1rem;
+                top: auto;
+                bottom: 2rem;
+                flex-direction: row;
+                transform: none;
+            }
+
+            .masonry-grid {
+                column-count: 1;
+            }
+
+            /* Stack Multi-Column Grids Structurally */
+            .grid-12,
+            .footer-grid {
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 3rem;
+            }
+
+            /* Override Inline Structural Paddings */
+            .grid-12>div,
+            .footer-grid>div {
+                padding-left: 0 !important;
+                padding-right: 0 !important;
+                width: 100% !important;
+            }
+
+            .hero-meta-grid {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .collection-card {
+                min-width: unset;
+                width: 85vw;
+            }
+
+            .marquee-item {
+                font-size: clamp(2rem, 8vw, 4rem);
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- CUSTOM CURSOR -->
-    <div id="custom-cursor" aria-hidden="true"><span class="cursor-text"></span></div>
 
     <!-- UTILS -->
     <div id="scroll-progress" aria-hidden="true"></div>
@@ -1671,14 +1559,14 @@
     <!-- NAVIGATION -->
     <header>
         <nav id="navbar">
-            <a href="#" class="nav-logo" aria-label="DIXITA Home" data-cursor="GO →">DIXITA</a>
+            <a href="#" class="nav-logo" aria-label="DIXITA Home">DIXITA</a>
             <div class="nav-links">
-                <a href="#maison" data-cursor="GO →">Maison</a>
-                <a href="#collections" data-cursor="GO →">Collections</a>
-                <a href="#portfolio" data-cursor="GO →">Archive</a>
-                <a href="#journal" data-cursor="GO →">Journal</a>
+                <a href="#maison">Maison</a>
+                <a href="#collections">Collections</a>
+                <a href="#portfolio">Archive</a>
+                <a href="#journal">Journal</a>
             </div>
-            <a href="#contact" class="btn-luxury nav-book" data-cursor="GO →">Book Atelier</a>
+            <a href="#contact" class="btn-luxury nav-book">Book Atelier</a>
             <button class="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu"><i
                     class="fas fa-bars" aria-hidden="true"></i></button>
         </nav>
@@ -1757,8 +1645,7 @@
 
                 <!-- 3D Orbit CSS Cylinder -->
                 <div class="orbit-container reveal-fade" id="orbit" tabindex="0" role="slider"
-                    aria-label="Drag to view 3D Archive" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"
-                    data-cursor="DRAG">
+                    aria-label="Drag to view 3D Archive" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
                     <div class="orbit-scene" id="orbit-scene">
                         <!-- Populated by JS -->
                     </div>
@@ -1773,14 +1660,13 @@
                         <div class="eyebrow">02 — COLLECTIONS</div>
                         <h2 class="title-large">DOORWAYS</h2>
                     </div>
-                    <a href="#portfolio" class="btn-luxury reveal-up" data-cursor="GO →">VIEW ALL</a>
+                    <a href="#portfolio" class="btn-luxury reveal-up">VIEW ALL</a>
                 </div>
 
                 <div class="collections-track" id="collections-track" tabindex="0" role="slider"
-                    aria-label="Drag to view collections" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"
-                    data-cursor="DRAG">
+                    aria-label="Drag to view collections" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
                     <button class="collection-card lightbox-trigger reveal-up" data-title="LUMINA"
-                        data-desc="Spring/Summer 2026" aria-label="Open Lumina Collection" data-cursor="EXPLORE">
+                        data-desc="Spring/Summer 2026" aria-label="Open Lumina Collection">
                         <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800"
                             alt="Lumina Collection Gown" loading="lazy">
                         <div class="collection-meta">
@@ -1789,8 +1675,7 @@
                         </div>
                     </button>
                     <button class="collection-card lightbox-trigger reveal-up" data-title="OBSIDIAN"
-                        data-desc="Autumn/Winter 2026" aria-label="Open Obsidian Collection" data-cursor="EXPLORE"
-                        style="margin-top: 10vh;">
+                        data-desc="Autumn/Winter 2026" aria-label="Open Obsidian Collection" style="margin-top: 10vh;">
                         <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800"
                             alt="Obsidian Collection Structure" loading="lazy">
                         <div class="collection-meta">
@@ -1799,7 +1684,7 @@
                         </div>
                     </button>
                     <button class="collection-card lightbox-trigger reveal-up" data-title="MIRAGE"
-                        data-desc="Resort 2027" aria-label="Open Mirage Collection" data-cursor="EXPLORE">
+                        data-desc="Resort 2027" aria-label="Open Mirage Collection">
                         <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800"
                             alt="Mirage Collection Fluidity" loading="lazy">
                         <div class="collection-meta">
@@ -1819,7 +1704,7 @@
 
                 <div class="ba-container reveal-fade" id="ba-container" role="slider" tabindex="0" aria-valuenow="50"
                     aria-valuemin="0" aria-valuemax="100"
-                    aria-label="Use arrow keys to slide before and after comparison" data-cursor="DRAG">
+                    aria-label="Use arrow keys to slide before and after comparison">
                     <div class="ba-labels">
                         <div class="meta-label">SKETCH</div>
                         <div class="meta-label">SILHOUETTE</div>
@@ -1844,14 +1729,10 @@
 
                 <div class="container">
                     <div class="filter-bar reveal-fade" role="group" aria-label="Portfolio Filters">
-                        <button class="filter-btn active" data-filter="all" aria-pressed="true"
-                            data-cursor="VIEW">ALL</button>
-                        <button class="filter-btn" data-filter="editorial" aria-pressed="false"
-                            data-cursor="VIEW">EDITORIAL</button>
-                        <button class="filter-btn" data-filter="couture" aria-pressed="false"
-                            data-cursor="VIEW">COUTURE</button>
-                        <button class="filter-btn" data-filter="bridal" aria-pressed="false"
-                            data-cursor="VIEW">BRIDAL</button>
+                        <button class="filter-btn active" data-filter="all" aria-pressed="true">ALL</button>
+                        <button class="filter-btn" data-filter="editorial" aria-pressed="false">EDITORIAL</button>
+                        <button class="filter-btn" data-filter="couture" aria-pressed="false">COUTURE</button>
+                        <button class="filter-btn" data-filter="bridal" aria-pressed="false">BRIDAL</button>
                     </div>
 
                     <div class="masonry-grid" id="portfolio-grid" aria-live="polite">
@@ -1915,18 +1796,17 @@
                         </div>
                         <div class="lookbook-right">
                             <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 01"
-                                data-desc="Structural Silk & Organza Overlay" aria-label="View Look 01"
-                                data-cursor="VIEW">
+                                data-desc="Structural Silk & Organza Overlay" aria-label="View Look 01">
                                 <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1000"
                                     alt="Look 01: Structural Silk" class="look-img" loading="lazy">
                             </button>
                             <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 02"
-                                data-desc="Asymmetric Wool Crepe" aria-label="View Look 02" data-cursor="VIEW">
+                                data-desc="Asymmetric Wool Crepe" aria-label="View Look 02">
                                 <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000"
                                     alt="Look 02: Asymmetric Wool" class="look-img" loading="lazy">
                             </button>
                             <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 03"
-                                data-desc="Hand-pleated Tulle" aria-label="View Look 03" data-cursor="VIEW">
+                                data-desc="Hand-pleated Tulle" aria-label="View Look 03">
                                 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
                                     alt="Look 03: Hand-pleated Tulle" class="look-img" loading="lazy">
                             </button>
@@ -1943,8 +1823,7 @@
                 </div>
                 <div class="container">
                     <div class="reels-grid">
-                        <button class="reel-card reveal-up" aria-label="Play Paris Fashion Week 25 Reel"
-                            data-cursor="VIEW">
+                        <button class="reel-card reveal-up" aria-label="Play Paris Fashion Week 25 Reel">
                             <video class="reel-video" loop playsinline preload="none"
                                 poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -1957,8 +1836,7 @@
                                 </div>
                             </div>
                         </button>
-                        <button class="reel-card reveal-up" aria-label="Play The Making of Oasis Reel"
-                            data-cursor="VIEW">
+                        <button class="reel-card reveal-up" aria-label="Play The Making of Oasis Reel">
                             <video class="reel-video" loop playsinline preload="none"
                                 poster="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -1971,8 +1849,7 @@
                                 </div>
                             </div>
                         </button>
-                        <button class="reel-card reveal-up" aria-label="Play Architectural Fluidity Reel"
-                            data-cursor="VIEW">
+                        <button class="reel-card reveal-up" aria-label="Play Architectural Fluidity Reel">
                             <video class="reel-video" loop playsinline preload="none"
                                 poster="https://images.unsplash.com/photo-1485230895905-eb56f4d1a10a?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
@@ -1995,14 +1872,14 @@
                     <div class="eyebrow reveal-up" style="margin-bottom: 4rem;">07 — JOURNAL & SERVICES</div>
                     <div class="grid-12">
                         <div style="grid-column: span 6; padding-right: 4vw;" class="reveal-up">
-                            <a href="#" class="list-row" aria-label="Read Fabric Sourcing note" data-cursor="VIEW">
+                            <a href="#" class="list-row" aria-label="Read Fabric Sourcing note">
                                 <div>
                                     <div class="meta-label" style="margin-bottom: 1rem;">OCT 2025 · MILAN</div>
                                     <h3 class="title-medium">Fabric Sourcing</h3>
                                 </div>
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
-                            <a href="#" class="list-row" aria-label="Read Architectural Forms note" data-cursor="VIEW">
+                            <a href="#" class="list-row" aria-label="Read Architectural Forms note">
                                 <div>
                                     <div class="meta-label" style="margin-bottom: 1rem;">SEP 2025 · EDITORIAL</div>
                                     <h3 class="title-medium">Architectural Forms</h3>
@@ -2011,12 +1888,10 @@
                             </a>
                         </div>
                         <div style="grid-column: span 6; padding-left: 4vw;" class="reveal-up">
-                            <div class="list-row" tabindex="0" role="link" aria-label="Service: Bespoke Couture"
-                                data-cursor="VIEW">
+                            <div class="list-row" tabindex="0" role="link" aria-label="Service: Bespoke Couture">
                                 <h3 class="title-medium editorial-italic">01. Bespoke Couture</h3>
                             </div>
-                            <div class="list-row" tabindex="0" role="link" aria-label="Service: Bridal Couture"
-                                data-cursor="VIEW">
+                            <div class="list-row" tabindex="0" role="link" aria-label="Service: Bridal Couture">
                                 <h3 class="title-medium editorial-italic">02. Bridal Couture</h3>
                             </div>
                         </div>
@@ -2054,7 +1929,7 @@
                             <h2 class="title-medium" style="margin-bottom: 4rem;">ACCLAIM</h2>
                             <div class="accordion-item" id="press">
                                 <button class="accordion-header" aria-expanded="false" aria-controls="content-cfda"
-                                    id="header-cfda" data-cursor="VIEW">
+                                    id="header-cfda">
                                     <span class="meta-label">CFDA EMERGING DESIGNER</span>
                                     <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
                                 </button>
@@ -2066,7 +1941,7 @@
                             </div>
                             <div class="accordion-item">
                                 <button class="accordion-header" aria-expanded="false" aria-controls="content-bazaar"
-                                    id="header-bazaar" data-cursor="VIEW">
+                                    id="header-bazaar">
                                     <span class="meta-label">HARPER'S BAZAAR FEATURE</span>
                                     <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
                                 </button>
@@ -2086,17 +1961,16 @@
                             <form id="booking-form" novalidate>
                                 <div class="form-group">
                                     <input type="text" id="booking-name" name="name" class="form-input"
-                                        placeholder="Full Name" required autocomplete="name" aria-label="Full Name"
-                                        data-cursor="GO →">
+                                        placeholder="Full Name" required autocomplete="name" aria-label="Full Name">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" id="booking-email" name="email" class="form-input"
                                         placeholder="Email Address" required autocomplete="email"
-                                        aria-label="Email Address" data-cursor="GO →">
+                                        aria-label="Email Address">
                                 </div>
                                 <div class="form-group">
                                     <select id="booking-service" name="service" class="form-input" required
-                                        aria-label="Select Service" style="appearance: none;" data-cursor="GO →">
+                                        aria-label="Select Service" style="appearance: none;">
                                         <option value="" disabled selected style="color: var(--text-mut-current)">Select
                                             Service...</option>
                                         <option value="bespoke" style="color: #000">Bespoke Couture</option>
@@ -2105,7 +1979,7 @@
                                     </select>
                                 </div>
                                 <button type="submit" class="btn-luxury" id="booking-submit"
-                                    style="width: 100%; margin-top: 2rem;" data-cursor="VIEW">Submit Request</button>
+                                    style="width: 100%; margin-top: 2rem;">Submit Request</button>
                                 <p class="form-msg" id="booking-msg" role="alert" aria-live="polite"
                                     style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
                             </form>
@@ -2117,40 +1991,38 @@
             <!-- 13. FOOTER (DARK) -->
             <footer id="footer" class="theme-dark" aria-label="Site Footer">
                 <div class="container">
-                    <button class="footer-massive reveal-up" id="footer-brand-btn" aria-label="Scroll to top of DIXITA"
-                        data-cursor="GO →">DIXITA</button>
+                    <button class="footer-massive reveal-up" id="footer-brand-btn"
+                        aria-label="Scroll to top of DIXITA">DIXITA</button>
 
-                    <div class="grid-12 reveal-fade" style="margin-top: 6rem;">
-                        <div style="grid-column: span 4;">
+                    <div class="footer-grid reveal-fade" style="margin-top: 6rem;">
+                        <div style="grid-column: span 1;">
                             <h3 class="title-medium" style="margin-bottom: 1rem;">PARIS</h3>
                             <p class="body-text">Elevating reality through architectural fashion.</p>
                         </div>
-                        <div style="grid-column: span 2;">
+                        <div style="grid-column: span 1;">
                             <div class="eyebrow">EXPLORE</div>
                             <ul class="footer-list">
-                                <li><a href="#maison" data-cursor="VIEW">Maison</a></li>
-                                <li><a href="#collections" data-cursor="VIEW">Collections</a></li>
-                                <li><a href="#portfolio" data-cursor="VIEW">Archive</a></li>
+                                <li><a href="#maison">Maison</a></li>
+                                <li><a href="#collections">Collections</a></li>
+                                <li><a href="#portfolio">Archive</a></li>
                             </ul>
                         </div>
-                        <div style="grid-column: span 2;">
+                        <div style="grid-column: span 1;">
                             <div class="eyebrow">CONNECT</div>
                             <ul class="footer-list">
-                                <li><a href="#" target="_blank" rel="noopener noreferrer"
-                                        data-cursor="VIEW">Instagram</a></li>
-                                <li><a href="#" target="_blank" rel="noopener noreferrer"
-                                        data-cursor="VIEW">Pinterest</a></li>
-                                <li><a href="#" target="_blank" rel="noopener noreferrer" data-cursor="VIEW">Vogue</a>
+                                <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+                                <li><a href="#" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
+                                <li><a href="#" target="_blank" rel="noopener noreferrer">Vogue</a>
                                 </li>
                             </ul>
                         </div>
-                        <div style="grid-column: span 4;">
+                        <div style="grid-column: span 1;">
                             <div class="eyebrow">NEWSLETTER</div>
                             <form class="newsletter-form" id="newsletter-form" novalidate>
                                 <input type="email" id="nl-email" placeholder="Email Address" required
-                                    autocomplete="email" aria-label="Email for Newsletter" data-cursor="GO →">
-                                <button type="submit" id="nl-submit" aria-label="Subscribe to Newsletter"
-                                    data-cursor="VIEW"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                                    autocomplete="email" aria-label="Email for Newsletter">
+                                <button type="submit" id="nl-submit" aria-label="Subscribe to Newsletter"><i
+                                        class="fas fa-arrow-right" aria-hidden="true"></i></button>
                             </form>
                             <span class="form-msg" id="nl-msg" role="alert" aria-live="polite"
                                 style="font-size: 0.85rem; margin-top: 1rem; display: none;"></span>
@@ -2170,12 +2042,10 @@
 
     <!-- GLOBAL LIGHTBOX -->
     <div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image Gallery Lightbox">
-        <button class="fas fa-times lightbox-close" id="lb-close" aria-label="Close Lightbox"
-            data-cursor="VIEW"></button>
-        <button class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous Image"
-            data-cursor="VIEW"></button>
-        <button class="fas fa-chevron-right lightbox-nav lightbox-next" id="lb-next" aria-label="Next Image"
-            data-cursor="VIEW"></button>
+        <button class="fas fa-times lightbox-close" id="lb-close" aria-label="Close Lightbox"></button>
+        <button class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lb-prev"
+            aria-label="Previous Image"></button>
+        <button class="fas fa-chevron-right lightbox-nav lightbox-next" id="lb-next" aria-label="Next Image"></button>
 
         <div class="lightbox-content">
             <img src="" alt="Expanded View" class="lightbox-img" id="lb-img" loading="lazy">
@@ -2485,7 +2355,7 @@
                         btn.className = `masonry-item lightbox-trigger reveal-up ${isVisible ? '' : 'hidden'}`;
                         btn.dataset.title = item.title; btn.dataset.desc = item.desc;
                         if (!isVisible) { btn.setAttribute('aria-hidden', 'true'); btn.tabIndex = -1; }
-                        else { btn.setAttribute('aria-label', `View ${item.title}`); btn.dataset.cursor = "VIEW"; }
+                        else { btn.setAttribute('aria-label', `View ${item.title}`); }
                         btn.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
                         grid.appendChild(btn);
                     });
@@ -2656,41 +2526,6 @@
                 }
             }
 
-            // Custom Editorial Cursor logic
-            function initCursor() {
-                if (state.isMobile) return;
-                const cursor = document.getElementById('custom-cursor');
-                const cursorText = cursor.querySelector('.cursor-text');
-                if (!cursor) return;
-
-                let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-                let cursorX = mouseX, cursorY = mouseY;
-
-                window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; cursor.classList.remove('hidden'); });
-                window.addEventListener('mouseout', () => cursor.classList.add('hidden'));
-
-                const render = () => {
-                    cursorX += (mouseX - cursorX) * 0.2;
-                    cursorY += (mouseY - cursorY) * 0.2;
-                    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
-                    requestAnimationFrame(render);
-                };
-                requestAnimationFrame(render);
-
-                // Setup interactive hover states
-                document.querySelectorAll('[data-cursor]').forEach(el => {
-                    el.addEventListener('mouseenter', () => {
-                        const txt = el.getAttribute('data-cursor');
-                        cursorText.innerText = txt;
-                        if (txt === 'DRAG') { cursor.classList.add('hover-drag'); } else { cursor.classList.add('hover-view'); }
-                    });
-                    el.addEventListener('mouseleave', () => {
-                        cursor.classList.remove('hover-view', 'hover-drag');
-                        cursorText.innerText = '';
-                    });
-                });
-            }
-
             window.addEventListener('resize', () => {
                 state.isMobile = window.innerWidth <= 768; state.isTablet = window.innerWidth <= 992;
                 if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
@@ -2713,7 +2548,6 @@
                 try { initForms(); } catch (e) { }
                 try { initLightbox(); } catch (e) { }
                 try { initUtils(); } catch (e) { }
-                try { initCursor(); } catch (e) { }
 
                 setTimeout(() => { try { initLoader(); } catch (e) { } }, 100);
             });
