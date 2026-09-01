@@ -1,0 +1,2725 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIXITA | Digital Fashion House</title>
+    <meta name="description"
+        content="DIXITA — Haute Couture digital atelier. Experience the intersection of architectural structure and fluid movement.">
+    <meta name="keywords"
+        content="luxury fashion, haute couture, DIXITA, fashion designer, digital atelier, editorial fashion, bespoke design">
+    <meta name="author" content="DIXITA">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="DIXITA | Digital Fashion House">
+    <meta property="og:description"
+        content="DIXITA — Haute Couture digital atelier. Experience the intersection of architectural structure and fluid movement.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1200">
+    <meta property="og:url" content="https://dixita.com">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Upgraded Editorial Typography -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons & Swiper -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <!-- Inline Theme Script to Prevent Flash -->
+    <script>
+        (function () {
+            try {
+                const savedTheme = localStorage.getItem('dixita-theme') || 'noir';
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'noir');
+            }
+        })();
+    </script>
+
+    <style>
+        /* ==========================================
+           1. GOD-TIER DESIGN TOKENS & RHYTHM
+        ========================================== */
+        :root {
+            /* Core Typography */
+            --font-display: 'Cormorant Garamond', serif;
+            --font-sub: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+
+            /* Utilities */
+            --ease-out: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+            --ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1.000);
+            --ease-slow: cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        /* 
+           EDITORIAL COLOR RHYTHM MAP 
+           Preserves Theme Switcher functionality while enforcing
+           the Dark -> Ivory -> Light alternating rhythm.
+        */
+        [data-theme="noir"],
+        :root {
+            --bg-primary: #080808;
+            --bg-secondary: #080808;
+            --accent: #B9A27A;
+            --theme-invert: 0;
+
+            /* Section Rhythm Colors */
+            --sec-dark-bg: #080808;
+            --sec-dark-txt: #FAF9F6;
+            --sec-dark-border: rgba(255, 255, 255, 0.08);
+            --sec-dark-mut: #77736C;
+            --sec-ivory-bg: #F3EFE7;
+            --sec-ivory-txt: #080808;
+            --sec-ivory-border: rgba(0, 0, 0, 0.08);
+            --sec-ivory-mut: #77736C;
+            --sec-light-bg: #FAF9F6;
+            --sec-light-txt: #080808;
+            --sec-light-border: rgba(0, 0, 0, 0.08);
+            --sec-light-mut: #77736C;
+        }
+
+        [data-theme="verdant"] {
+            --bg-primary: #0a120c;
+            --bg-secondary: #0a120c;
+            --accent: #899c82;
+            --theme-invert: 0;
+            --sec-dark-bg: #0a120c;
+            --sec-dark-txt: #e8eee9;
+            --sec-dark-border: rgba(232, 238, 233, 0.08);
+            --sec-dark-mut: #8b9991;
+            --sec-ivory-bg: #e8eee9;
+            --sec-ivory-txt: #0a120c;
+            --sec-ivory-border: rgba(10, 18, 12, 0.08);
+            --sec-ivory-mut: #8b9991;
+            --sec-light-bg: #f2f7f3;
+            --sec-light-txt: #0a120c;
+            --sec-light-border: rgba(10, 18, 12, 0.08);
+            --sec-light-mut: #8b9991;
+        }
+
+        [data-theme="ivory"] {
+            --bg-primary: #F3EFE7;
+            --bg-secondary: #F3EFE7;
+            --accent: #9A7B4F;
+            --theme-invert: 1;
+            --sec-dark-bg: #F3EFE7;
+            --sec-dark-txt: #080808;
+            --sec-dark-border: rgba(0, 0, 0, 0.08);
+            --sec-dark-mut: #77736C;
+            --sec-ivory-bg: #080808;
+            --sec-ivory-txt: #F3EFE7;
+            --sec-ivory-border: rgba(255, 255, 255, 0.08);
+            --sec-ivory-mut: #77736C;
+            --sec-light-bg: #EAE6DF;
+            --sec-light-txt: #080808;
+            --sec-light-border: rgba(0, 0, 0, 0.08);
+            --sec-light-mut: #77736C;
+        }
+
+        [data-theme="sapphire"] {
+            --bg-primary: #03060a;
+            --bg-secondary: #03060a;
+            --accent: #B9A27A;
+            --theme-invert: 0;
+            --sec-dark-bg: #03060a;
+            --sec-dark-txt: #eef2f8;
+            --sec-dark-border: rgba(238, 242, 248, 0.08);
+            --sec-dark-mut: #7a8b9f;
+            --sec-ivory-bg: #eef2f8;
+            --sec-ivory-txt: #03060a;
+            --sec-ivory-border: rgba(3, 6, 10, 0.08);
+            --sec-ivory-mut: #7a8b9f;
+            --sec-light-bg: #f5f8fc;
+            --sec-light-txt: #03060a;
+            --sec-light-border: rgba(3, 6, 10, 0.08);
+            --sec-light-mut: #7a8b9f;
+        }
+
+        [data-theme="crimson"] {
+            --bg-primary: #0d0505;
+            --bg-secondary: #0d0505;
+            --accent: #B9A27A;
+            --theme-invert: 0;
+            --sec-dark-bg: #0d0505;
+            --sec-dark-txt: #f8eeee;
+            --sec-dark-border: rgba(248, 238, 238, 0.08);
+            --sec-dark-mut: #9f7a7a;
+            --sec-ivory-bg: #f8eeee;
+            --sec-ivory-txt: #0d0505;
+            --sec-ivory-border: rgba(13, 5, 5, 0.08);
+            --sec-ivory-mut: #9f7a7a;
+            --sec-light-bg: #fff5f5;
+            --sec-light-txt: #0d0505;
+            --sec-light-border: rgba(13, 5, 5, 0.08);
+            --sec-light-mut: #9f7a7a;
+        }
+
+        /* Rhythm Classes */
+        .theme-dark {
+            background-color: var(--sec-dark-bg);
+            color: var(--sec-dark-txt);
+            --border-current: var(--sec-dark-border);
+            --text-mut-current: var(--sec-dark-mut);
+            transition: background-color 0.8s var(--ease-out), color 0.8s var(--ease-out);
+        }
+
+        .theme-ivory {
+            background-color: var(--sec-ivory-bg);
+            color: var(--sec-ivory-txt);
+            --border-current: var(--sec-ivory-border);
+            --text-mut-current: var(--sec-ivory-mut);
+            transition: background-color 0.8s var(--ease-out), color 0.8s var(--ease-out);
+        }
+
+        .theme-light {
+            background-color: var(--sec-light-bg);
+            color: var(--sec-light-txt);
+            --border-current: var(--sec-light-border);
+            --text-mut-current: var(--sec-light-mut);
+            transition: background-color 0.8s var(--ease-out), color 0.8s var(--ease-out);
+        }
+
+        /* ==========================================
+           2. GLOBAL RESET & BASE
+        ========================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none !important;
+        }
+
+        /* Custom cursor enforced */
+
+        *:focus-visible {
+            outline: 1px solid var(--accent);
+            outline-offset: 4px;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: auto;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--sec-dark-txt);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Subtle Film Grain - Kept minimal */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.02;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        img,
+        video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select {
+            background: none;
+            border: none;
+            color: inherit;
+            font-family: inherit;
+            outline: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 4vw;
+        }
+
+        .section-pad {
+            padding: clamp(6rem, 15vw, 12rem) 0;
+        }
+
+        .grid-12 {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 2rem;
+        }
+
+        /* ==========================================
+           3. EDITORIAL TYPOGRAPHY HIERARCHY
+        ========================================== */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .display-text {
+            font-family: var(--font-display);
+            font-weight: 300;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        /* Massive Editorial Types */
+        .title-massive {
+            font-size: clamp(6rem, 20vw, 24rem);
+            letter-spacing: -0.04em;
+            line-height: 0.8;
+        }
+
+        .title-huge {
+            font-size: clamp(4rem, 12vw, 14rem);
+            letter-spacing: -0.02em;
+            line-height: 0.9;
+        }
+
+        .title-large {
+            font-size: clamp(3rem, 8vw, 7rem);
+            letter-spacing: -0.01em;
+        }
+
+        .title-medium {
+            font-size: clamp(1.5rem, 4vw, 3.5rem);
+            letter-spacing: 0;
+        }
+
+        /* Accents & Body */
+        .editorial-italic {
+            font-family: var(--font-sub);
+            font-style: italic;
+            font-weight: 400;
+            text-transform: none;
+        }
+
+        .eyebrow {
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: var(--text-mut-current);
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .body-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: var(--text-mut-current);
+            max-width: 45ch;
+        }
+
+        .meta-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        .accent-color {
+            color: var(--accent);
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* ==========================================
+           4. COMPONENTS & RESTRAINT (NO GLASS)
+        ========================================== */
+        .btn-luxury {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 0.75rem;
+            padding: 1.25rem 3rem;
+            border: 1px solid var(--border-current);
+            position: relative;
+            overflow: hidden;
+            transition: border-color 0.6s var(--ease-out), color 0.6s var(--ease-out);
+            font-weight: 400;
+        }
+
+        .btn-luxury::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.6s var(--ease-out);
+        }
+
+        .btn-luxury:hover {
+            border-color: transparent;
+            color: var(--accent);
+        }
+
+        .btn-luxury:hover::after {
+            width: 100%;
+        }
+
+        .signature-line {
+            width: 1px;
+            height: 120px;
+            background: var(--border-current);
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Custom Cursor */
+        #custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 10000;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s var(--ease-out), height 0.4s var(--ease-out), background 0.4s, mix-blend-mode 0.4s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-body);
+            font-size: 0.5rem;
+            letter-spacing: 2px;
+            color: #000;
+            text-transform: uppercase;
+            mix-blend-mode: difference;
+        }
+
+        #custom-cursor.hover-view {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            mix-blend-mode: normal;
+        }
+
+        #custom-cursor.hover-drag {
+            width: 80px;
+            height: 80px;
+            background: transparent;
+            border: 1px solid #fff;
+            mix-blend-mode: difference;
+            color: #fff;
+        }
+
+        #custom-cursor.hidden {
+            opacity: 0;
+        }
+
+        .cursor-text {
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        #custom-cursor.hover-view .cursor-text,
+        #custom-cursor.hover-drag .cursor-text {
+            opacity: 1;
+        }
+
+        @media(max-width: 768px) {
+            * {
+                cursor: auto !important;
+            }
+
+            #custom-cursor {
+                display: none;
+            }
+        }
+
+        /* Scroll Progress */
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 9998;
+            width: 0%;
+        }
+
+        /* Theme Switcher */
+        .theme-switcher {
+            position: fixed;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            z-index: 900;
+        }
+
+        .theme-swatch {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.4s var(--ease-out), border-color 0.4s;
+            position: relative;
+        }
+
+        .theme-swatch:hover,
+        .theme-swatch.active {
+            transform: scale(2);
+            border-color: var(--accent);
+        }
+
+        @media(max-width: 768px) {
+            .theme-switcher {
+                right: auto;
+                left: 1rem;
+                top: auto;
+                bottom: 2rem;
+                flex-direction: row;
+                transform: none;
+            }
+        }
+
+        /* ==========================================
+           5. CINEMATIC LOADER
+        ========================================== */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-meta {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--sec-dark-mut);
+            margin-bottom: 3rem;
+            opacity: 0;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+        }
+
+        .loader-wordmark {
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .loader-wordmark span {
+            font-size: clamp(2rem, 8vw, 6rem);
+            font-family: var(--font-display);
+            letter-spacing: 0.1em;
+            transform: translateY(100%);
+            opacity: 0;
+            font-weight: 300;
+        }
+
+        .loader-line {
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .loader-counter {
+            font-size: 0.85rem;
+            font-weight: 300;
+            opacity: 0;
+            font-family: var(--font-body);
+            letter-spacing: 2px;
+        }
+
+        /* ==========================================
+           6. EDITORIAL NAVIGATION
+        ========================================== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 2rem 4vw;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: padding 0.6s var(--ease-out), transform 0.6s var(--ease-out), background 0.6s, color 0.6s;
+            mix-blend-mode: difference;
+            color: #fff;
+        }
+
+        nav.scrolled {
+            padding: 1.5rem 4vw;
+            mix-blend-mode: normal;
+            background: var(--bg-primary);
+            color: var(--sec-dark-txt);
+            border-bottom: 1px solid var(--border-current);
+        }
+
+        nav.hidden {
+            transform: translateY(-100%);
+        }
+
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+            font-weight: 400;
+            text-transform: uppercase;
+            transition: color 0.4s;
+        }
+
+        .nav-logo:hover {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4rem;
+        }
+
+        .nav-links a {
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            position: relative;
+            font-weight: 400;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: currentColor;
+            transition: width 0.4s var(--ease-out);
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.2rem;
+            z-index: 1001;
+            position: relative;
+            mix-blend-mode: difference;
+            color: #fff;
+        }
+
+        nav.scrolled .mobile-toggle {
+            mix-blend-mode: normal;
+            color: var(--sec-dark-txt);
+        }
+
+        #mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            color: var(--sec-dark-txt);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 4rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s var(--ease-out);
+        }
+
+        #mobile-menu.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .mobile-item {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: color 0.4s;
+            display: block;
+            width: fit-content;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+
+        .mobile-item:hover {
+            color: var(--accent);
+        }
+
+        .mobile-item span {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-right: 2rem;
+            vertical-align: middle;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 992px) {
+
+            .nav-links,
+            .nav-book {
+                display: none !important;
+            }
+
+            .mobile-toggle {
+                display: block;
+            }
+        }
+
+        /* ==========================================
+           7. HERO SECTION (CINEMATIC)
+        ========================================== */
+        #hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: #000;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity 2s ease, transform 10s linear;
+            transform: scale(1);
+            filter: brightness(0.7) contrast(1.1);
+        }
+
+        .hero-bg img.active {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 40%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 2;
+        }
+
+        #hero-canvas {
+            position: absolute;
+            inset: 0;
+            z-index: 3;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            color: #fff;
+            margin-top: 10vh;
+        }
+
+        .hero-title .char {
+            display: inline-block;
+        }
+
+        .hero-meta-grid {
+            position: absolute;
+            bottom: 3rem;
+            left: 4vw;
+            right: 4vw;
+            z-index: 4;
+            display: flex;
+            justify-content: space-between;
+            color: #fff;
+            align-items: flex-end;
+        }
+
+        /* ==========================================
+           8. EDITORIAL MARQUEE
+        ========================================== */
+        .marquee-section {
+            padding: 5rem 0;
+            border-top: 1px solid var(--border-current);
+            border-bottom: 1px solid var(--border-current);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .marquee-track {
+            display: flex;
+            white-space: nowrap;
+            width: max-content;
+            align-items: center;
+        }
+
+        .marquee-item {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 7vw, 6rem);
+            text-transform: uppercase;
+            padding: 0 3rem;
+            transition: color 0.4s, transform 0.6s var(--ease-out);
+            font-weight: 300;
+        }
+
+        .marquee-item.outline {
+            -webkit-text-stroke: 1px currentColor;
+            color: transparent;
+        }
+
+        .marquee-item:hover {
+            color: var(--accent);
+            -webkit-text-stroke: 0px transparent;
+            transform: scale(1.02);
+        }
+
+        /* ==========================================
+           9. MAISON (ASYMMETRIC)
+        ========================================== */
+        .maison-grid {
+            display: grid;
+            grid-template-columns: 5fr 7fr;
+            gap: 8vw;
+            align-items: start;
+        }
+
+        .manifesto {
+            font-size: clamp(2rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.01em;
+            margin-bottom: 3rem;
+        }
+
+        .maison-image-wrap {
+            position: relative;
+            margin-top: 15vh;
+        }
+
+        .maison-image {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            filter: grayscale(10%) contrast(1.1);
+        }
+
+        .designer-signature {
+            margin-top: 3rem;
+            font-family: var(--font-sub);
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--accent);
+        }
+
+        /* 3D Orbit - Cleaned */
+        .orbit-container {
+            height: 60vh;
+            min-height: 500px;
+            perspective: 1200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            margin-top: 8rem;
+        }
+
+        .orbit-scene {
+            width: 280px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s linear;
+        }
+
+        .orbit-card {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .orbit-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            transition: opacity 0.8s var(--ease-out), filter 0.8s;
+            filter: blur(4px) grayscale(50%);
+            pointer-events: none;
+        }
+
+        .orbit-card.active img {
+            opacity: 1;
+            filter: blur(0) grayscale(0%);
+        }
+
+        .orbit-label {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .orbit-card.active .orbit-label {
+            opacity: 1;
+        }
+
+        @media(max-width: 992px) {
+            .maison-grid {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .maison-image-wrap {
+                margin-top: 0;
+            }
+
+            .orbit-scene {
+                width: 200px;
+                height: 300px;
+            }
+        }
+
+        /* ==========================================
+           10. COLLECTIONS (MINIMAL DRAG)
+        ========================================== */
+        .collections-track {
+            display: flex;
+            gap: 4vw;
+            padding: 0 10vw;
+            width: max-content;
+        }
+
+        .collection-card {
+            width: 30vw;
+            min-width: 320px;
+            aspect-ratio: 3/4;
+            position: relative;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.5s var(--ease-slow), filter 0.8s;
+            filter: brightness(0.85);
+            pointer-events: none;
+        }
+
+        .collection-card:hover img {
+            transform: scale(1.03);
+            filter: brightness(1);
+        }
+
+        .collection-meta {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2.5rem;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            color: #fff;
+            transition: transform 0.6s var(--ease-out);
+            pointer-events: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .collection-card:hover .collection-meta {
+            transform: translateY(-5px);
+        }
+
+        @media(max-width: 768px) {
+            .collection-card {
+                width: 80vw;
+            }
+        }
+
+        /* ==========================================
+           11. TRANSFORMATION (BEFORE/AFTER)
+        ========================================== */
+        .ba-container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            aspect-ratio: 16/9;
+            margin: 4rem auto 0;
+            overflow: hidden;
+            cursor: none;
+        }
+
+        .ba-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .ba-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            pointer-events: none;
+        }
+
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 1px;
+            background: var(--border-current);
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .ba-labels {
+            position: absolute;
+            top: 2rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 3rem;
+            z-index: 5;
+            pointer-events: none;
+            color: #fff;
+        }
+
+        /* ==========================================
+           12. ARCHIVE / PORTFOLIO
+        ========================================== */
+        .filter-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .filter-btn {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-mut-current);
+            transition: color 0.4s;
+            position: relative;
+        }
+
+        .filter-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.4s var(--ease-out);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: currentColor;
+        }
+
+        .filter-btn.active::after {
+            width: 100%;
+        }
+
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 2rem;
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            cursor: none;
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: #000;
+        }
+
+        .masonry-item img {
+            width: 100%;
+            display: block;
+            transition: transform 1.2s var(--ease-slow), filter 0.8s;
+            filter: grayscale(20%) contrast(1.1);
+            opacity: 0.9;
+        }
+
+        .masonry-item:hover img {
+            transform: scale(1.02);
+            filter: grayscale(0%) contrast(1);
+            opacity: 1;
+        }
+
+        .masonry-item.hidden {
+            display: none;
+        }
+
+        @media(max-width: 992px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media(max-width: 768px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+
+        /* ==========================================
+           13. ATELIER PROCESS (ARCHITECTURAL)
+        ========================================== */
+        .process-container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .process-bg-num {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-display);
+            font-size: clamp(20rem, 40vw, 40rem);
+            color: var(--text-mut-current);
+            opacity: 0.03;
+            line-height: 0.8;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .process-stage {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.8s, visibility 0.8s;
+            z-index: 1;
+        }
+
+        .process-stage.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .process-content {
+            width: 40%;
+            padding: 0 4vw;
+        }
+
+        .process-stage:nth-child(odd) .process-content {
+            margin-left: 50%;
+        }
+
+        .process-stage:nth-child(even) .process-content {
+            text-align: right;
+            margin-right: 50%;
+        }
+
+        @media(max-width: 992px) {
+            .process-container {
+                height: auto;
+                padding: 4rem 0;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .process-bg-num {
+                display: none;
+            }
+
+            .process-stage {
+                position: relative;
+                opacity: 1;
+                visibility: visible;
+                margin-bottom: 4rem;
+            }
+
+            .process-content {
+                width: 100%;
+                padding: 0 !important;
+                text-align: left !important;
+                margin: 0 !important;
+            }
+        }
+
+        /* ==========================================
+           14. LOOKBOOK (MAGAZINE SPREAD)
+        ========================================== */
+        .lookbook-wrap {
+            display: flex;
+            position: relative;
+            align-items: flex-start;
+            gap: 6vw;
+        }
+
+        .lookbook-left {
+            width: 35%;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .lookbook-right {
+            width: 65%;
+            display: flex;
+            flex-direction: column;
+            gap: 20vh;
+            padding: 20vh 0;
+        }
+
+        .lb-item {
+            width: 100%;
+            display: block;
+            position: relative;
+            cursor: none;
+        }
+
+        .look-img {
+            width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            filter: brightness(0.95) contrast(1.05);
+        }
+
+        @media(max-width: 992px) {
+            .lookbook-wrap {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .lookbook-left {
+                width: 100%;
+                height: auto;
+                position: static;
+                padding: 2rem 0;
+            }
+
+            .lookbook-right {
+                width: 100%;
+                padding: 0;
+                gap: 4rem;
+            }
+
+            .look-img {
+                max-height: 70vh;
+            }
+        }
+
+        /* ==========================================
+           15. CINEMA / REELS
+        ========================================== */
+        .reels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1px;
+            background: var(--border-current);
+            border: 1px solid var(--border-current);
+        }
+
+        .reel-card {
+            aspect-ratio: 9/16;
+            background: var(--sec-dark-bg);
+            position: relative;
+            cursor: none;
+            overflow: hidden;
+        }
+
+        .reel-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: filter 0.8s;
+        }
+
+        .reel-card:hover .reel-video {
+            filter: grayscale(0%);
+        }
+
+        .reel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 2.5rem;
+            color: #fff;
+            transition: opacity 0.6s;
+            pointer-events: none;
+            text-align: left;
+        }
+
+        .reel-play-btn {
+            font-size: 2rem;
+            align-self: center;
+            margin-top: auto;
+            margin-bottom: auto;
+            opacity: 0;
+            transition: opacity 0.4s, transform 0.4s;
+            transform: scale(0.8);
+        }
+
+        .reel-card:hover .reel-play-btn {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .reel-card.playing .reel-overlay {
+            opacity: 0;
+        }
+
+        /* ==========================================
+           16. JOURNAL & SERVICES
+        ========================================== */
+        .list-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border-current);
+            transition: padding 0.6s var(--ease-out);
+            position: relative;
+            cursor: none;
+        }
+
+        .list-row:hover {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .list-row i {
+            transition: transform 0.6s var(--ease-out);
+        }
+
+        .list-row:hover i {
+            transform: translateX(10px);
+        }
+
+        /* ==========================================
+           17. TESTIMONIALS
+        ========================================== */
+        .swiper-testimonial {
+            padding: 4rem 0;
+            cursor: none;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            opacity: 0.2;
+            transition: opacity 0.8s;
+        }
+
+        .swiper-slide-active {
+            opacity: 1;
+        }
+
+        /* ==========================================
+           18. ACCORDION (PRESS)
+        ========================================== */
+        .accordion-item {
+            border-bottom: 1px solid var(--border-current);
+        }
+
+        .accordion-header {
+            width: 100%;
+            text-align: left;
+            padding: 2.5rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: none;
+            font-family: inherit;
+        }
+
+        .accordion-icon {
+            transition: transform 0.6s var(--ease-out);
+            font-weight: 300;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s var(--ease-out);
+        }
+
+        .accordion-inner {
+            padding-bottom: 2.5rem;
+            font-family: var(--font-sub);
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--text-mut-current);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        /* ==========================================
+           19. FORMS & FOOTER
+        ========================================== */
+        .form-group {
+            margin-bottom: 3rem;
+        }
+
+        .form-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--border-current);
+            padding: 1rem 0;
+            color: inherit;
+            font-size: 1rem;
+            transition: border-color 0.4s;
+            font-family: var(--font-body);
+            font-weight: 300;
+        }
+
+        .form-input:focus {
+            border-color: currentColor;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-mut-current);
+        }
+
+        footer {
+            padding: 10rem 0 2rem;
+            border-top: 1px solid var(--border-current);
+            overflow: hidden;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr 2fr;
+            gap: 4vw;
+            margin-bottom: 10vh;
+        }
+
+        .footer-list li {
+            margin-bottom: 1.25rem;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-mut-current);
+            transition: color 0.3s;
+        }
+
+        .footer-list a:hover {
+            color: currentColor;
+        }
+
+        .newsletter-form {
+            display: flex;
+            border-bottom: 1px solid var(--border-current);
+            padding-bottom: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+        }
+
+        .newsletter-form button {
+            transition: transform 0.4s;
+        }
+
+        .newsletter-form button:hover {
+            transform: translateX(5px);
+        }
+
+        .footer-massive {
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 25vw, 25rem);
+            line-height: 0.7;
+            text-align: center;
+            color: var(--border-current);
+            transition: color 0.8s;
+            margin-bottom: 2rem;
+            display: block;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+            font-weight: 300;
+        }
+
+        .footer-massive:hover {
+            color: currentColor;
+        }
+
+        /* ==========================================
+           20. LIGHTBOX
+        ========================================== */
+        #lightbox {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.6s var(--ease-out);
+            color: var(--sec-dark-txt);
+        }
+
+        #lightbox.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 3rem;
+            right: 4vw;
+            font-size: 1.5rem;
+            cursor: none;
+            z-index: 2;
+            transition: transform 0.4s;
+            color: inherit;
+            font-weight: 300;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            cursor: none;
+            z-index: 2;
+            padding: 2rem;
+            transition: transform 0.4s;
+            color: inherit;
+            font-weight: 300;
+        }
+
+        .lightbox-nav:hover,
+        .lightbox-close:hover {
+            transform: scale(1.2);
+        }
+
+        .lightbox-prev {
+            left: 2vw;
+        }
+
+        .lightbox-next {
+            right: 2vw;
+        }
+
+        .lightbox-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90vw;
+        }
+
+        .lightbox-img {
+            max-height: 80vh;
+            max-width: 85vw;
+            object-fit: contain;
+            transform: scale(0.98);
+            transition: transform 0.8s var(--ease-out);
+        }
+
+        #lightbox.active .lightbox-img {
+            transform: scale(1);
+        }
+
+        .lightbox-meta {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* Animation Utils */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .reveal-fade {
+            opacity: 0;
+        }
+
+        .reveal-line {
+            transform: scaleY(0);
+            transform-origin: top;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- CUSTOM CURSOR -->
+    <div id="custom-cursor" aria-hidden="true"><span class="cursor-text"></span></div>
+
+    <!-- UTILS -->
+    <div id="scroll-progress" aria-hidden="true"></div>
+
+    <div class="theme-switcher" role="group" aria-label="Theme Switcher">
+        <button class="theme-swatch active" style="background: #080808;" data-set="noir"
+            aria-label="Noir Theme"></button>
+        <button class="theme-swatch" style="background: #F3EFE7;" data-set="ivory" aria-label="Ivory Theme"></button>
+    </div>
+
+    <!-- LOADER -->
+    <div id="loader" aria-hidden="true">
+        <div class="loader-meta">DIXITA ATELIER — DIGITAL ARCHIVE</div>
+        <div class="loader-wordmark">
+            <span>D</span><span>I</span><span>X</span><span>I</span><span>T</span><span>A</span>
+        </div>
+        <div class="loader-line"></div>
+        <div class="loader-counter">0%</div>
+    </div>
+
+    <!-- NAVIGATION -->
+    <header>
+        <nav id="navbar">
+            <a href="#" class="nav-logo" aria-label="DIXITA Home" data-cursor="GO →">DIXITA</a>
+            <div class="nav-links">
+                <a href="#maison" data-cursor="GO →">Maison</a>
+                <a href="#collections" data-cursor="GO →">Collections</a>
+                <a href="#portfolio" data-cursor="GO →">Archive</a>
+                <a href="#journal" data-cursor="GO →">Journal</a>
+            </div>
+            <a href="#contact" class="btn-luxury nav-book" data-cursor="GO →">Book Atelier</a>
+            <button class="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu"><i
+                    class="fas fa-bars" aria-hidden="true"></i></button>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" role="dialog" aria-modal="true" aria-hidden="true">
+        <a href="#maison" class="mobile-item"><span>01</span> Maison</a>
+        <a href="#collections" class="mobile-item"><span>02</span> Collections</a>
+        <a href="#portfolio" class="mobile-item"><span>03</span> Portfolio</a>
+        <a href="#lookbook" class="mobile-item"><span>04</span> Lookbook</a>
+        <a href="#cinema" class="mobile-item"><span>05</span> Films</a>
+        <a href="#journal" class="mobile-item"><span>06</span> Journal</a>
+        <a href="#contact" class="mobile-item"><span>07</span> Contact</a>
+    </div>
+
+    <!-- MAIN -->
+    <main id="smooth-wrapper">
+        <div id="smooth-content">
+
+            <!-- 1. HERO (DARK) -->
+            <section id="hero" class="theme-dark" aria-label="Hero Section">
+                <div class="hero-bg" aria-hidden="true">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1920"
+                        class="active" alt="Editorial Fashion Cover">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=1920"
+                        alt="Fashion Editorial Back">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1920"
+                        alt="Fashion Silhouette">
+                </div>
+                <div class="hero-overlay" aria-hidden="true"></div>
+                <canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+                <div class="hero-content">
+                    <h1 class="title-massive hero-title reveal-up">DIXITA</h1>
+                </div>
+
+                <div class="hero-meta-grid reveal-fade">
+                    <div class="meta-label">PARIS / 2026</div>
+                    <div class="editorial-italic" style="font-size: 1.25rem;">The Silhouette Becomes Architecture.</div>
+                    <div class="meta-label">SCROLL TO EXPLORE</div>
+                </div>
+            </section>
+
+            <!-- 2. MARQUEE (DARK) -->
+            <section class="marquee-section theme-dark" id="marquee" aria-label="Collections Marquee">
+                <div class="marquee-track" id="track-1">
+                    <div class="marquee-item" tabindex="0">EDITORIAL</div>
+                    <div class="marquee-item outline" tabindex="0">COUTURE</div>
+                    <div class="marquee-item" tabindex="0">AVANT-GARDE</div>
+                    <div class="marquee-item outline" tabindex="0">EDITORIAL</div>
+                    <div class="marquee-item" tabindex="0">COUTURE</div>
+                    <div class="marquee-item outline" tabindex="0">AVANT-GARDE</div>
+                </div>
+            </section>
+
+            <!-- 3. MAISON (IVORY) -->
+            <section id="maison" class="section-pad theme-ivory" aria-label="Maison Overview">
+                <div class="container">
+                    <div class="maison-grid">
+                        <div class="reveal-up">
+                            <div class="eyebrow">01 — MAISON</div>
+                            <h2 class="title-large editorial-italic" style="margin-top: 4rem;">WE
+                                DESIGN<br>WHAT<br>REMAINS.</h2>
+                            <div class="designer-signature" aria-hidden="true">Dixita</div>
+                        </div>
+                        <div class="maison-image-wrap reveal-up">
+                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800"
+                                class="maison-image" alt="DIXITA Maison Portrait of Designer" loading="lazy">
+                            <p class="body-text" style="margin-top: 3rem;">Founded on the principles of architectural
+                                structure and fluid movement, DIXITA is a contemporary digital atelier crafting bespoke
+                                experiences in haute couture. Every piece is a study in form, intention, and identity,
+                                constructed for the modern silhouette.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3D Orbit CSS Cylinder -->
+                <div class="orbit-container reveal-fade" id="orbit" tabindex="0" role="slider"
+                    aria-label="Drag to view 3D Archive" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"
+                    data-cursor="DRAG">
+                    <div class="orbit-scene" id="orbit-scene">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. COLLECTIONS (DARK) -->
+            <section id="collections" class="section-pad theme-dark" aria-label="Featured Collections">
+                <div class="container"
+                    style="margin-bottom: 6rem; display: flex; justify-content: space-between; align-items: flex-end;">
+                    <div class="reveal-up">
+                        <div class="eyebrow">02 — COLLECTIONS</div>
+                        <h2 class="title-large">DOORWAYS</h2>
+                    </div>
+                    <a href="#portfolio" class="btn-luxury reveal-up" data-cursor="GO →">VIEW ALL</a>
+                </div>
+
+                <div class="collections-track" id="collections-track" tabindex="0" role="slider"
+                    aria-label="Drag to view collections" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1"
+                    data-cursor="DRAG">
+                    <button class="collection-card lightbox-trigger reveal-up" data-title="LUMINA"
+                        data-desc="Spring/Summer 2026" aria-label="Open Lumina Collection" data-cursor="EXPLORE">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800"
+                            alt="Lumina Collection Gown" loading="lazy">
+                        <div class="collection-meta">
+                            <h3 class="title-medium">LUMINA</h3>
+                            <div class="meta-label">SS / 26</div>
+                        </div>
+                    </button>
+                    <button class="collection-card lightbox-trigger reveal-up" data-title="OBSIDIAN"
+                        data-desc="Autumn/Winter 2026" aria-label="Open Obsidian Collection" data-cursor="EXPLORE"
+                        style="margin-top: 10vh;">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800"
+                            alt="Obsidian Collection Structure" loading="lazy">
+                        <div class="collection-meta">
+                            <h3 class="title-medium">OBSIDIAN</h3>
+                            <div class="meta-label">AW / 26</div>
+                        </div>
+                    </button>
+                    <button class="collection-card lightbox-trigger reveal-up" data-title="MIRAGE"
+                        data-desc="Resort 2027" aria-label="Open Mirage Collection" data-cursor="EXPLORE">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800"
+                            alt="Mirage Collection Fluidity" loading="lazy">
+                        <div class="collection-meta">
+                            <h3 class="title-medium">MIRAGE</h3>
+                            <div class="meta-label">RST / 27</div>
+                        </div>
+                    </button>
+                </div>
+            </section>
+
+            <!-- 5. TRANSFORMATION (IVORY) -->
+            <section id="transformation" class="section-pad theme-ivory" aria-label="Concept to Final Transformation">
+                <div class="container text-center reveal-up" style="margin-bottom: 4rem;">
+                    <div class="eyebrow">03 — TRANSFORMATION</div>
+                    <h2 class="title-medium editorial-italic" style="margin-top: 1rem;">From mind to matter.</h2>
+                </div>
+
+                <div class="ba-container reveal-fade" id="ba-container" role="slider" tabindex="0" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"
+                    aria-label="Use arrow keys to slide before and after comparison" data-cursor="DRAG">
+                    <div class="ba-labels">
+                        <div class="meta-label">SKETCH</div>
+                        <div class="meta-label">SILHOUETTE</div>
+                    </div>
+                    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200"
+                        alt="Concept sketch of the silhouette" class="ba-image"
+                        style="filter: grayscale(1) contrast(1.2);" loading="lazy">
+                    <div class="ba-overlay" id="ba-overlay">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1200"
+                            alt="Final constructed silhouette" class="ba-image" loading="lazy">
+                    </div>
+                    <div class="ba-handle" id="ba-handle"></div>
+                </div>
+            </section>
+
+            <!-- 6. ARCHIVE (DARK) -->
+            <section id="portfolio" class="section-pad theme-dark" aria-label="Portfolio Archive">
+                <div class="container text-center reveal-up" style="margin-bottom: 6rem;">
+                    <div class="eyebrow">04 — PORTFOLIO</div>
+                    <h2 class="title-large">ARCHIVE</h2>
+                </div>
+
+                <div class="container">
+                    <div class="filter-bar reveal-fade" role="group" aria-label="Portfolio Filters">
+                        <button class="filter-btn active" data-filter="all" aria-pressed="true"
+                            data-cursor="VIEW">ALL</button>
+                        <button class="filter-btn" data-filter="editorial" aria-pressed="false"
+                            data-cursor="VIEW">EDITORIAL</button>
+                        <button class="filter-btn" data-filter="couture" aria-pressed="false"
+                            data-cursor="VIEW">COUTURE</button>
+                        <button class="filter-btn" data-filter="bridal" aria-pressed="false"
+                            data-cursor="VIEW">BRIDAL</button>
+                    </div>
+
+                    <div class="masonry-grid" id="portfolio-grid" aria-live="polite">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. PROCESS (IVORY) -->
+            <section id="process" class="theme-ivory" aria-label="The Atelier Process Timeline">
+                <div class="process-container" id="process-pin">
+                    <div class="process-bg-num" id="process-bg-num">01</div>
+                    <span class="signature-line" style="position: absolute; left: 50%; top: 0; bottom: 0; height: auto;"
+                        aria-hidden="true"></span>
+
+                    <div class="process-stage active" id="stage-0">
+                        <div class="process-content">
+                            <div class="meta-label">PHASE 01</div>
+                            <h3 class="title-medium" style="margin: 1rem 0;">RESEARCH</h3>
+                            <p class="body-text">Exploring architectural volumes, historical references, and material
+                                behaviors before a single cut is made.</p>
+                        </div>
+                    </div>
+                    <div class="process-stage" id="stage-1">
+                        <div class="process-content">
+                            <div class="meta-label">PHASE 02</div>
+                            <h3 class="title-medium" style="margin: 1rem 0;">SKETCH & TOILE</h3>
+                            <p class="body-text">Translating two-dimensional thought into three-dimensional space using
+                                rough cotton muslin.</p>
+                        </div>
+                    </div>
+                    <div class="process-stage" id="stage-2">
+                        <div class="process-content">
+                            <div class="meta-label">PHASE 03</div>
+                            <h3 class="title-medium" style="margin: 1rem 0;">CONSTRUCT</h3>
+                            <p class="body-text">The meticulous assembly of final fabrics, utilizing hand-stitching and
+                                internal corsetry.</p>
+                        </div>
+                    </div>
+                    <div class="process-stage" id="stage-3">
+                        <div class="process-content">
+                            <div class="meta-label">PHASE 04</div>
+                            <h3 class="title-medium" style="margin: 1rem 0;">FINISH</h3>
+                            <p class="body-text">The final refinement. Invisible hems, hand-applied embellishments, and
+                                the final fitting.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 8. LOOKBOOK (LIGHT) -->
+            <section id="lookbook" class="section-pad theme-light" aria-label="Digital Lookbook">
+                <div class="container">
+                    <div class="lookbook-wrap">
+                        <div class="lookbook-left">
+                            <div class="eyebrow" style="margin-bottom: 2rem;">05 — LOOKBOOK</div>
+                            <h2 class="title-large" id="lb-title" aria-live="polite">LOOK 01</h2>
+                            <p class="editorial-italic" id="lb-desc" aria-live="polite"
+                                style="font-size: 1.5rem; margin-top: 1rem;">Structural Silk & Organza Overlay.</p>
+                            <div class="meta-label" style="margin-top: 4rem;">VOL. IV / 2026</div>
+                        </div>
+                        <div class="lookbook-right">
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 01"
+                                data-desc="Structural Silk & Organza Overlay" aria-label="View Look 01"
+                                data-cursor="VIEW">
+                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1000"
+                                    alt="Look 01: Structural Silk" class="look-img" loading="lazy">
+                            </button>
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 02"
+                                data-desc="Asymmetric Wool Crepe" aria-label="View Look 02" data-cursor="VIEW">
+                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000"
+                                    alt="Look 02: Asymmetric Wool" class="look-img" loading="lazy">
+                            </button>
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 03"
+                                data-desc="Hand-pleated Tulle" aria-label="View Look 03" data-cursor="VIEW">
+                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
+                                    alt="Look 03: Hand-pleated Tulle" class="look-img" loading="lazy">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. CINEMA (DARK) -->
+            <section id="cinema" class="section-pad theme-dark" aria-label="Atelier Cinema Reels">
+                <div class="container text-center reveal-up" style="margin-bottom: 6rem;">
+                    <div class="eyebrow">06 — FILMS</div>
+                    <h2 class="title-medium editorial-italic" style="margin-top: 1rem;">Motion Archive</h2>
+                </div>
+                <div class="container">
+                    <div class="reels-grid">
+                        <button class="reel-card reveal-up" aria-label="Play Paris Fashion Week 25 Reel"
+                            data-cursor="VIEW">
+                            <video class="reel-video" loop playsinline preload="none"
+                                poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            </video>
+                            <div class="reel-overlay" aria-hidden="true">
+                                <i class="fas fa-play reel-play-btn"></i>
+                                <div>
+                                    <h3 class="title-medium" style="font-size: 2rem;">PFW '25</h3>
+                                    <div class="meta-label" style="margin-top: 0.5rem;">142k Views</div>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="reel-card reveal-up" aria-label="Play The Making of Oasis Reel"
+                            data-cursor="VIEW">
+                            <video class="reel-video" loop playsinline preload="none"
+                                poster="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?auto=format&fit=crop&q=80&w=600">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            </video>
+                            <div class="reel-overlay" aria-hidden="true">
+                                <i class="fas fa-play reel-play-btn"></i>
+                                <div>
+                                    <h3 class="title-medium" style="font-size: 2rem;">OASIS</h3>
+                                    <div class="meta-label" style="margin-top: 0.5rem;">89k Views</div>
+                                </div>
+                            </div>
+                        </button>
+                        <button class="reel-card reveal-up" aria-label="Play Architectural Fluidity Reel"
+                            data-cursor="VIEW">
+                            <video class="reel-video" loop playsinline preload="none"
+                                poster="https://images.unsplash.com/photo-1485230895905-eb56f4d1a10a?auto=format&fit=crop&q=80&w=600">
+                                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                            </video>
+                            <div class="reel-overlay" aria-hidden="true">
+                                <i class="fas fa-play reel-play-btn"></i>
+                                <div>
+                                    <h3 class="title-medium" style="font-size: 2rem;">FLUIDITY</h3>
+                                    <div class="meta-label" style="margin-top: 0.5rem;">210k Views</div>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. JOURNAL & SERVICES (IVORY) -->
+            <section id="journal" class="section-pad theme-ivory" aria-label="Journal and Services">
+                <div class="container">
+                    <div class="eyebrow reveal-up" style="margin-bottom: 4rem;">07 — JOURNAL & SERVICES</div>
+                    <div class="grid-12">
+                        <div style="grid-column: span 6; padding-right: 4vw;" class="reveal-up">
+                            <a href="#" class="list-row" aria-label="Read Fabric Sourcing note" data-cursor="VIEW">
+                                <div>
+                                    <div class="meta-label" style="margin-bottom: 1rem;">OCT 2025 · MILAN</div>
+                                    <h3 class="title-medium">Fabric Sourcing</h3>
+                                </div>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                            <a href="#" class="list-row" aria-label="Read Architectural Forms note" data-cursor="VIEW">
+                                <div>
+                                    <div class="meta-label" style="margin-bottom: 1rem;">SEP 2025 · EDITORIAL</div>
+                                    <h3 class="title-medium">Architectural Forms</h3>
+                                </div>
+                                <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                        <div style="grid-column: span 6; padding-left: 4vw;" class="reveal-up">
+                            <div class="list-row" tabindex="0" role="link" aria-label="Service: Bespoke Couture"
+                                data-cursor="VIEW">
+                                <h3 class="title-medium editorial-italic">01. Bespoke Couture</h3>
+                            </div>
+                            <div class="list-row" tabindex="0" role="link" aria-label="Service: Bridal Couture"
+                                data-cursor="VIEW">
+                                <h3 class="title-medium editorial-italic">02. Bridal Couture</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. TESTIMONIALS (LIGHT) -->
+            <section class="section-pad theme-light" aria-label="Client Testimonials">
+                <div class="container text-center">
+                    <div class="swiper swiper-testimonial reveal-up" aria-roledescription="carousel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide" role="group" aria-label="1 of 2">
+                                <h3 class="title-medium editorial-italic"
+                                    style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"A breathtaking
+                                    return to structured elegance that defines the modern era."</h3>
+                                <div class="meta-label">— VOGUE EDITORIAL</div>
+                            </div>
+                            <div class="swiper-slide" role="group" aria-label="2 of 2">
+                                <h3 class="title-medium editorial-italic"
+                                    style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"Wearing Maison Noir
+                                    is like wearing a second skin composed of pure art."</h3>
+                                <div class="meta-label">— PRIVATE CLIENT</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 12. CONTACT (DARK) -->
+            <section id="contact" class="section-pad theme-dark" aria-label="Acclaim and Contact">
+                <div class="container">
+                    <div class="grid-12">
+                        <div style="grid-column: span 5; padding-right: 4vw;" class="reveal-up">
+                            <h2 class="title-medium" style="margin-bottom: 4rem;">ACCLAIM</h2>
+                            <div class="accordion-item" id="press">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="content-cfda"
+                                    id="header-cfda" data-cursor="VIEW">
+                                    <span class="meta-label">CFDA EMERGING DESIGNER</span>
+                                    <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
+                                </button>
+                                <div class="accordion-content" id="content-cfda" role="region"
+                                    aria-labelledby="header-cfda">
+                                    <div class="accordion-inner">Recognized for innovative use of sustainable luxury
+                                        fabrics in haute couture.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="content-bazaar"
+                                    id="header-bazaar" data-cursor="VIEW">
+                                    <span class="meta-label">HARPER'S BAZAAR FEATURE</span>
+                                    <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
+                                </button>
+                                <div class="accordion-content" id="content-bazaar" role="region"
+                                    aria-labelledby="header-bazaar">
+                                    <div class="accordion-inner">A 10-page editorial spread showcasing the 'Obsidian'
+                                        collection in the architectural ruins of Rome.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="grid-column: span 6; grid-column-start: 7;" class="reveal-up" id="booking">
+                            <div class="eyebrow">08 — CONTACT</div>
+                            <h2 class="title-large editorial-italic" style="margin-bottom: 1rem;">Book Atelier</h2>
+                            <p class="body-text" style="margin-bottom: 4rem;">Let's create what hasn't been seen.</p>
+
+                            <form id="booking-form" novalidate>
+                                <div class="form-group">
+                                    <input type="text" id="booking-name" name="name" class="form-input"
+                                        placeholder="Full Name" required autocomplete="name" aria-label="Full Name"
+                                        data-cursor="GO →">
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" id="booking-email" name="email" class="form-input"
+                                        placeholder="Email Address" required autocomplete="email"
+                                        aria-label="Email Address" data-cursor="GO →">
+                                </div>
+                                <div class="form-group">
+                                    <select id="booking-service" name="service" class="form-input" required
+                                        aria-label="Select Service" style="appearance: none;" data-cursor="GO →">
+                                        <option value="" disabled selected style="color: var(--text-mut-current)">Select
+                                            Service...</option>
+                                        <option value="bespoke" style="color: #000">Bespoke Couture</option>
+                                        <option value="bridal" style="color: #000">Bridal</option>
+                                        <option value="editorial" style="color: #000">Editorial</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn-luxury" id="booking-submit"
+                                    style="width: 100%; margin-top: 2rem;" data-cursor="VIEW">Submit Request</button>
+                                <p class="form-msg" id="booking-msg" role="alert" aria-live="polite"
+                                    style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 13. FOOTER (DARK) -->
+            <footer id="footer" class="theme-dark" aria-label="Site Footer">
+                <div class="container">
+                    <button class="footer-massive reveal-up" id="footer-brand-btn" aria-label="Scroll to top of DIXITA"
+                        data-cursor="GO →">DIXITA</button>
+
+                    <div class="grid-12 reveal-fade" style="margin-top: 6rem;">
+                        <div style="grid-column: span 4;">
+                            <h3 class="title-medium" style="margin-bottom: 1rem;">PARIS</h3>
+                            <p class="body-text">Elevating reality through architectural fashion.</p>
+                        </div>
+                        <div style="grid-column: span 2;">
+                            <div class="eyebrow">EXPLORE</div>
+                            <ul class="footer-list">
+                                <li><a href="#maison" data-cursor="VIEW">Maison</a></li>
+                                <li><a href="#collections" data-cursor="VIEW">Collections</a></li>
+                                <li><a href="#portfolio" data-cursor="VIEW">Archive</a></li>
+                            </ul>
+                        </div>
+                        <div style="grid-column: span 2;">
+                            <div class="eyebrow">CONNECT</div>
+                            <ul class="footer-list">
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"
+                                        data-cursor="VIEW">Instagram</a></li>
+                                <li><a href="#" target="_blank" rel="noopener noreferrer"
+                                        data-cursor="VIEW">Pinterest</a></li>
+                                <li><a href="#" target="_blank" rel="noopener noreferrer" data-cursor="VIEW">Vogue</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="grid-column: span 4;">
+                            <div class="eyebrow">NEWSLETTER</div>
+                            <form class="newsletter-form" id="newsletter-form" novalidate>
+                                <input type="email" id="nl-email" placeholder="Email Address" required
+                                    autocomplete="email" aria-label="Email for Newsletter" data-cursor="GO →">
+                                <button type="submit" id="nl-submit" aria-label="Subscribe to Newsletter"
+                                    data-cursor="VIEW"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                            </form>
+                            <span class="form-msg" id="nl-msg" role="alert" aria-live="polite"
+                                style="font-size: 0.85rem; margin-top: 1rem; display: none;"></span>
+                        </div>
+                    </div>
+
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 6rem; color: var(--text-mut-current); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                        <span>© 2026 DIXITA ATELIER.</span>
+                        <span>WORLDWIDE</span>
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </main>
+
+    <!-- GLOBAL LIGHTBOX -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image Gallery Lightbox">
+        <button class="fas fa-times lightbox-close" id="lb-close" aria-label="Close Lightbox"
+            data-cursor="VIEW"></button>
+        <button class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous Image"
+            data-cursor="VIEW"></button>
+        <button class="fas fa-chevron-right lightbox-nav lightbox-next" id="lb-next" aria-label="Next Image"
+            data-cursor="VIEW"></button>
+
+        <div class="lightbox-content">
+            <img src="" alt="Expanded View" class="lightbox-img" id="lb-img" loading="lazy">
+            <div class="lightbox-meta">
+                <div class="meta-label" id="lb-counter" style="margin-bottom: 1rem; color: var(--accent);"
+                    aria-live="polite">01 / 01</div>
+                <h3 class="title-medium" id="lb-title-display">Title</h3>
+                <p class="editorial-italic" id="lb-desc-display" style="margin-top: 0.5rem;">Description</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        (function () {
+            "use strict";
+
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+            } else { return; }
+
+            const state = {
+                currentTheme: localStorage.getItem('dixita-theme') || 'noir',
+                menuOpen: false, lightboxOpen: false,
+                reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+                isMobile: window.innerWidth <= 768,
+                isTablet: window.innerWidth <= 992,
+                lbItems: [], lbIndex: 0, lastFocusElement: null
+            };
+
+            const portfolioData = [
+                { img: "https://images.unsplash.com/photo-1550614000-4b95dd5756a5?auto=format&fit=crop&q=80&w=800", category: "editorial", title: "SILK REVERIE", desc: "Editorial / 2026" },
+                { img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800", category: "couture", title: "OBSIDIAN FORM", desc: "Couture Archive" },
+                { img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800", category: "bridal", title: "ETHEREAL VEIL", desc: "Bridal Bespoke" },
+                { img: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800", category: "editorial", title: "LUMINA CAMPAIGN", desc: "Editorial / 2026" },
+                { img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800", category: "couture", title: "WOOL STRUCTURE", desc: "Couture Archive" },
+                { img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=800", category: "editorial", title: "ARCHITECTURAL", desc: "Editorial / 2025" }
+            ];
+
+            let lenis;
+
+            function initLenis() {
+                if (typeof Lenis === 'undefined') return;
+                lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
+                lenis.on('scroll', ScrollTrigger.update);
+                gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+                gsap.ticker.lagSmoothing(0);
+            }
+
+            function initLoader() {
+                const loader = document.getElementById('loader');
+                if (!loader) return;
+                const tl = gsap.timeline({
+                    onComplete: () => {
+                        loader.style.display = 'none'; loader.setAttribute('aria-hidden', 'true');
+                        try { initWebGL(); } catch (e) { }
+                        try { initReveals(); } catch (e) { }
+                    }
+                });
+                tl.to('.loader-meta', { opacity: 1, duration: 0.5 })
+                    .to('.loader-wordmark span', { y: 0, opacity: 1, stagger: 0.05, duration: 0.8, ease: "power4.out" })
+                    .to('.loader-line', { width: '100px', duration: 0.5 })
+                    .to('.loader-counter', { opacity: 1, duration: 0.2 });
+
+                let counter = { val: 0 };
+                gsap.to(counter, {
+                    val: 100, duration: 1.5, ease: "power2.inOut",
+                    onUpdate: () => { const cnt = document.querySelector('.loader-counter'); if (cnt) cnt.innerText = Math.round(counter.val) + '%'; },
+                    onComplete: () => {
+                        gsap.to('#loader', { opacity: 0, duration: 1, ease: "power2.inOut", delay: 0.2 });
+                        const imgs = document.querySelectorAll('.hero-bg img');
+                        if (imgs.length > 0 && !state.reducedMotion) {
+                            setInterval(() => {
+                                let activeIdx = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+                                if (activeIdx > -1) imgs[activeIdx].classList.remove('active');
+                                activeIdx = (activeIdx + 1) % imgs.length;
+                                imgs[activeIdx].classList.add('active');
+                            }, 6000);
+                        }
+                    }
+                });
+            }
+
+            function initNavigation() {
+                const nav = document.getElementById('navbar');
+                if (!nav) return;
+                let lastScroll = 0;
+                lenis?.on('scroll', () => {
+                    const scrollY = window.scrollY;
+                    if (scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
+                    if (Math.abs(scrollY - lastScroll) > 10) {
+                        if (scrollY > lastScroll && scrollY > 300) nav.classList.add('hidden');
+                        else nav.classList.remove('hidden');
+                        lastScroll = scrollY;
+                    }
+                });
+
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        const targetId = this.getAttribute('href');
+                        if (targetId === '#') return;
+                        const target = document.querySelector(targetId);
+                        if (target && lenis) {
+                            e.preventDefault();
+                            if (state.menuOpen) toggleMenu();
+                            lenis.scrollTo(target, { offset: -80 });
+                        }
+                    });
+                });
+            }
+
+            function toggleMenu() {
+                const menu = document.getElementById('mobile-menu');
+                const icon = document.querySelector('.mobile-toggle i');
+                const toggleBtn = document.querySelector('.mobile-toggle');
+                state.menuOpen = !state.menuOpen;
+                if (state.menuOpen) {
+                    if (lenis) lenis.stop();
+                    menu.classList.add('active'); menu.setAttribute('aria-hidden', 'false');
+                    toggleBtn.setAttribute('aria-expanded', 'true'); icon.className = 'fas fa-times';
+                    gsap.to('.mobile-item', { y: 0, opacity: 1, stagger: 0.05, duration: 0.5, delay: 0.2, ease: "power3.out" });
+                } else {
+                    if (lenis) lenis.start();
+                    menu.classList.remove('active'); menu.setAttribute('aria-hidden', 'true');
+                    toggleBtn.setAttribute('aria-expanded', 'false'); icon.className = 'fas fa-bars';
+                    gsap.to('.mobile-item', { y: 20, opacity: 0, duration: 0.2 });
+                }
+            }
+
+            function initMobileMenu() {
+                const toggle = document.querySelector('.mobile-toggle');
+                if (toggle) toggle.addEventListener('click', toggleMenu);
+            }
+
+            function initThemeStudio() {
+                document.querySelectorAll('.theme-swatch').forEach(b => b.classList.remove('active'));
+                const activeBtn = document.querySelector(`.theme-swatch[data-set="${state.currentTheme}"]`);
+                if (activeBtn) activeBtn.classList.add('active');
+
+                document.querySelectorAll('.theme-swatch').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        const theme = e.target.dataset.set;
+                        if (!theme) return;
+                        document.documentElement.setAttribute('data-theme', theme);
+                        try { localStorage.setItem('dixita-theme', theme); } catch (err) { }
+                        document.querySelectorAll('.theme-swatch').forEach(b => b.classList.remove('active'));
+                        e.target.classList.add('active');
+                        if (window.heroParticles && window.heroParticles.material) {
+                            const accent = getComputedStyle(document.body).getPropertyValue('--accent').trim();
+                            if (accent) window.heroParticles.material.color.set(accent);
+                        }
+                    });
+                });
+            }
+
+            function initMarquee() {
+                const tr1 = document.getElementById('track-1');
+                if (!tr1) return;
+                const clone1 = tr1.cloneNode(true);
+                clone1.querySelectorAll('.lightbox-trigger').forEach(el => el.setAttribute('aria-hidden', 'true'));
+                tr1.appendChild(clone1); tr1.appendChild(clone1.cloneNode(true));
+                if (!state.reducedMotion) {
+                    gsap.fromTo(tr1, { xPercent: 0 }, { xPercent: -50, ease: "none", duration: 60, repeat: -1 });
+                }
+            }
+
+            function initWebGL() {
+                if (state.reducedMotion || typeof THREE === 'undefined') return;
+                const canvas = document.getElementById('hero-canvas');
+                if (!canvas) return;
+                const scene = new THREE.Scene();
+                const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+                camera.position.z = 50;
+                const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false, powerPreference: "high-performance" });
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+                const particleCount = state.isMobile ? 80 : 250;
+                const geometry = new THREE.BufferGeometry();
+                const pos = new Float32Array(particleCount * 3), vel = [];
+                for (let i = 0; i < particleCount * 3; i += 3) {
+                    pos[i] = (Math.random() - 0.5) * 200; pos[i + 1] = (Math.random() - 0.5) * 200; pos[i + 2] = (Math.random() - 0.5) * 100;
+                    vel.push({ x: (Math.random() - 0.5) * 0.02, y: Math.random() * 0.05 + 0.01 });
+                }
+                geometry.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+                const accent = getComputedStyle(document.body).getPropertyValue('--accent').trim() || '#B9A27A';
+                const material = new THREE.PointsMaterial({ color: accent, size: 0.8, transparent: true, opacity: 0.3 });
+                window.heroParticles = new THREE.Points(geometry, material);
+                scene.add(window.heroParticles);
+                let renderActive = true;
+                if ('IntersectionObserver' in window) {
+                    const observer = new IntersectionObserver((entries) => { renderActive = entries[0].isIntersecting; });
+                    observer.observe(document.getElementById('hero'));
+                }
+                function animate() {
+                    requestAnimationFrame(animate);
+                    if (!renderActive) return;
+                    const positions = window.heroParticles.geometry.attributes.position.array;
+                    for (let i = 0; i < particleCount; i++) {
+                        const i3 = i * 3; positions[i3 + 1] += vel[i].y; positions[i3] += vel[i].x;
+                        if (positions[i3 + 1] > 100) positions[i3 + 1] = -100;
+                    }
+                    window.heroParticles.geometry.attributes.position.needsUpdate = true;
+                    window.heroParticles.rotation.y += 0.0005;
+                    renderer.render(scene, camera);
+                }
+                animate();
+                gsap.to('#hero-canvas, .hero-content', { yPercent: 30, opacity: 0, scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
+                window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
+            }
+
+            function initOrbit() {
+                const scene = document.getElementById('orbit-scene');
+                if (!scene) return;
+                const numFaces = portfolioData.length; const theta = 360 / numFaces;
+                const cardWidth = state.isMobile ? 200 : 280;
+                const radius = (cardWidth / 2) / Math.tan(Math.PI / numFaces) + (state.isMobile ? 20 : 40);
+                scene.innerHTML = '';
+                for (let i = 0; i < numFaces; i++) {
+                    const imgData = portfolioData[i];
+                    const card = document.createElement('button');
+                    card.className = `orbit-card lightbox-trigger ${i === 0 ? 'active' : ''}`;
+                    card.dataset.title = imgData.title; card.dataset.desc = imgData.desc;
+                    card.setAttribute('aria-label', `View Look ${i + 1}`);
+                    card.style.transform = `rotateY(${i * theta}deg) translateZ(${radius}px)`;
+                    card.innerHTML = `<img src="${imgData.img}" alt="Look ${i + 1}" loading="lazy"><div class="orbit-label" aria-hidden="true">${imgData.title}</div>`;
+                    scene.appendChild(card);
+                }
+                let currentRot = 0, startX = 0, isDragging = false, isHovered = false, currentX = 0;
+                const container = document.getElementById('orbit');
+                const updateActive = () => {
+                    let normalized = currentRot % 360; if (normalized < 0) normalized += 360;
+                    const activeIndex = Math.round((360 - normalized) / theta) % numFaces;
+                    document.querySelectorAll('.orbit-card').forEach((c, i) => {
+                        c.classList.toggle('active', i === activeIndex);
+                        c.setAttribute('aria-hidden', i === activeIndex ? 'false' : 'true');
+                    });
+                    container.setAttribute('aria-valuenow', activeIndex + 1);
+                };
+                const autoRotate = () => {
+                    if (!isDragging && !isHovered && !state.reducedMotion) { currentRot -= 0.15; scene.style.transform = `rotateY(${currentRot}deg)`; updateActive(); }
+                    requestAnimationFrame(autoRotate);
+                };
+                container.addEventListener('mouseenter', () => { isHovered = true; });
+                container.addEventListener('mouseleave', () => { isHovered = false; isDragging = false; });
+                container.addEventListener('pointerdown', (e) => {
+                    if (e.target.closest('.lightbox-trigger') && !state.isMobile) e.preventDefault();
+                    isDragging = true; startX = e.clientX; currentX = currentRot; container.setPointerCapture(e.pointerId);
+                });
+                container.addEventListener('pointermove', (e) => {
+                    if (!isDragging) return; currentRot = currentX + ((e.clientX - startX) * 0.4);
+                    scene.style.transform = `rotateY(${currentRot}deg)`; updateActive();
+                });
+                const stopDrag = (e) => { if (isDragging) { isDragging = false; container.releasePointerCapture(e.pointerId); } };
+                container.addEventListener('pointerup', stopDrag); container.addEventListener('pointercancel', stopDrag);
+                container.addEventListener('keydown', (e) => {
+                    if (e.key === 'ArrowLeft') { currentRot -= theta; scene.style.transform = `rotateY(${currentRot}deg)`; updateActive(); }
+                    if (e.key === 'ArrowRight') { currentRot += theta; scene.style.transform = `rotateY(${currentRot}deg)`; updateActive(); }
+                });
+                updateActive(); autoRotate();
+            }
+
+            function initCollectionsSlider() {
+                const track = document.getElementById('collections-track');
+                if (!track) return; const parent = track.parentElement;
+                let isDown = false, startX, scrollLeft;
+                parent.addEventListener('pointerdown', (e) => {
+                    isDown = true; startX = e.pageX - parent.offsetLeft; scrollLeft = parent.scrollLeft; parent.setPointerCapture(e.pointerId);
+                });
+                const stopDrag = (e) => { if (isDown) { isDown = false; parent.releasePointerCapture(e.pointerId); } };
+                parent.addEventListener('pointerup', stopDrag); parent.addEventListener('pointercancel', stopDrag);
+                parent.addEventListener('pointermove', (e) => {
+                    if (!isDown) return; e.preventDefault();
+                    parent.scrollLeft = scrollLeft - ((e.pageX - parent.offsetLeft - startX) * 2);
+                });
+            }
+
+            function initComparison() {
+                const container = document.getElementById('ba-container');
+                if (!container) return; const overlay = document.getElementById('ba-overlay'), handle = document.getElementById('ba-handle');
+                let isDragging = false;
+                const updatePos = (x) => {
+                    const rect = container.getBoundingClientRect(); let pos = Math.max(0, Math.min(x - rect.left, rect.width));
+                    const percent = (pos / rect.width) * 100;
+                    overlay.style.clipPath = `polygon(0 0, ${percent}% 0, ${percent}% 100%, 0 100%)`;
+                    handle.style.left = `${percent}%`; container.setAttribute('aria-valuenow', Math.round(percent));
+                };
+                container.addEventListener('pointerdown', (e) => { isDragging = true; updatePos(e.clientX); if (lenis) lenis.stop(); container.setPointerCapture(e.pointerId); });
+                container.addEventListener('pointermove', (e) => { if (isDragging) updatePos(e.clientX); });
+                const stopDrag = (e) => { if (isDragging) { isDragging = false; if (lenis) lenis.start(); container.releasePointerCapture(e.pointerId); } };
+                container.addEventListener('pointerup', stopDrag); container.addEventListener('pointercancel', stopDrag);
+            }
+
+            function initPortfolio() {
+                const grid = document.getElementById('portfolio-grid');
+                if (!grid) return;
+                const render = (filter = 'all') => {
+                    grid.innerHTML = '';
+                    portfolioData.forEach((item) => {
+                        const isVisible = filter === 'all' || item.category === filter;
+                        const btn = document.createElement('button');
+                        btn.className = `masonry-item lightbox-trigger reveal-up ${isVisible ? '' : 'hidden'}`;
+                        btn.dataset.title = item.title; btn.dataset.desc = item.desc;
+                        if (!isVisible) { btn.setAttribute('aria-hidden', 'true'); btn.tabIndex = -1; }
+                        else { btn.setAttribute('aria-label', `View ${item.title}`); btn.dataset.cursor = "VIEW"; }
+                        btn.innerHTML = `<img src="${item.img}" alt="${item.title}" loading="lazy">`;
+                        grid.appendChild(btn);
+                    });
+                    ScrollTrigger.refresh();
+                    const visibles = gsap.utils.toArray('.masonry-item:not(.hidden)');
+                    gsap.fromTo(visibles, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.1, ease: "power3.out", overwrite: true });
+                };
+                render();
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        document.querySelectorAll('.filter-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed', 'false'); });
+                        e.target.classList.add('active'); e.target.setAttribute('aria-pressed', 'true');
+                        const f = e.target.dataset.filter;
+                        const visibles = document.querySelectorAll('.masonry-item:not(.hidden)');
+                        if (visibles.length > 0) { gsap.to(visibles, { opacity: 0, y: 10, duration: 0.3, onComplete: () => render(f) }); } else { render(f); }
+                    });
+                });
+            }
+
+            function initAtelierProcess() {
+                if (state.isTablet) return;
+                const stages = document.querySelectorAll('.process-stage');
+                const numDisplay = document.getElementById('process-bg-num');
+                if (!stages.length) return;
+                ScrollTrigger.create({
+                    trigger: "#process", start: "top top", end: "+=300%", pin: "#process-pin", scrub: 1,
+                    onUpdate: (self) => {
+                        const progress = self.progress;
+                        const stageIndex = Math.min(Math.floor(progress * stages.length), stages.length - 1);
+                        stages.forEach((s, i) => s.classList.toggle('active', i === stageIndex));
+                        if (numDisplay) numDisplay.innerText = `0${stageIndex + 1}`;
+                    }
+                });
+            }
+
+            function initLookbook() {
+                const looks = document.querySelectorAll('.lb-item'), titleEl = document.getElementById('lb-title'), descEl = document.getElementById('lb-desc');
+                if (!titleEl || !descEl || !looks.length) return;
+                let currentLook = null;
+                looks.forEach(look => {
+                    ScrollTrigger.create({
+                        trigger: look, start: "top center", end: "bottom center",
+                        onToggle: self => {
+                            if (self.isActive && currentLook !== look) {
+                                currentLook = look; gsap.killTweensOf([titleEl, descEl]);
+                                gsap.timeline({ overwrite: true })
+                                    .to([titleEl, descEl], { opacity: 0, y: -10, duration: 0.2 })
+                                    .call(() => { titleEl.innerText = look.dataset.title; descEl.innerText = look.dataset.desc; })
+                                    .to([titleEl, descEl], { opacity: 1, y: 0, duration: 0.4 });
+                            }
+                        }
+                    });
+                });
+            }
+
+            function initReels() {
+                document.querySelectorAll('.reel-card').forEach(reel => {
+                    const vid = reel.querySelector('video');
+                    if (!vid) return;
+                    reel.addEventListener('click', () => {
+                        document.querySelectorAll('.reel-video').forEach(v => { if (v !== vid) { v.pause(); v.parentElement.classList.remove('playing'); } });
+                        if (vid.paused) { vid.play().then(() => reel.classList.add('playing')).catch(() => { }); }
+                        else { vid.pause(); reel.classList.remove('playing'); }
+                    });
+                });
+            }
+
+            function initAccordion() {
+                document.querySelectorAll('.accordion-header').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const item = btn.parentElement, content = item.querySelector('.accordion-content'), isActive = item.classList.contains('active');
+                        document.querySelectorAll('.accordion-item').forEach(i => {
+                            i.classList.remove('active');
+                            const h = i.querySelector('.accordion-header'), c = i.querySelector('.accordion-content');
+                            if (h) h.setAttribute('aria-expanded', 'false'); if (c) c.style.maxHeight = null;
+                        });
+                        if (!isActive && content) {
+                            item.classList.add('active'); btn.setAttribute('aria-expanded', 'true');
+                            content.style.maxHeight = content.scrollHeight + "px";
+                            setTimeout(() => ScrollTrigger.refresh(), 500);
+                        }
+                    });
+                });
+            }
+
+            function initForms() {
+                const bookingForm = document.getElementById('booking-form');
+                if (bookingForm) {
+                    bookingForm.addEventListener('submit', (e) => {
+                        e.preventDefault(); if (bookingForm.dataset.submitting === 'true') return;
+                        const btn = bookingForm.querySelector('button'), msg = document.getElementById('booking-msg');
+                        if (!bookingForm.checkValidity()) { msg.innerText = "Please complete all required fields."; msg.style.color = "#f87171"; msg.style.display = 'block'; return; }
+                        bookingForm.dataset.submitting = 'true'; btn.innerText = 'PROCESSING...'; btn.disabled = true;
+                        setTimeout(() => {
+                            btn.style.display = 'none'; msg.style.color = "#4ade80"; msg.innerText = 'Request Received. The Atelier will contact you shortly.'; msg.style.display = 'block';
+                            bookingForm.reset(); bookingForm.dataset.submitting = 'false';
+                        }, 1200);
+                    });
+                }
+                const nlForm = document.getElementById('newsletter-form');
+                if (nlForm) {
+                    nlForm.addEventListener('submit', (e) => {
+                        e.preventDefault(); if (nlForm.dataset.submitting === 'true') return;
+                        const input = nlForm.querySelector('input'), btn = nlForm.querySelector('button'), msg = document.getElementById('nl-msg'), regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                        nlForm.dataset.submitting = 'true'; const originalIcon = btn.innerHTML; btn.innerHTML = '<i class="fas fa-circle-notch fa-spin" aria-hidden="true"></i>'; btn.disabled = true; msg.style.display = 'none';
+                        setTimeout(() => {
+                            if (regex.test(input.value)) { msg.style.color = "#4ade80"; msg.innerText = "Welcome to DIXITA. Subscription confirmed."; btn.innerHTML = '<i class="fas fa-check" aria-hidden="true"></i>'; input.value = ''; }
+                            else { msg.style.color = "#f87171"; msg.innerText = "Please enter a valid email address."; btn.innerHTML = originalIcon; btn.disabled = false; }
+                            msg.style.display = 'block'; nlForm.dataset.submitting = 'false';
+                        }, 1000);
+                    });
+                }
+            }
+
+            function initLightbox() {
+                const lb = document.getElementById('lightbox'), img = document.getElementById('lb-img'), title = document.getElementById('lb-title-display'), desc = document.getElementById('lb-desc-display'), counter = document.getElementById('lb-counter'), closeBtn = document.getElementById('lb-close'), prevBtn = document.getElementById('lb-prev'), nextBtn = document.getElementById('lb-next');
+                if (!lb) return;
+                const focusableElements = 'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'; let firstFocusableElement, lastFocusableElement;
+                const openLb = (index) => {
+                    state.lbIndex = index; const trigger = state.lbItems[index]; const srcImg = trigger.querySelector('img');
+                    if (srcImg) img.src = srcImg.src;
+                    title.innerText = trigger.dataset.title || "DIXITA ARCHIVE"; desc.innerText = trigger.dataset.desc || "Haute Couture"; counter.innerText = `0${index + 1} / 0${state.lbItems.length}`;
+                    lb.classList.add('active'); lb.setAttribute('aria-hidden', 'false'); if (lenis) lenis.stop(); state.lightboxOpen = true;
+                    const focusables = lb.querySelectorAll(focusableElements);
+                    if (focusables.length > 0) { firstFocusableElement = focusables[0]; lastFocusableElement = focusables[focusables.length - 1]; setTimeout(() => closeBtn.focus(), 100); }
+                };
+                document.body.addEventListener('click', (e) => {
+                    const trigger = e.target.closest('.lightbox-trigger:not([aria-hidden="true"]):not(.hidden)');
+                    if (trigger) {
+                        state.lastFocusElement = trigger;
+                        state.lbItems = Array.from(document.querySelectorAll('.lightbox-trigger:not([aria-hidden="true"]):not(.hidden)')).filter(el => window.getComputedStyle(el).display !== 'none');
+                        const index = state.lbItems.indexOf(trigger); if (index > -1) openLb(index);
+                    }
+                });
+                const closeLb = () => { lb.classList.remove('active'); lb.setAttribute('aria-hidden', 'true'); if (lenis) lenis.start(); state.lightboxOpen = false; if (state.lastFocusElement) state.lastFocusElement.focus(); };
+                closeBtn.addEventListener('click', closeLb); lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+                prevBtn.addEventListener('click', () => { const len = state.lbItems.length; if (len > 0) openLb((state.lbIndex - 1 + len) % len); });
+                nextBtn.addEventListener('click', () => { const len = state.lbItems.length; if (len > 0) openLb((state.lbIndex + 1) % len); });
+                window.addEventListener('keydown', (e) => {
+                    if (!state.lightboxOpen) return;
+                    if (e.key === 'Escape') closeLb(); if (e.key === 'ArrowLeft') prevBtn.click(); if (e.key === 'ArrowRight') nextBtn.click();
+                    let isTabPressed = e.key === 'Tab' || e.keyCode === 9; if (!isTabPressed) return;
+                    if (e.shiftKey) { if (document.activeElement === firstFocusableElement) { lastFocusableElement.focus(); e.preventDefault(); } }
+                    else { if (document.activeElement === lastFocusableElement) { firstFocusableElement.focus(); e.preventDefault(); } }
+                });
+            }
+
+            function initReveals() {
+                if (state.reducedMotion) return;
+                const config = { scrollTrigger: { start: "top 90%" } };
+                gsap.utils.toArray('.reveal-up').forEach(el => { gsap.to(el, { y: 0, opacity: 1, duration: 1.2, ease: "power3.out", scrollTrigger: { trigger: el, ...config.scrollTrigger } }); });
+                gsap.utils.toArray('.reveal-fade').forEach(el => { gsap.to(el, { opacity: 1, duration: 1.5, ease: "power2.out", scrollTrigger: { trigger: el, ...config.scrollTrigger } }); });
+            }
+
+            function initUtils() {
+                const bar = document.getElementById('scroll-progress'), brandBtt = document.getElementById('footer-brand-btn');
+                const handleScroll = () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop, scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    let progress = 0; if (scrollHeight > 0) { progress = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100)); }
+                    if (bar) bar.style.width = `${progress}%`;
+                };
+                if (lenis) lenis.on('scroll', handleScroll); else window.addEventListener('scroll', handleScroll);
+                const scrollToTop = () => { if (lenis) lenis.scrollTo(0); else window.scrollTo({ top: 0, behavior: 'smooth' }); };
+                if (brandBtt) brandBtt.addEventListener('click', scrollToTop);
+
+                if (typeof Swiper !== 'undefined') {
+                    new Swiper('.swiper-testimonial', { loop: true, speed: 1200, autoplay: { delay: 6000, disableOnInteraction: false }, effect: 'fade', fadeEffect: { crossFade: true }, a11y: { enabled: true } });
+                }
+            }
+
+            // Custom Editorial Cursor logic
+            function initCursor() {
+                if (state.isMobile) return;
+                const cursor = document.getElementById('custom-cursor');
+                const cursorText = cursor.querySelector('.cursor-text');
+                if (!cursor) return;
+
+                let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
+                let cursorX = mouseX, cursorY = mouseY;
+
+                window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; cursor.classList.remove('hidden'); });
+                window.addEventListener('mouseout', () => cursor.classList.add('hidden'));
+
+                const render = () => {
+                    cursorX += (mouseX - cursorX) * 0.2;
+                    cursorY += (mouseY - cursorY) * 0.2;
+                    cursor.style.transform = `translate(${cursorX}px, ${cursorY}px)`;
+                    requestAnimationFrame(render);
+                };
+                requestAnimationFrame(render);
+
+                // Setup interactive hover states
+                document.querySelectorAll('[data-cursor]').forEach(el => {
+                    el.addEventListener('mouseenter', () => {
+                        const txt = el.getAttribute('data-cursor');
+                        cursorText.innerText = txt;
+                        if (txt === 'DRAG') { cursor.classList.add('hover-drag'); } else { cursor.classList.add('hover-view'); }
+                    });
+                    el.addEventListener('mouseleave', () => {
+                        cursor.classList.remove('hover-view', 'hover-drag');
+                        cursorText.innerText = '';
+                    });
+                });
+            }
+
+            window.addEventListener('resize', () => {
+                state.isMobile = window.innerWidth <= 768; state.isTablet = window.innerWidth <= 992;
+                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
+            });
+
+            window.addEventListener('DOMContentLoaded', () => {
+                try { initLenis(); } catch (e) { }
+                try { initThemeStudio(); } catch (e) { }
+                try { initNavigation(); } catch (e) { }
+                try { initMobileMenu(); } catch (e) { }
+                try { initMarquee(); } catch (e) { }
+                try { initOrbit(); } catch (e) { }
+                try { initCollectionsSlider(); } catch (e) { }
+                try { initComparison(); } catch (e) { }
+                try { initPortfolio(); } catch (e) { }
+                try { initAtelierProcess(); } catch (e) { }
+                try { initLookbook(); } catch (e) { }
+                try { initReels(); } catch (e) { }
+                try { initAccordion(); } catch (e) { }
+                try { initForms(); } catch (e) { }
+                try { initLightbox(); } catch (e) { }
+                try { initUtils(); } catch (e) { }
+                try { initCursor(); } catch (e) { }
+
+                setTimeout(() => { try { initLoader(); } catch (e) { } }, 100);
+            });
+
+        })();
+    </script>
+</body>
+
+</html>
