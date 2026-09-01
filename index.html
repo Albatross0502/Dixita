@@ -23,9 +23,7 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 
     <!-- Icons & Swiper -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -59,6 +57,7 @@
             --ease-slow: cubic-bezier(0.19, 1, 0.22, 1);
         }
 
+        /* 01. NOIR (Black) */
         [data-theme="noir"],
         :root {
             --bg-primary: #080808;
@@ -80,6 +79,7 @@
             --sec-light-mut: #77736C;
         }
 
+        /* 02. IVORY (White) */
         [data-theme="ivory"] {
             --bg-primary: #F3EFE7;
             --bg-secondary: #F3EFE7;
@@ -98,6 +98,69 @@
             --sec-light-txt: #080808;
             --sec-light-border: rgba(0, 0, 0, 0.08);
             --sec-light-mut: #77736C;
+        }
+
+        /* 03. VERDANT (Forest Green) */
+        [data-theme="verdant"] {
+            --bg-primary: #0a120c;
+            --bg-secondary: #0a120c;
+            --accent: #899c82;
+            --theme-invert: 0;
+
+            --sec-dark-bg: #0a120c;
+            --sec-dark-txt: #e8eee9;
+            --sec-dark-border: rgba(232, 238, 233, 0.08);
+            --sec-dark-mut: #8b9991;
+            --sec-ivory-bg: #e8eee9;
+            --sec-ivory-txt: #0a120c;
+            --sec-ivory-border: rgba(10, 18, 12, 0.08);
+            --sec-ivory-mut: #8b9991;
+            --sec-light-bg: #f2f7f3;
+            --sec-light-txt: #0a120c;
+            --sec-light-border: rgba(10, 18, 12, 0.08);
+            --sec-light-mut: #8b9991;
+        }
+
+        /* 04. SAPPHIRE (Midnight Blue) */
+        [data-theme="sapphire"] {
+            --bg-primary: #03060a;
+            --bg-secondary: #03060a;
+            --accent: #B9A27A;
+            --theme-invert: 0;
+
+            --sec-dark-bg: #03060a;
+            --sec-dark-txt: #eef2f8;
+            --sec-dark-border: rgba(238, 242, 248, 0.08);
+            --sec-dark-mut: #7a8b9f;
+            --sec-ivory-bg: #eef2f8;
+            --sec-ivory-txt: #03060a;
+            --sec-ivory-border: rgba(3, 6, 10, 0.08);
+            --sec-ivory-mut: #7a8b9f;
+            --sec-light-bg: #f5f8fc;
+            --sec-light-txt: #03060a;
+            --sec-light-border: rgba(3, 6, 10, 0.08);
+            --sec-light-mut: #7a8b9f;
+        }
+
+        /* 05. CRIMSON (Deep Oxblood Red) */
+        [data-theme="crimson"] {
+            --bg-primary: #0d0505;
+            --bg-secondary: #0d0505;
+            --accent: #B9A27A;
+            --theme-invert: 0;
+
+            --sec-dark-bg: #0d0505;
+            --sec-dark-txt: #f8eeee;
+            --sec-dark-border: rgba(248, 238, 238, 0.08);
+            --sec-dark-mut: #9f7a7a;
+            --sec-ivory-bg: #f8eeee;
+            --sec-ivory-txt: #0d0505;
+            --sec-ivory-border: rgba(13, 5, 5, 0.08);
+            --sec-ivory-mut: #9f7a7a;
+            --sec-light-bg: #fff5f5;
+            --sec-light-txt: #0d0505;
+            --sec-light-border: rgba(13, 5, 5, 0.08);
+            --sec-light-mut: #9f7a7a;
         }
 
         .theme-dark {
@@ -138,8 +201,7 @@
             outline-offset: 4px;
         }
 
-        html,
-        body {
+        html, body {
             font-size: 16px;
             scroll-behavior: auto;
             /* CRITICAL FIX: Stops the mobile viewport from zooming out and blowing up */
@@ -160,7 +222,7 @@
         #smooth-wrapper {
             /* CRITICAL FIX: Wraps all inner elements preventing horizontal blowout */
             width: 100%;
-            overflow: hidden;
+            overflow: hidden; 
         }
 
         /* Subtle Film Grain */
@@ -176,8 +238,7 @@
             z-index: 9999;
         }
 
-        img,
-        video {
+        img, video {
             max-width: 100%;
             height: auto;
             display: block;
@@ -189,9 +250,7 @@
             color: inherit;
         }
 
-        button,
-        input,
-        select {
+        button, input, select {
             background: none;
             border: none;
             color: inherit;
@@ -223,12 +282,7 @@
         /* ==========================================
            3. EDITORIAL TYPOGRAPHY HIERARCHY
         ========================================== */
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        .display-text {
+        h1, h2, h3, h4, h5, .display-text {
             font-family: var(--font-display);
             font-weight: 300;
             line-height: 1;
@@ -353,6 +407,7 @@
             width: 0%;
         }
 
+        /* Enhanced Theme Switcher */
         .theme-switcher {
             position: fixed;
             right: 2rem;
@@ -365,10 +420,10 @@
         }
 
         .theme-swatch {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             border-radius: 50%;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             transition: transform 0.4s var(--ease-out), border-color 0.4s;
             position: relative;
             cursor: pointer;
@@ -381,7 +436,61 @@
         }
 
         /* ==========================================
-           5. EDITORIAL NAVIGATION
+           5. CINEMATIC LOADER
+        ========================================== */
+        #loader {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-primary);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loader-meta {
+            font-size: 0.65rem;
+            letter-spacing: 0.3em;
+            color: var(--sec-dark-mut);
+            margin-bottom: 3rem;
+            opacity: 0;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+        }
+
+        .loader-wordmark {
+            display: flex;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+
+        .loader-wordmark span {
+            font-size: clamp(2rem, 8vw, 6rem);
+            font-family: var(--font-display);
+            letter-spacing: 0.1em;
+            transform: translateY(100%);
+            opacity: 0;
+            font-weight: 300;
+        }
+
+        .loader-line {
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            margin-bottom: 2rem;
+        }
+
+        .loader-counter {
+            font-size: 0.85rem;
+            font-weight: 300;
+            opacity: 0;
+            font-family: var(--font-body);
+            letter-spacing: 2px;
+        }
+
+        /* ==========================================
+           6. EDITORIAL NAVIGATION
         ========================================== */
         nav {
             position: fixed;
@@ -516,7 +625,7 @@
         }
 
         /* ==========================================
-           6. HERO SECTION (CINEMATIC)
+           7. HERO SECTION (CINEMATIC)
         ========================================== */
         #hero {
             position: relative;
@@ -590,7 +699,7 @@
         }
 
         /* ==========================================
-           7. EDITORIAL MARQUEE
+           8. EDITORIAL MARQUEE
         ========================================== */
         .marquee-section {
             padding: 4rem 0;
@@ -628,7 +737,7 @@
         }
 
         /* ==========================================
-           8. MAISON (ASYMMETRIC)
+           9. MAISON (ASYMMETRIC)
         ========================================== */
         .maison-grid {
             display: grid;
@@ -667,8 +776,7 @@
             overflow: hidden;
             margin-top: 8rem;
             cursor: grab;
-            touch-action: pan-y;
-            /* Fix dragging on mobile */
+            touch-action: pan-y; /* Fix dragging on mobile */
         }
 
         .orbit-container:active {
@@ -727,7 +835,7 @@
         }
 
         /* ==========================================
-           9. COLLECTIONS
+           10. COLLECTIONS
         ========================================== */
         #collections {
             /* CRITICAL FIX: Stops the slider from breaking the page width */
@@ -741,8 +849,7 @@
             padding: 0 10vw;
             width: max-content;
             cursor: grab;
-            touch-action: pan-y;
-            /* Allows horizontal drag on mobile without scrolling page horizontally */
+            touch-action: pan-y; /* Allows horizontal drag on mobile without scrolling page horizontally */
         }
 
         .collections-track:active {
@@ -792,7 +899,7 @@
         }
 
         /* ==========================================
-           10. TRANSFORMATION (BEFORE/AFTER)
+           11. TRANSFORMATION (BEFORE/AFTER)
         ========================================== */
         .ba-container {
             position: relative;
@@ -802,8 +909,7 @@
             margin: 4rem auto 0;
             overflow: hidden;
             cursor: col-resize;
-            touch-action: pan-y;
-            /* Essential for mobile drag sliders */
+            touch-action: pan-y; /* Essential for mobile drag sliders */
         }
 
         .ba-image {
@@ -855,7 +961,7 @@
         }
 
         /* ==========================================
-           11. ARCHIVE / PORTFOLIO
+           12. ARCHIVE / PORTFOLIO
         ========================================== */
         .filter-bar {
             display: flex;
@@ -933,7 +1039,7 @@
         }
 
         /* ==========================================
-           12. ATELIER PROCESS
+           13. ATELIER PROCESS
         ========================================== */
         .process-container {
             position: relative;
@@ -989,7 +1095,7 @@
         }
 
         /* ==========================================
-           13. LOOKBOOK
+           14. LOOKBOOK
         ========================================== */
         .lookbook-wrap {
             display: flex;
@@ -1031,7 +1137,7 @@
         }
 
         /* ==========================================
-           14. CINEMA / REELS
+           15. CINEMA / REELS
         ========================================== */
         .reels-grid {
             display: grid;
@@ -1095,7 +1201,7 @@
         }
 
         /* ==========================================
-           15. JOURNAL & SERVICES
+           16. JOURNAL & SERVICES
         ========================================== */
         .list-row {
             display: flex;
@@ -1122,7 +1228,7 @@
         }
 
         /* ==========================================
-           16. TESTIMONIALS
+           17. TESTIMONIALS
         ========================================== */
         .swiper-testimonial {
             padding: 4rem 0;
@@ -1139,7 +1245,7 @@
         }
 
         /* ==========================================
-           17. ACCORDION (PRESS)
+           18. ACCORDION (PRESS)
         ========================================== */
         .accordion-item {
             border-bottom: 1px solid var(--border-current);
@@ -1180,7 +1286,7 @@
         }
 
         /* ==========================================
-           18. FORMS & FOOTER
+           19. FORMS & FOOTER
         ========================================== */
         .form-group {
             margin-bottom: 2.5rem;
@@ -1271,7 +1377,7 @@
         }
 
         /* ==========================================
-           19. LIGHTBOX
+           20. LIGHTBOX
         ========================================== */
         #lightbox {
             position: fixed;
@@ -1365,10 +1471,9 @@
         }
 
         /* ==========================================
-           20. MOBILE RESPONSIVE OVERRIDES
+           21. MOBILE RESPONSIVE OVERRIDES
         ========================================== */
         @media (max-width: 992px) {
-
             .nav-links,
             .nav-book {
                 display: none !important;
@@ -1388,7 +1493,7 @@
             }
 
             .orbit-scene {
-                width: 180px;
+                width: 180px; 
                 height: 270px;
             }
 
@@ -1467,8 +1572,8 @@
             }
 
             /* Override Inline Structural Paddings */
-            .grid-12>div,
-            .footer-grid>div {
+            .grid-12 > div,
+            .footer-grid > div {
                 padding-left: 0 !important;
                 padding-right: 0 !important;
                 width: 100% !important;
@@ -1489,7 +1594,7 @@
                 font-size: clamp(2rem, 8vw, 4rem);
                 padding: 0 1rem;
             }
-
+            
             .lightbox-nav {
                 padding: 1rem;
             }
@@ -1502,10 +1607,23 @@
     <!-- UTILS -->
     <div id="scroll-progress" aria-hidden="true"></div>
 
+    <!-- Enhanced Theme Switcher -->
     <div class="theme-switcher" role="group" aria-label="Theme Switcher">
-        <button class="theme-swatch active" style="background: #080808;" data-set="noir"
-            aria-label="Noir Theme"></button>
+        <button class="theme-swatch active" style="background: #080808;" data-set="noir" aria-label="Noir Theme"></button>
         <button class="theme-swatch" style="background: #F3EFE7;" data-set="ivory" aria-label="Ivory Theme"></button>
+        <button class="theme-swatch" style="background: #0a120c;" data-set="verdant" aria-label="Verdant Theme"></button>
+        <button class="theme-swatch" style="background: #03060a;" data-set="sapphire" aria-label="Sapphire Theme"></button>
+        <button class="theme-swatch" style="background: #0d0505;" data-set="crimson" aria-label="Crimson Theme"></button>
+    </div>
+
+    <!-- LOADER -->
+    <div id="loader" aria-hidden="false">
+        <div class="loader-meta">DIXITA ATELIER — DIGITAL ARCHIVE</div>
+        <div class="loader-wordmark">
+            <span>D</span><span>I</span><span>X</span><span>I</span><span>T</span><span>A</span>
+        </div>
+        <div class="loader-line"></div>
+        <div class="loader-counter">0%</div>
     </div>
 
     <!-- NAVIGATION -->
@@ -1542,13 +1660,10 @@
             <!-- 1. HERO (DARK) -->
             <section id="hero" class="theme-dark" aria-label="Hero Section">
                 <div class="hero-bg" aria-hidden="true">
-                    <!-- Images load immediately now -->
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1920"
-                        class="active" alt="Editorial Fashion Cover" style="opacity: 1;">
-                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=1920"
-                        alt="Fashion Editorial Back">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1920"
-                        alt="Fashion Silhouette">
+                    <!-- Images load immediately -->
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1920" class="active" alt="Editorial Fashion Cover" style="opacity: 1;">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=1920" alt="Fashion Editorial Back">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1920" alt="Fashion Silhouette">
                 </div>
                 <div class="hero-overlay" aria-hidden="true"></div>
                 <canvas id="hero-canvas" aria-hidden="true"></canvas>
@@ -1582,24 +1697,18 @@
                     <div class="maison-grid">
                         <div class="reveal-up">
                             <div class="eyebrow">01 — MAISON</div>
-                            <h2 class="title-large editorial-italic" style="margin-top: 4rem;">
-                                WE<br>DESIGN<br>WHAT<br>REMAINS.</h2>
+                            <h2 class="title-large editorial-italic" style="margin-top: 4rem;">WE<br>DESIGN<br>WHAT<br>REMAINS.</h2>
                             <div class="designer-signature" aria-hidden="true">Dixita</div>
                         </div>
                         <div class="maison-image-wrap reveal-up">
-                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800"
-                                class="maison-image" alt="DIXITA Maison Portrait of Designer">
-                            <p class="body-text" style="margin-top: 3rem;">Founded on the principles of architectural
-                                structure and fluid movement, DIXITA is a contemporary digital atelier crafting bespoke
-                                experiences in haute couture. Every piece is a study in form, intention, and identity,
-                                constructed for the modern silhouette.</p>
+                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800" class="maison-image" alt="DIXITA Maison Portrait of Designer">
+                            <p class="body-text" style="margin-top: 3rem;">Founded on the principles of architectural structure and fluid movement, DIXITA is a contemporary digital atelier crafting bespoke experiences in haute couture. Every piece is a study in form, intention, and identity, constructed for the modern silhouette.</p>
                         </div>
                     </div>
                 </div>
 
                 <!-- 3D Orbit CSS Cylinder -->
-                <div class="orbit-container reveal-fade" id="orbit" tabindex="0" role="slider"
-                    aria-label="Drag to view 3D Archive" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+                <div class="orbit-container reveal-fade" id="orbit" tabindex="0" role="slider" aria-label="Drag to view 3D Archive" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
                     <div class="orbit-scene" id="orbit-scene">
                         <!-- Populated by JS -->
                     </div>
@@ -1608,8 +1717,7 @@
 
             <!-- 4. COLLECTIONS (DARK) -->
             <section id="collections" class="section-pad theme-dark" aria-label="Featured Collections">
-                <div class="container"
-                    style="margin-bottom: 6rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;">
+                <div class="container" style="margin-bottom: 6rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;">
                     <div class="reveal-up">
                         <div class="eyebrow">02 — COLLECTIONS</div>
                         <h2 class="title-large">DOORWAYS</h2>
@@ -1617,30 +1725,23 @@
                     <a href="#portfolio" class="btn-luxury reveal-up">VIEW ALL</a>
                 </div>
 
-                <div class="collections-track" id="collections-track" tabindex="0" role="slider"
-                    aria-label="Drag to view collections" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
-                    <button class="collection-card lightbox-trigger reveal-up" data-title="LUMINA"
-                        data-desc="Spring/Summer 2026" aria-label="Open Lumina Collection">
-                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800"
-                            alt="Lumina Collection Gown">
+                <div class="collections-track" id="collections-track" tabindex="0" role="slider" aria-label="Drag to view collections" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
+                    <button class="collection-card lightbox-trigger reveal-up" data-title="LUMINA" data-desc="Spring/Summer 2026" aria-label="Open Lumina Collection">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" alt="Lumina Collection Gown">
                         <div class="collection-meta">
                             <h3 class="title-medium">LUMINA</h3>
                             <div class="meta-label">SS / 26</div>
                         </div>
                     </button>
-                    <button class="collection-card lightbox-trigger reveal-up" data-title="OBSIDIAN"
-                        data-desc="Autumn/Winter 2026" aria-label="Open Obsidian Collection" style="margin-top: 10vh;">
-                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800"
-                            alt="Obsidian Collection Structure">
+                    <button class="collection-card lightbox-trigger reveal-up" data-title="OBSIDIAN" data-desc="Autumn/Winter 2026" aria-label="Open Obsidian Collection" style="margin-top: 10vh;">
+                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800" alt="Obsidian Collection Structure">
                         <div class="collection-meta">
                             <h3 class="title-medium">OBSIDIAN</h3>
                             <div class="meta-label">AW / 26</div>
                         </div>
                     </button>
-                    <button class="collection-card lightbox-trigger reveal-up" data-title="MIRAGE"
-                        data-desc="Resort 2027" aria-label="Open Mirage Collection">
-                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800"
-                            alt="Mirage Collection Fluidity">
+                    <button class="collection-card lightbox-trigger reveal-up" data-title="MIRAGE" data-desc="Resort 2027" aria-label="Open Mirage Collection">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800" alt="Mirage Collection Fluidity">
                         <div class="collection-meta">
                             <h3 class="title-medium">MIRAGE</h3>
                             <div class="meta-label">RST / 27</div>
@@ -1656,19 +1757,14 @@
                     <h2 class="title-medium editorial-italic" style="margin-top: 1rem;">From mind to matter.</h2>
                 </div>
 
-                <div class="ba-container reveal-fade" id="ba-container" role="slider" tabindex="0" aria-valuenow="50"
-                    aria-valuemin="0" aria-valuemax="100"
-                    aria-label="Use arrow keys to slide before and after comparison">
+                <div class="ba-container reveal-fade" id="ba-container" role="slider" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Use arrow keys to slide before and after comparison">
                     <div class="ba-labels">
                         <div class="meta-label">SKETCH</div>
                         <div class="meta-label">SILHOUETTE</div>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200"
-                        alt="Concept sketch of the silhouette" class="ba-image"
-                        style="filter: grayscale(1) contrast(1.2);">
+                    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200" alt="Concept sketch of the silhouette" class="ba-image" style="filter: grayscale(1) contrast(1.2);">
                     <div class="ba-overlay" id="ba-overlay">
-                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1200"
-                            alt="Final constructed silhouette" class="ba-image">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1200" alt="Final constructed silhouette" class="ba-image">
                     </div>
                     <div class="ba-handle" id="ba-handle"></div>
                 </div>
@@ -1699,39 +1795,34 @@
             <section id="process" class="theme-ivory" aria-label="The Atelier Process Timeline">
                 <div class="process-container" id="process-pin">
                     <div class="process-bg-num" id="process-bg-num">01</div>
-                    <span class="signature-line" style="position: absolute; left: 50%; top: 0; bottom: 0; height: auto;"
-                        aria-hidden="true"></span>
+                    <span class="signature-line" style="position: absolute; left: 50%; top: 0; bottom: 0; height: auto;" aria-hidden="true"></span>
 
                     <div class="process-stage active" id="stage-0">
                         <div class="process-content">
                             <div class="meta-label">PHASE 01</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">RESEARCH</h3>
-                            <p class="body-text">Exploring architectural volumes, historical references, and material
-                                behaviors before a single cut is made.</p>
+                            <p class="body-text">Exploring architectural volumes, historical references, and material behaviors before a single cut is made.</p>
                         </div>
                     </div>
                     <div class="process-stage" id="stage-1">
                         <div class="process-content">
                             <div class="meta-label">PHASE 02</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">SKETCH & TOILE</h3>
-                            <p class="body-text">Translating two-dimensional thought into three-dimensional space using
-                                rough cotton muslin.</p>
+                            <p class="body-text">Translating two-dimensional thought into three-dimensional space using rough cotton muslin.</p>
                         </div>
                     </div>
                     <div class="process-stage" id="stage-2">
                         <div class="process-content">
                             <div class="meta-label">PHASE 03</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">CONSTRUCT</h3>
-                            <p class="body-text">The meticulous assembly of final fabrics, utilizing hand-stitching and
-                                internal corsetry.</p>
+                            <p class="body-text">The meticulous assembly of final fabrics, utilizing hand-stitching and internal corsetry.</p>
                         </div>
                     </div>
                     <div class="process-stage" id="stage-3">
                         <div class="process-content">
                             <div class="meta-label">PHASE 04</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">FINISH</h3>
-                            <p class="body-text">The final refinement. Invisible hems, hand-applied embellishments, and
-                                the final fitting.</p>
+                            <p class="body-text">The final refinement. Invisible hems, hand-applied embellishments, and the final fitting.</p>
                         </div>
                     </div>
                 </div>
@@ -1744,25 +1835,18 @@
                         <div class="lookbook-left">
                             <div class="eyebrow" style="margin-bottom: 2rem;">05 — LOOKBOOK</div>
                             <h2 class="title-large" id="lb-title" aria-live="polite">LOOK 01</h2>
-                            <p class="editorial-italic" id="lb-desc" aria-live="polite"
-                                style="font-size: 1.5rem; margin-top: 1rem;">Structural Silk & Organza Overlay.</p>
+                            <p class="editorial-italic" id="lb-desc" aria-live="polite" style="font-size: 1.5rem; margin-top: 1rem;">Structural Silk & Organza Overlay.</p>
                             <div class="meta-label" style="margin-top: 4rem;">VOL. IV / 2026</div>
                         </div>
                         <div class="lookbook-right">
-                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 01"
-                                data-desc="Structural Silk & Organza Overlay" aria-label="View Look 01">
-                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1000"
-                                    alt="Look 01: Structural Silk" class="look-img">
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 01" data-desc="Structural Silk & Organza Overlay" aria-label="View Look 01">
+                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1000" alt="Look 01: Structural Silk" class="look-img">
                             </button>
-                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 02"
-                                data-desc="Asymmetric Wool Crepe" aria-label="View Look 02">
-                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000"
-                                    alt="Look 02: Asymmetric Wool" class="look-img">
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 02" data-desc="Asymmetric Wool Crepe" aria-label="View Look 02">
+                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000" alt="Look 02: Asymmetric Wool" class="look-img">
                             </button>
-                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 03"
-                                data-desc="Hand-pleated Tulle" aria-label="View Look 03">
-                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
-                                    alt="Look 03: Hand-pleated Tulle" class="look-img">
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 03" data-desc="Hand-pleated Tulle" aria-label="View Look 03">
+                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000" alt="Look 03: Hand-pleated Tulle" class="look-img">
                             </button>
                         </div>
                     </div>
@@ -1778,8 +1862,7 @@
                 <div class="container">
                     <div class="reels-grid">
                         <button class="reel-card reveal-up" aria-label="Play Paris Fashion Week 25 Reel">
-                            <video class="reel-video" loop playsinline preload="none"
-                                poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600">
+                            <video class="reel-video" loop playsinline preload="none" poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             </video>
                             <div class="reel-overlay" aria-hidden="true">
@@ -1791,8 +1874,7 @@
                             </div>
                         </button>
                         <button class="reel-card reveal-up" aria-label="Play The Making of Oasis Reel">
-                            <video class="reel-video" loop playsinline preload="none"
-                                poster="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?auto=format&fit=crop&q=80&w=600">
+                            <video class="reel-video" loop playsinline preload="none" poster="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             </video>
                             <div class="reel-overlay" aria-hidden="true">
@@ -1804,8 +1886,7 @@
                             </div>
                         </button>
                         <button class="reel-card reveal-up" aria-label="Play Architectural Fluidity Reel">
-                            <video class="reel-video" loop playsinline preload="none"
-                                poster="https://images.unsplash.com/photo-1485230895905-eb56f4d1a10a?auto=format&fit=crop&q=80&w=600">
+                            <video class="reel-video" loop playsinline preload="none" poster="https://images.unsplash.com/photo-1485230895905-eb56f4d1a10a?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             </video>
                             <div class="reel-overlay" aria-hidden="true">
@@ -1859,15 +1940,11 @@
                     <div class="swiper swiper-testimonial reveal-up" aria-roledescription="carousel">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" role="group" aria-label="1 of 2">
-                                <h3 class="title-medium editorial-italic"
-                                    style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"A breathtaking
-                                    return to structured elegance that defines the modern era."</h3>
+                                <h3 class="title-medium editorial-italic" style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"A breathtaking return to structured elegance that defines the modern era."</h3>
                                 <div class="meta-label">— VOGUE EDITORIAL</div>
                             </div>
                             <div class="swiper-slide" role="group" aria-label="2 of 2">
-                                <h3 class="title-medium editorial-italic"
-                                    style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"Wearing Maison Noir
-                                    is like wearing a second skin composed of pure art."</h3>
+                                <h3 class="title-medium editorial-italic" style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"Wearing Maison Noir is like wearing a second skin composed of pure art."</h3>
                                 <div class="meta-label">— PRIVATE CLIENT</div>
                             </div>
                         </div>
@@ -1882,27 +1959,21 @@
                         <div style="grid-column: span 6;" class="reveal-up">
                             <h2 class="title-medium" style="margin-bottom: 4rem;">ACCLAIM</h2>
                             <div class="accordion-item" id="press">
-                                <button class="accordion-header" aria-expanded="false" aria-controls="content-cfda"
-                                    id="header-cfda">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="content-cfda" id="header-cfda">
                                     <span class="meta-label">CFDA EMERGING DESIGNER</span>
                                     <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
                                 </button>
-                                <div class="accordion-content" id="content-cfda" role="region"
-                                    aria-labelledby="header-cfda">
-                                    <div class="accordion-inner">Recognized for innovative use of sustainable luxury
-                                        fabrics in haute couture.</div>
+                                <div class="accordion-content" id="content-cfda" role="region" aria-labelledby="header-cfda">
+                                    <div class="accordion-inner">Recognized for innovative use of sustainable luxury fabrics in haute couture.</div>
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <button class="accordion-header" aria-expanded="false" aria-controls="content-bazaar"
-                                    id="header-bazaar">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="content-bazaar" id="header-bazaar">
                                     <span class="meta-label">HARPER'S BAZAAR FEATURE</span>
                                     <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
                                 </button>
-                                <div class="accordion-content" id="content-bazaar" role="region"
-                                    aria-labelledby="header-bazaar">
-                                    <div class="accordion-inner">A 10-page editorial spread showcasing the 'Obsidian'
-                                        collection in the architectural ruins of Rome.</div>
+                                <div class="accordion-content" id="content-bazaar" role="region" aria-labelledby="header-bazaar">
+                                    <div class="accordion-inner">A 10-page editorial spread showcasing the 'Obsidian' collection in the architectural ruins of Rome.</div>
                                 </div>
                             </div>
                         </div>
@@ -1914,28 +1985,21 @@
 
                             <form id="booking-form" novalidate>
                                 <div class="form-group">
-                                    <input type="text" id="booking-name" name="name" class="form-input"
-                                        placeholder="Full Name" required autocomplete="name" aria-label="Full Name">
+                                    <input type="text" id="booking-name" name="name" class="form-input" placeholder="Full Name" required autocomplete="name" aria-label="Full Name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" id="booking-email" name="email" class="form-input"
-                                        placeholder="Email Address" required autocomplete="email"
-                                        aria-label="Email Address">
+                                    <input type="email" id="booking-email" name="email" class="form-input" placeholder="Email Address" required autocomplete="email" aria-label="Email Address">
                                 </div>
                                 <div class="form-group">
-                                    <select id="booking-service" name="service" class="form-input" required
-                                        aria-label="Select Service" style="appearance: none;">
-                                        <option value="" disabled selected style="color: var(--text-mut-current)">Select
-                                            Service...</option>
+                                    <select id="booking-service" name="service" class="form-input" required aria-label="Select Service" style="appearance: none;">
+                                        <option value="" disabled selected style="color: var(--text-mut-current)">Select Service...</option>
                                         <option value="bespoke" style="color: #000">Bespoke Couture</option>
                                         <option value="bridal" style="color: #000">Bridal</option>
                                         <option value="editorial" style="color: #000">Editorial</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn-luxury" id="booking-submit"
-                                    style="width: 100%; margin-top: 2rem;">Submit Request</button>
-                                <p class="form-msg" id="booking-msg" role="alert" aria-live="polite"
-                                    style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
+                                <button type="submit" class="btn-luxury" id="booking-submit" style="width: 100%; margin-top: 2rem;">Submit Request</button>
+                                <p class="form-msg" id="booking-msg" role="alert" aria-live="polite" style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
                             </form>
                         </div>
                     </div>
@@ -1945,8 +2009,7 @@
             <!-- 13. FOOTER (DARK) -->
             <footer id="footer" class="theme-dark" aria-label="Site Footer">
                 <div class="container">
-                    <button class="footer-massive reveal-up" id="footer-brand-btn"
-                        aria-label="Scroll to top of DIXITA">DIXITA</button>
+                    <button class="footer-massive reveal-up" id="footer-brand-btn" aria-label="Scroll to top of DIXITA">DIXITA</button>
 
                     <div class="footer-grid reveal-fade" style="margin-top: 6rem;">
                         <div>
@@ -1972,18 +2035,14 @@
                         <div>
                             <div class="eyebrow">NEWSLETTER</div>
                             <form class="newsletter-form" id="newsletter-form" novalidate>
-                                <input type="email" id="nl-email" placeholder="Email Address" required
-                                    autocomplete="email" aria-label="Email for Newsletter">
-                                <button type="submit" id="nl-submit" aria-label="Subscribe to Newsletter"><i
-                                        class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                                <input type="email" id="nl-email" placeholder="Email Address" required autocomplete="email" aria-label="Email for Newsletter">
+                                <button type="submit" id="nl-submit" aria-label="Subscribe to Newsletter"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
                             </form>
-                            <span class="form-msg" id="nl-msg" role="alert" aria-live="polite"
-                                style="font-size: 0.85rem; margin-top: 1rem; display: none;"></span>
+                            <span class="form-msg" id="nl-msg" role="alert" aria-live="polite" style="font-size: 0.85rem; margin-top: 1rem; display: none;"></span>
                         </div>
                     </div>
 
-                    <div
-                        style="display: flex; justify-content: space-between; margin-top: 6rem; color: var(--text-mut-current); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                    <div style="display: flex; justify-content: space-between; margin-top: 6rem; color: var(--text-mut-current); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;">
                         <span>© 2026 DIXITA ATELIER.</span>
                         <span>WORLDWIDE</span>
                     </div>
@@ -1996,15 +2055,13 @@
     <!-- GLOBAL LIGHTBOX -->
     <div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image Gallery Lightbox">
         <button class="fas fa-times lightbox-close" id="lb-close" aria-label="Close Lightbox"></button>
-        <button class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lb-prev"
-            aria-label="Previous Image"></button>
+        <button class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous Image"></button>
         <button class="fas fa-chevron-right lightbox-nav lightbox-next" id="lb-next" aria-label="Next Image"></button>
 
         <div class="lightbox-content">
             <img src="" alt="Expanded View" class="lightbox-img" id="lb-img">
             <div class="lightbox-meta">
-                <div class="meta-label" id="lb-counter" style="margin-bottom: 1rem; color: var(--accent);"
-                    aria-live="polite">01 / 01</div>
+                <div class="meta-label" id="lb-counter" style="margin-bottom: 1rem; color: var(--accent);" aria-live="polite">01 / 01</div>
                 <h3 class="title-medium" id="lb-title-display">Title</h3>
                 <p class="editorial-italic" id="lb-desc-display" style="margin-top: 0.5rem;">Description</p>
             </div>
@@ -2055,11 +2112,59 @@
                 gsap.ticker.lagSmoothing(0);
             }
 
+            function initLoader() {
+                const loader = document.getElementById('loader');
+                if (!loader) {
+                    try { initWebGL(); } catch (e) { }
+                    try { initReveals(); } catch (e) { }
+                    return;
+                }
+
+                // Prevent scrolling while loader is active
+                document.body.style.overflow = 'hidden';
+
+                const tl = gsap.timeline({
+                    onComplete: () => {
+                        loader.style.display = 'none'; 
+                        loader.setAttribute('aria-hidden', 'true');
+                        document.body.style.overflow = ''; // Unlock scrolling
+                        
+                        // Initialize animations AFTER loader finishes so they don't break
+                        try { initWebGL(); } catch (e) { }
+                        try { initReveals(); } catch (e) { }
+                        ScrollTrigger.refresh();
+                    }
+                });
+
+                tl.to('.loader-meta', { opacity: 1, duration: 0.3 })
+                    .to('.loader-wordmark span', { y: 0, opacity: 1, stagger: 0.04, duration: 0.5, ease: "power4.out" })
+                    .to('.loader-line', { width: '100px', duration: 0.4 })
+                    .to('.loader-counter', { opacity: 1, duration: 0.2 });
+
+                let counter = { val: 0 };
+                gsap.to(counter, {
+                    val: 100, duration: 1.2, ease: "power2.inOut",
+                    onUpdate: () => { const cnt = document.querySelector('.loader-counter'); if (cnt) cnt.innerText = Math.round(counter.val) + '%'; },
+                    onComplete: () => {
+                        gsap.to('#loader', { opacity: 0, duration: 0.8, ease: "power2.inOut" });
+                        const imgs = document.querySelectorAll('.hero-bg img');
+                        if (imgs.length > 0 && !state.reducedMotion) {
+                            setInterval(() => {
+                                let activeIdx = Array.from(imgs).findIndex(img => img.classList.contains('active'));
+                                if (activeIdx > -1) imgs[activeIdx].classList.remove('active');
+                                activeIdx = (activeIdx + 1) % imgs.length;
+                                imgs[activeIdx].classList.add('active');
+                            }, 6000);
+                        }
+                    }
+                });
+            }
+
             function initNavigation() {
                 const nav = document.getElementById('navbar');
                 if (!nav) return;
                 let lastScroll = 0;
-
+                
                 const scrollHandler = () => {
                     const scrollY = window.scrollY;
                     if (scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
@@ -2102,7 +2207,7 @@
                 state.menuOpen = !state.menuOpen;
                 if (state.menuOpen) {
                     if (lenis) lenis.stop();
-                    document.body.style.overflow = 'hidden';
+                    document.body.style.overflow = 'hidden'; 
                     menu.classList.add('active'); menu.setAttribute('aria-hidden', 'false');
                     toggleBtn.setAttribute('aria-expanded', 'true'); icon.className = 'fas fa-times';
                     gsap.to('.mobile-item', { y: 0, opacity: 1, stagger: 0.05, duration: 0.5, delay: 0.2, ease: "power3.out" });
@@ -2194,16 +2299,6 @@
                 animate();
                 gsap.to('#hero-canvas, .hero-content', { yPercent: 30, opacity: 0, scrollTrigger: { trigger: '#hero', start: 'top top', end: 'bottom top', scrub: true } });
                 window.addEventListener('resize', () => { camera.aspect = window.innerWidth / window.innerHeight; camera.updateProjectionMatrix(); renderer.setSize(window.innerWidth, window.innerHeight); });
-
-                const imgs = document.querySelectorAll('.hero-bg img');
-                if (imgs.length > 0 && !state.reducedMotion) {
-                    setInterval(() => {
-                        let activeIdx = Array.from(imgs).findIndex(img => img.classList.contains('active'));
-                        if (activeIdx > -1) imgs[activeIdx].classList.remove('active');
-                        activeIdx = (activeIdx + 1) % imgs.length;
-                        imgs[activeIdx].classList.add('active');
-                    }, 6000);
-                }
             }
 
             function initOrbit() {
@@ -2320,7 +2415,7 @@
             }
 
             function initAtelierProcess() {
-                if (state.isTablet) return;
+                if (state.isTablet) return; 
                 const stages = document.querySelectorAll('.process-stage');
                 const numDisplay = document.getElementById('process-bg-num');
                 if (!stages.length) return;
@@ -2336,7 +2431,7 @@
             }
 
             function initLookbook() {
-                if (state.isTablet) return;
+                if (state.isTablet) return; 
                 const looks = document.querySelectorAll('.lb-item'), titleEl = document.getElementById('lb-title'), descEl = document.getElementById('lb-desc');
                 if (!titleEl || !descEl || !looks.length) return;
                 let currentLook = null;
@@ -2462,19 +2557,19 @@
                     let progress = 0; if (scrollHeight > 0) { progress = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100)); }
                     if (bar) bar.style.width = `${progress}%`;
                 };
-
+                
                 if (lenis) {
                     lenis.on('scroll', handleScroll);
                 } else {
                     window.addEventListener('scroll', handleScroll, { passive: true });
                 }
-
-                const scrollToTop = () => {
+                
+                const scrollToTop = () => { 
                     if (lenis) {
-                        lenis.scrollTo(0);
-                    } else {
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }
+                        lenis.scrollTo(0); 
+                    } else { 
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); 
+                    } 
                 };
                 if (brandBtt) brandBtt.addEventListener('click', scrollToTop);
 
@@ -2484,7 +2579,7 @@
             }
 
             window.addEventListener('resize', () => {
-                state.isMobile = window.innerWidth <= 768;
+                state.isMobile = window.innerWidth <= 768; 
                 state.isTablet = window.innerWidth <= 992;
                 if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
@@ -2507,9 +2602,8 @@
                 try { initLightbox(); } catch (e) { }
                 try { initUtils(); } catch (e) { }
 
-                // The loader logic is completely removed. Reveal sequences start immediately.
-                try { initWebGL(); } catch (e) { }
-                try { initReveals(); } catch (e) { }
+                // Start loader Sequence
+                setTimeout(() => { try { initLoader(); } catch (e) { } }, 100);
             });
 
         })();
