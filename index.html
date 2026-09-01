@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>DIXITA | Digital Fashion House</title>
     <meta name="description"
         content="DIXITA — Haute Couture digital atelier. Experience the intersection of architectural structure and fluid movement.">
@@ -23,7 +23,6 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Upgraded Editorial Typography -->
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
         rel="stylesheet">
@@ -60,9 +59,6 @@
             --ease-slow: cubic-bezier(0.19, 1, 0.22, 1);
         }
 
-        /* 
-           EDITORIAL COLOR RHYTHM MAP 
-        */
         [data-theme="noir"],
         :root {
             --bg-primary: #080808;
@@ -104,7 +100,6 @@
             --sec-light-mut: #77736C;
         }
 
-        /* Rhythm Classes */
         .theme-dark {
             background-color: var(--sec-dark-bg);
             color: var(--sec-dark-txt);
@@ -202,11 +197,11 @@
         .container {
             max-width: 1600px;
             margin: 0 auto;
-            padding: 0 4vw;
+            padding: 0 5vw;
         }
 
         .section-pad {
-            padding: clamp(6rem, 15vw, 12rem) 0;
+            padding: clamp(4rem, 12vw, 12rem) 0;
         }
 
         .grid-12 {
@@ -231,7 +226,7 @@
         }
 
         .title-massive {
-            font-size: clamp(3rem, 20vw, 24rem);
+            font-size: clamp(3.5rem, 18vw, 24rem);
             letter-spacing: -0.04em;
             line-height: 0.8;
         }
@@ -307,6 +302,7 @@
             transition: border-color 0.6s var(--ease-out), color 0.6s var(--ease-out);
             font-weight: 400;
             cursor: pointer;
+            text-align: center;
         }
 
         .btn-luxury::after {
@@ -337,7 +333,6 @@
             display: block;
         }
 
-        /* Scroll Progress */
         #scroll-progress {
             position: fixed;
             top: 0;
@@ -348,7 +343,6 @@
             width: 0%;
         }
 
-        /* Theme Switcher */
         .theme-switcher {
             position: fixed;
             right: 2rem;
@@ -439,7 +433,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 2rem 4vw;
+            padding: 2rem 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -449,7 +443,7 @@
         }
 
         nav.scrolled {
-            padding: 1.5rem 4vw;
+            padding: 1.25rem 5vw;
             mix-blend-mode: normal;
             background: var(--bg-primary);
             color: var(--sec-dark-txt);
@@ -504,11 +498,12 @@
 
         .mobile-toggle {
             display: none;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             z-index: 1001;
             position: relative;
             mix-blend-mode: difference;
             color: #fff;
+            padding: 0.5rem;
         }
 
         nav.scrolled .mobile-toggle {
@@ -519,13 +514,14 @@
         #mobile-menu {
             position: fixed;
             inset: 0;
+            height: 100dvh;
             background: var(--bg-primary);
             color: var(--sec-dark-txt);
             z-index: 999;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 4rem;
+            padding: 4rem 10vw;
             opacity: 0;
             pointer-events: none;
             transition: opacity 0.6s var(--ease-out);
@@ -539,7 +535,7 @@
         .mobile-item {
             font-family: var(--font-display);
             font-size: clamp(2.5rem, 8vw, 5rem);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             opacity: 0;
             transform: translateY(20px);
@@ -558,7 +554,7 @@
             font-family: var(--font-body);
             font-size: 0.85rem;
             color: var(--accent);
-            margin-right: 2rem;
+            margin-right: 1.5rem;
             vertical-align: middle;
             letter-spacing: 2px;
         }
@@ -568,7 +564,7 @@
         ========================================== */
         #hero {
             position: relative;
-            height: 100vh;
+            height: 100dvh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -628,8 +624,8 @@
         .hero-meta-grid {
             position: absolute;
             bottom: 3rem;
-            left: 4vw;
-            right: 4vw;
+            left: 5vw;
+            right: 5vw;
             z-index: 4;
             display: flex;
             justify-content: space-between;
@@ -641,7 +637,7 @@
            8. EDITORIAL MARQUEE
         ========================================== */
         .marquee-section {
-            padding: 5rem 0;
+            padding: 4rem 0;
             border-top: 1px solid var(--border-current);
             border-bottom: 1px solid var(--border-current);
             overflow: hidden;
@@ -657,7 +653,7 @@
 
         .marquee-item {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 7vw, 6rem);
+            font-size: clamp(2.5rem, 7vw, 6rem);
             text-transform: uppercase;
             padding: 0 3rem;
             transition: color 0.4s, transform 0.6s var(--ease-out);
@@ -685,13 +681,6 @@
             align-items: start;
         }
 
-        .manifesto {
-            font-size: clamp(2rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            letter-spacing: -0.01em;
-            margin-bottom: 3rem;
-        }
-
         .maison-image-wrap {
             position: relative;
             margin-top: 15vh;
@@ -714,7 +703,7 @@
 
         .orbit-container {
             height: 60vh;
-            min-height: 500px;
+            min-height: 450px;
             perspective: 1200px;
             display: flex;
             align-items: center;
@@ -722,6 +711,8 @@
             overflow: hidden;
             margin-top: 8rem;
             cursor: grab;
+            touch-action: pan-y;
+            /* Fix dragging on mobile */
         }
 
         .orbit-container:active {
@@ -788,6 +779,8 @@
             padding: 0 10vw;
             width: max-content;
             cursor: grab;
+            touch-action: pan-y;
+            /* Allows horizontal drag on mobile without scrolling page horizontally */
         }
 
         .collections-track:active {
@@ -796,7 +789,7 @@
 
         .collection-card {
             width: 30vw;
-            min-width: 320px;
+            min-width: 300px;
             aspect-ratio: 3/4;
             position: relative;
             overflow: hidden;
@@ -847,6 +840,8 @@
             margin: 4rem auto 0;
             overflow: hidden;
             cursor: col-resize;
+            touch-action: pan-y;
+            /* Essential for mobile drag sliders */
         }
 
         .ba-image {
@@ -887,11 +882,11 @@
 
         .ba-labels {
             position: absolute;
-            top: 2rem;
+            top: 1rem;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 3rem;
+            padding: 0 1.5rem;
             z-index: 5;
             pointer-events: none;
             color: #fff;
@@ -904,8 +899,8 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 3rem;
-            margin-bottom: 6rem;
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
 
         .filter-btn {
@@ -916,12 +911,13 @@
             transition: color 0.4s;
             position: relative;
             cursor: pointer;
+            padding: 0.5rem;
         }
 
         .filter-btn::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: 0;
             left: 50%;
             transform: translateX(-50%);
             width: 0;
@@ -992,7 +988,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-family: var(--font-display);
-            font-size: clamp(20rem, 40vw, 40rem);
+            font-size: clamp(15rem, 40vw, 40rem);
             color: var(--text-mut-current);
             opacity: 0.03;
             line-height: 0.8;
@@ -1077,7 +1073,7 @@
         ========================================== */
         .reels-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1px;
             background: var(--border-current);
             border: 1px solid var(--border-current);
@@ -1110,7 +1106,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 2.5rem;
+            padding: 2rem;
             color: #fff;
             transition: opacity 0.6s;
             pointer-events: none;
@@ -1143,7 +1139,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 3rem 0;
+            padding: 2.5rem 0;
             border-bottom: 1px solid var(--border-current);
             transition: padding 0.6s var(--ease-out);
             position: relative;
@@ -1190,7 +1186,7 @@
         .accordion-header {
             width: 100%;
             text-align: left;
-            padding: 2.5rem 0;
+            padding: 2rem 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -1210,7 +1206,7 @@
         }
 
         .accordion-inner {
-            padding-bottom: 2.5rem;
+            padding-bottom: 2rem;
             font-family: var(--font-sub);
             font-style: italic;
             font-size: 1.25rem;
@@ -1225,7 +1221,7 @@
            19. FORMS & FOOTER
         ========================================== */
         .form-group {
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .form-input {
@@ -1250,7 +1246,7 @@
         }
 
         footer {
-            padding: 10rem 0 2rem;
+            padding: 8rem 0 2rem;
             border-top: 1px solid var(--border-current);
             overflow: hidden;
         }
@@ -1259,11 +1255,11 @@
             display: grid;
             grid-template-columns: 3fr 1fr 1fr 2fr;
             gap: 4vw;
-            margin-bottom: 10vh;
+            margin-bottom: 8vh;
         }
 
         .footer-list li {
-            margin-bottom: 1.25rem;
+            margin-bottom: 1rem;
             font-size: 0.75rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
@@ -1295,7 +1291,7 @@
 
         .footer-massive {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 22vw, 25rem);
+            font-size: clamp(3rem, 20vw, 25rem);
             line-height: 0.7;
             text-align: center;
             color: var(--border-current);
@@ -1336,7 +1332,7 @@
 
         .lightbox-close {
             position: absolute;
-            top: 3rem;
+            top: 2rem;
             right: 4vw;
             font-size: 1.5rem;
             cursor: pointer;
@@ -1380,7 +1376,7 @@
         }
 
         .lightbox-img {
-            max-height: 80vh;
+            max-height: 75vh;
             max-width: 85vw;
             object-fit: contain;
             transform: scale(0.98);
@@ -1392,7 +1388,7 @@
         }
 
         .lightbox-meta {
-            margin-top: 2rem;
+            margin-top: 1.5rem;
             text-align: center;
         }
 
@@ -1407,7 +1403,7 @@
         }
 
         /* ==========================================
-           21. MOBILE & RESPONSIVE OVERRIDES
+           21. MOBILE RESPONSIVE OVERRIDES
         ========================================== */
         @media (max-width: 992px) {
 
@@ -1430,8 +1426,9 @@
             }
 
             .orbit-scene {
-                width: 200px;
-                height: 300px;
+                width: 180px;
+                /* Reduced for smaller screens */
+                height: 270px;
             }
 
             .masonry-grid {
@@ -1519,7 +1516,7 @@
             .hero-meta-grid {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 1rem;
+                gap: 1.5rem;
             }
 
             .collection-card {
@@ -1530,6 +1527,10 @@
             .marquee-item {
                 font-size: clamp(2rem, 8vw, 4rem);
                 padding: 0 1rem;
+            }
+
+            .lightbox-nav {
+                padding: 1rem;
             }
         }
     </style>
@@ -1567,8 +1568,9 @@
                 <a href="#journal">Journal</a>
             </div>
             <a href="#contact" class="btn-luxury nav-book">Book Atelier</a>
-            <button class="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu"><i
-                    class="fas fa-bars" aria-hidden="true"></i></button>
+            <button class="mobile-toggle" aria-label="Toggle Menu" aria-expanded="false" aria-controls="mobile-menu">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
         </nav>
     </header>
 
@@ -1628,8 +1630,8 @@
                     <div class="maison-grid">
                         <div class="reveal-up">
                             <div class="eyebrow">01 — MAISON</div>
-                            <h2 class="title-large editorial-italic" style="margin-top: 4rem;">WE
-                                DESIGN<br>WHAT<br>REMAINS.</h2>
+                            <h2 class="title-large editorial-italic" style="margin-top: 4rem;">
+                                WE<br>DESIGN<br>WHAT<br>REMAINS.</h2>
                             <div class="designer-signature" aria-hidden="true">Dixita</div>
                         </div>
                         <div class="maison-image-wrap reveal-up">
@@ -1655,7 +1657,7 @@
             <!-- 4. COLLECTIONS (DARK) -->
             <section id="collections" class="section-pad theme-dark" aria-label="Featured Collections">
                 <div class="container"
-                    style="margin-bottom: 6rem; display: flex; justify-content: space-between; align-items: flex-end;">
+                    style="margin-bottom: 6rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;">
                     <div class="reveal-up">
                         <div class="eyebrow">02 — COLLECTIONS</div>
                         <h2 class="title-large">DOORWAYS</h2>
@@ -1871,7 +1873,7 @@
                 <div class="container">
                     <div class="eyebrow reveal-up" style="margin-bottom: 4rem;">07 — JOURNAL & SERVICES</div>
                     <div class="grid-12">
-                        <div style="grid-column: span 6; padding-right: 4vw;" class="reveal-up">
+                        <div style="grid-column: span 6;" class="reveal-up">
                             <a href="#" class="list-row" aria-label="Read Fabric Sourcing note">
                                 <div>
                                     <div class="meta-label" style="margin-bottom: 1rem;">OCT 2025 · MILAN</div>
@@ -1887,7 +1889,7 @@
                                 <i class="fas fa-arrow-right" aria-hidden="true"></i>
                             </a>
                         </div>
-                        <div style="grid-column: span 6; padding-left: 4vw;" class="reveal-up">
+                        <div style="grid-column: span 6;" class="reveal-up">
                             <div class="list-row" tabindex="0" role="link" aria-label="Service: Bespoke Couture">
                                 <h3 class="title-medium editorial-italic">01. Bespoke Couture</h3>
                             </div>
@@ -1925,7 +1927,7 @@
             <section id="contact" class="section-pad theme-dark" aria-label="Acclaim and Contact">
                 <div class="container">
                     <div class="grid-12">
-                        <div style="grid-column: span 5; padding-right: 4vw;" class="reveal-up">
+                        <div style="grid-column: span 6;" class="reveal-up">
                             <h2 class="title-medium" style="margin-bottom: 4rem;">ACCLAIM</h2>
                             <div class="accordion-item" id="press">
                                 <button class="accordion-header" aria-expanded="false" aria-controls="content-cfda"
@@ -1953,7 +1955,7 @@
                             </div>
                         </div>
 
-                        <div style="grid-column: span 6; grid-column-start: 7;" class="reveal-up" id="booking">
+                        <div style="grid-column: span 6;" class="reveal-up" id="booking">
                             <div class="eyebrow">08 — CONTACT</div>
                             <h2 class="title-large editorial-italic" style="margin-bottom: 1rem;">Book Atelier</h2>
                             <p class="body-text" style="margin-bottom: 4rem;">Let's create what hasn't been seen.</p>
@@ -1995,11 +1997,11 @@
                         aria-label="Scroll to top of DIXITA">DIXITA</button>
 
                     <div class="footer-grid reveal-fade" style="margin-top: 6rem;">
-                        <div style="grid-column: span 1;">
+                        <div>
                             <h3 class="title-medium" style="margin-bottom: 1rem;">PARIS</h3>
                             <p class="body-text">Elevating reality through architectural fashion.</p>
                         </div>
-                        <div style="grid-column: span 1;">
+                        <div>
                             <div class="eyebrow">EXPLORE</div>
                             <ul class="footer-list">
                                 <li><a href="#maison">Maison</a></li>
@@ -2007,16 +2009,15 @@
                                 <li><a href="#portfolio">Archive</a></li>
                             </ul>
                         </div>
-                        <div style="grid-column: span 1;">
+                        <div>
                             <div class="eyebrow">CONNECT</div>
                             <ul class="footer-list">
                                 <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
                                 <li><a href="#" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
-                                <li><a href="#" target="_blank" rel="noopener noreferrer">Vogue</a>
-                                </li>
+                                <li><a href="#" target="_blank" rel="noopener noreferrer">Vogue</a></li>
                             </ul>
                         </div>
-                        <div style="grid-column: span 1;">
+                        <div>
                             <div class="eyebrow">NEWSLETTER</div>
                             <form class="newsletter-form" id="newsletter-form" novalidate>
                                 <input type="email" id="nl-email" placeholder="Email Address" required
@@ -2094,7 +2095,8 @@
             let lenis;
 
             function initLenis() {
-                if (typeof Lenis === 'undefined') return;
+                // Disable Lenis entirely on mobile to allow native optimized momentum scrolling
+                if (typeof Lenis === 'undefined' || state.isMobile) return;
                 lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
                 lenis.on('scroll', ScrollTrigger.update);
                 gsap.ticker.add((time) => { lenis.raf(time * 1000); });
@@ -2139,7 +2141,8 @@
                 const nav = document.getElementById('navbar');
                 if (!nav) return;
                 let lastScroll = 0;
-                lenis?.on('scroll', () => {
+
+                const scrollHandler = () => {
                     const scrollY = window.scrollY;
                     if (scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
                     if (Math.abs(scrollY - lastScroll) > 10) {
@@ -2147,17 +2150,28 @@
                         else nav.classList.remove('hidden');
                         lastScroll = scrollY;
                     }
-                });
+                };
+
+                if (lenis) {
+                    lenis.on('scroll', scrollHandler);
+                } else {
+                    window.addEventListener('scroll', scrollHandler, { passive: true });
+                }
 
                 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                     anchor.addEventListener('click', function (e) {
                         const targetId = this.getAttribute('href');
                         if (targetId === '#') return;
                         const target = document.querySelector(targetId);
-                        if (target && lenis) {
+                        if (target) {
                             e.preventDefault();
                             if (state.menuOpen) toggleMenu();
-                            lenis.scrollTo(target, { offset: -80 });
+                            if (lenis) {
+                                lenis.scrollTo(target, { offset: -80 });
+                            } else {
+                                const y = target.getBoundingClientRect().top + window.scrollY - 80;
+                                window.scrollTo({ top: y, behavior: 'smooth' });
+                            }
                         }
                     });
                 });
@@ -2170,11 +2184,13 @@
                 state.menuOpen = !state.menuOpen;
                 if (state.menuOpen) {
                     if (lenis) lenis.stop();
+                    document.body.style.overflow = 'hidden'; // Stop background scroll
                     menu.classList.add('active'); menu.setAttribute('aria-hidden', 'false');
                     toggleBtn.setAttribute('aria-expanded', 'true'); icon.className = 'fas fa-times';
                     gsap.to('.mobile-item', { y: 0, opacity: 1, stagger: 0.05, duration: 0.5, delay: 0.2, ease: "power3.out" });
                 } else {
                     if (lenis) lenis.start();
+                    document.body.style.overflow = '';
                     menu.classList.remove('active'); menu.setAttribute('aria-hidden', 'true');
                     toggleBtn.setAttribute('aria-expanded', 'false'); icon.className = 'fas fa-bars';
                     gsap.to('.mobile-item', { y: 20, opacity: 0, duration: 0.2 });
@@ -2266,7 +2282,7 @@
                 const scene = document.getElementById('orbit-scene');
                 if (!scene) return;
                 const numFaces = portfolioData.length; const theta = 360 / numFaces;
-                const cardWidth = state.isMobile ? 200 : 280;
+                const cardWidth = state.isMobile ? 180 : 280;
                 const radius = (cardWidth / 2) / Math.tan(Math.PI / numFaces) + (state.isMobile ? 20 : 40);
                 scene.innerHTML = '';
                 for (let i = 0; i < numFaces; i++) {
@@ -2323,7 +2339,9 @@
                 const stopDrag = (e) => { if (isDown) { isDown = false; parent.releasePointerCapture(e.pointerId); } };
                 parent.addEventListener('pointerup', stopDrag); parent.addEventListener('pointercancel', stopDrag);
                 parent.addEventListener('pointermove', (e) => {
-                    if (!isDown) return; e.preventDefault();
+                    if (!isDown) return;
+                    // For mobile let native panning handle scroll if we are strictly swiping, 
+                    // but since touch-action: pan-y is set, we can intercept X movement smoothly.
                     parent.scrollLeft = scrollLeft - ((e.pageX - parent.offsetLeft - startX) * 2);
                 });
             }
@@ -2376,7 +2394,7 @@
             }
 
             function initAtelierProcess() {
-                if (state.isTablet) return;
+                if (state.isTablet) return; // Do not pin on smaller screens
                 const stages = document.querySelectorAll('.process-stage');
                 const numDisplay = document.getElementById('process-bg-num');
                 if (!stages.length) return;
@@ -2392,6 +2410,7 @@
             }
 
             function initLookbook() {
+                if (state.isTablet) return; // simplify on mobile
                 const looks = document.querySelectorAll('.lb-item'), titleEl = document.getElementById('lb-title'), descEl = document.getElementById('lb-desc');
                 if (!titleEl || !descEl || !looks.length) return;
                 let currentLook = null;
@@ -2517,8 +2536,20 @@
                     let progress = 0; if (scrollHeight > 0) { progress = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100)); }
                     if (bar) bar.style.width = `${progress}%`;
                 };
-                if (lenis) lenis.on('scroll', handleScroll); else window.addEventListener('scroll', handleScroll);
-                const scrollToTop = () => { if (lenis) lenis.scrollTo(0); else window.scrollTo({ top: 0, behavior: 'smooth' }); };
+
+                if (lenis) {
+                    lenis.on('scroll', handleScroll);
+                } else {
+                    window.addEventListener('scroll', handleScroll, { passive: true });
+                }
+
+                const scrollToTop = () => {
+                    if (lenis) {
+                        lenis.scrollTo(0);
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                };
                 if (brandBtt) brandBtt.addEventListener('click', scrollToTop);
 
                 if (typeof Swiper !== 'undefined') {
@@ -2527,7 +2558,8 @@
             }
 
             window.addEventListener('resize', () => {
-                state.isMobile = window.innerWidth <= 768; state.isTablet = window.innerWidth <= 992;
+                state.isMobile = window.innerWidth <= 768;
+                state.isTablet = window.innerWidth <= 992;
                 if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
 
