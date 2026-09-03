@@ -23,7 +23,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500&family=Playfair+Display:ital,wght@0,400;1,400&display=swap"
+        rel="stylesheet">
 
     <!-- Icons & Swiper -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -201,10 +203,10 @@
             outline-offset: 4px;
         }
 
-        html, body {
+        html,
+        body {
             font-size: 16px;
             scroll-behavior: auto;
-            /* CRITICAL FIX: Stops the mobile viewport from zooming out and blowing up */
             width: 100%;
             max-width: 100vw;
             overflow-x: hidden;
@@ -220,12 +222,10 @@
         }
 
         #smooth-wrapper {
-            /* CRITICAL FIX: Wraps all inner elements preventing horizontal blowout */
             width: 100%;
-            overflow: hidden; 
+            overflow: hidden;
         }
 
-        /* Subtle Film Grain */
         body::before {
             content: '';
             position: fixed;
@@ -238,7 +238,8 @@
             z-index: 9999;
         }
 
-        img, video {
+        img,
+        video {
             max-width: 100%;
             height: auto;
             display: block;
@@ -250,7 +251,9 @@
             color: inherit;
         }
 
-        button, input, select {
+        button,
+        input,
+        select {
             background: none;
             border: none;
             color: inherit;
@@ -282,7 +285,12 @@
         /* ==========================================
            3. EDITORIAL TYPOGRAPHY HIERARCHY
         ========================================== */
-        h1, h2, h3, h4, h5, .display-text {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .display-text {
             font-family: var(--font-display);
             font-weight: 300;
             line-height: 1;
@@ -407,7 +415,6 @@
             width: 0%;
         }
 
-        /* Enhanced Theme Switcher */
         .theme-switcher {
             position: fixed;
             right: 2rem;
@@ -776,7 +783,7 @@
             overflow: hidden;
             margin-top: 8rem;
             cursor: grab;
-            touch-action: pan-y; /* Fix dragging on mobile */
+            touch-action: pan-y;
         }
 
         .orbit-container:active {
@@ -835,67 +842,175 @@
         }
 
         /* ==========================================
-           10. COLLECTIONS
+           10. PREMIUM DOORWAYS 3D FLIPBOOK (ISOLATED)
         ========================================== */
-        #collections {
-            /* CRITICAL FIX: Stops the slider from breaking the page width */
-            overflow: hidden;
+        .doorways-section {
+            border-top: 1px solid var(--border-current);
+        }
+
+        .doorways-header {
+            margin-bottom: 4rem;
+        }
+
+        .flipbook-container {
             width: 100%;
-        }
-
-        .collections-track {
+            max-width: 1200px;
             display: flex;
-            gap: 4vw;
-            padding: 0 10vw;
-            width: max-content;
-            cursor: grab;
-            touch-action: pan-y; /* Allows horizontal drag on mobile without scrolling page horizontally */
+            flex-direction: column;
+            align-items: center;
+            margin: 0 auto;
         }
 
-        .collections-track:active {
-            cursor: grabbing;
-        }
-
-        .collection-card {
-            width: 30vw;
-            min-width: 300px;
-            aspect-ratio: 3/4;
+        .doorways-book-wrapper {
             position: relative;
-            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 2 / 1.35;
+            perspective: 3000px;
+            transition: transform 0.8s var(--ease-out), width 0.8s var(--ease-out);
             cursor: pointer;
         }
 
-        .collection-card img {
+        .doorways-book-wrapper:hover {
+            transform: translateY(-5px);
+        }
+
+        .state-cover {
+            transform: translateX(-25%);
+        }
+
+        .state-back {
+            transform: translateX(25%);
+        }
+
+        .state-open {
+            transform: translateX(0);
+        }
+
+        .doorways-leaf {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform-origin: left center;
+            transition: transform 0.8s var(--ease-out);
+        }
+
+        .doorways-page {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            background-color: #111;
+            overflow: hidden;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05), 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .doorways-page-back {
+            transform: rotateY(180deg);
+        }
+
+        .doorways-page img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 1.5s var(--ease-slow), filter 0.8s;
-            filter: brightness(0.85);
-            pointer-events: none;
+            display: block;
         }
 
-        .collection-card:hover img {
-            transform: scale(1.03);
-            filter: brightness(1);
-        }
-
-        .collection-meta {
+        .doorways-page-front::after {
+            content: '';
             position: absolute;
-            bottom: 0;
+            top: 0;
             left: 0;
-            right: 0;
-            padding: 2.5rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.6), transparent);
-            color: #fff;
-            transition: transform 0.6s var(--ease-out);
+            bottom: 0;
+            width: 60px;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.8), transparent);
             pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+
+        .doorways-page-back::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 60px;
+            background: linear-gradient(to left, rgba(0, 0, 0, 0.8), transparent);
+            pointer-events: none;
+            mix-blend-mode: multiply;
+        }
+
+        .doorways-controls {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 3rem;
+            z-index: 10;
         }
 
-        .collection-card:hover .collection-meta {
-            transform: translateY(-5px);
+        .doorways-btn {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--sec-dark-txt);
+            transition: color 0.3s, transform 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .doorways-btn:hover:not(:disabled) {
+            color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .doorways-btn:disabled {
+            opacity: 0.2;
+            cursor: not-allowed;
+        }
+
+        .doorways-indicator {
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--text-mut-current);
+            text-transform: uppercase;
+        }
+
+        /* Mobile overwrites */
+        @media (max-width: 992px) {
+            .doorways-book-wrapper {
+                aspect-ratio: 2 / 1.5;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .state-cover {
+                width: 170%;
+                transform: translateX(-25%);
+            }
+
+            .state-back {
+                width: 170%;
+                transform: translateX(25%);
+            }
+
+            .state-open {
+                width: 100%;
+                transform: translateX(0);
+            }
+
+            .doorways-controls {
+                margin-top: 2rem;
+            }
+
+            .doorways-btn span {
+                display: none;
+            }
         }
 
         /* ==========================================
@@ -909,7 +1024,7 @@
             margin: 4rem auto 0;
             overflow: hidden;
             cursor: col-resize;
-            touch-action: pan-y; /* Essential for mobile drag sliders */
+            touch-action: pan-y;
         }
 
         .ba-image {
@@ -1471,9 +1586,10 @@
         }
 
         /* ==========================================
-           21. MOBILE RESPONSIVE OVERRIDES
+           21. MOBILE RESPONSIVE OVERRIDES (BASE)
         ========================================== */
         @media (max-width: 992px) {
+
             .nav-links,
             .nav-book {
                 display: none !important;
@@ -1493,7 +1609,7 @@
             }
 
             .orbit-scene {
-                width: 180px; 
+                width: 180px;
                 height: 270px;
             }
 
@@ -1563,7 +1679,6 @@
                 column-count: 1;
             }
 
-            /* Stack Multi-Column Grids Structurally */
             .grid-12,
             .footer-grid {
                 display: flex !important;
@@ -1571,9 +1686,8 @@
                 gap: 3rem;
             }
 
-            /* Override Inline Structural Paddings */
-            .grid-12 > div,
-            .footer-grid > div {
+            .grid-12>div,
+            .footer-grid>div {
                 padding-left: 0 !important;
                 padding-right: 0 !important;
                 width: 100% !important;
@@ -1585,16 +1699,11 @@
                 gap: 1.5rem;
             }
 
-            .collection-card {
-                min-width: unset;
-                width: 85vw;
-            }
-
             .marquee-item {
                 font-size: clamp(2rem, 8vw, 4rem);
                 padding: 0 1rem;
             }
-            
+
             .lightbox-nav {
                 padding: 1rem;
             }
@@ -1609,11 +1718,15 @@
 
     <!-- Enhanced Theme Switcher -->
     <div class="theme-switcher" role="group" aria-label="Theme Switcher">
-        <button class="theme-swatch active" style="background: #080808;" data-set="noir" aria-label="Noir Theme"></button>
+        <button class="theme-swatch active" style="background: #080808;" data-set="noir"
+            aria-label="Noir Theme"></button>
         <button class="theme-swatch" style="background: #F3EFE7;" data-set="ivory" aria-label="Ivory Theme"></button>
-        <button class="theme-swatch" style="background: #0a120c;" data-set="verdant" aria-label="Verdant Theme"></button>
-        <button class="theme-swatch" style="background: #03060a;" data-set="sapphire" aria-label="Sapphire Theme"></button>
-        <button class="theme-swatch" style="background: #0d0505;" data-set="crimson" aria-label="Crimson Theme"></button>
+        <button class="theme-swatch" style="background: #0a120c;" data-set="verdant"
+            aria-label="Verdant Theme"></button>
+        <button class="theme-swatch" style="background: #03060a;" data-set="sapphire"
+            aria-label="Sapphire Theme"></button>
+        <button class="theme-swatch" style="background: #0d0505;" data-set="crimson"
+            aria-label="Crimson Theme"></button>
     </div>
 
     <!-- LOADER -->
@@ -1660,10 +1773,12 @@
             <!-- 1. HERO (DARK) -->
             <section id="hero" class="theme-dark" aria-label="Hero Section">
                 <div class="hero-bg" aria-hidden="true">
-                    <!-- Images load immediately -->
-                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1920" class="active" alt="Editorial Fashion Cover" style="opacity: 1;">
-                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=1920" alt="Fashion Editorial Back">
-                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1920" alt="Fashion Silhouette">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1920"
+                        class="active" alt="Editorial Fashion Cover" style="opacity: 1;">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=1920"
+                        alt="Fashion Editorial Back">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1920"
+                        alt="Fashion Silhouette">
                 </div>
                 <div class="hero-overlay" aria-hidden="true"></div>
                 <canvas id="hero-canvas" aria-hidden="true"></canvas>
@@ -1697,56 +1812,103 @@
                     <div class="maison-grid">
                         <div class="reveal-up">
                             <div class="eyebrow">01 — MAISON</div>
-                            <h2 class="title-large editorial-italic" style="margin-top: 4rem;">WE<br>DESIGN<br>WHAT<br>REMAINS.</h2>
+                            <h2 class="title-large editorial-italic" style="margin-top: 4rem;">
+                                WE<br>DESIGN<br>WHAT<br>REMAINS.</h2>
                             <div class="designer-signature" aria-hidden="true">Dixita</div>
                         </div>
                         <div class="maison-image-wrap reveal-up">
-                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800" class="maison-image" alt="DIXITA Maison Portrait of Designer">
-                            <p class="body-text" style="margin-top: 3rem;">Founded on the principles of architectural structure and fluid movement, DIXITA is a contemporary digital atelier crafting bespoke experiences in haute couture. Every piece is a study in form, intention, and identity, constructed for the modern silhouette.</p>
+                            <img src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=800"
+                                class="maison-image" alt="DIXITA Maison Portrait of Designer">
+                            <p class="body-text" style="margin-top: 3rem;">Founded on the principles of architectural
+                                structure and fluid movement, DIXITA is a contemporary digital atelier crafting bespoke
+                                experiences in haute couture. Every piece is a study in form, intention, and identity,
+                                constructed for the modern silhouette.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3D Orbit CSS Cylinder -->
-                <div class="orbit-container reveal-fade" id="orbit" tabindex="0" role="slider" aria-label="Drag to view 3D Archive" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
+                <div class="orbit-container reveal-fade" id="orbit" tabindex="0" role="slider"
+                    aria-label="Drag to view 3D Archive" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">
                     <div class="orbit-scene" id="orbit-scene">
                         <!-- Populated by JS -->
                     </div>
                 </div>
             </section>
 
-            <!-- 4. COLLECTIONS (DARK) -->
-            <section id="collections" class="section-pad theme-dark" aria-label="Featured Collections">
-                <div class="container" style="margin-bottom: 6rem; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: flex-end;">
-                    <div class="reveal-up">
-                        <div class="eyebrow">02 — COLLECTIONS</div>
-                        <h2 class="title-large">DOORWAYS</h2>
+            <!-- 4. COLLECTIONS -> DOORWAYS COMPONENT (DARK) -->
+            <section id="collections" class="section-pad theme-dark doorways-section" aria-label="Featured Collections">
+                <div class="container doorways-header">
+                    <div class="reveal-up"
+                        style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 2rem;">
+                        <div>
+                            <div class="eyebrow">02 — COLLECTIONS</div>
+                            <h2 class="title-large">DOORWAYS</h2>
+                            <div class="editorial-italic" style="margin-top: 1rem; font-size: 1.25rem;">Every entrance
+                                tells a story.</div>
+                        </div>
+                        <a href="#portfolio" class="btn-luxury">VIEW ARCHIVE</a>
                     </div>
-                    <a href="#portfolio" class="btn-luxury reveal-up">VIEW ALL</a>
                 </div>
 
-                <div class="collections-track" id="collections-track" tabindex="0" role="slider" aria-label="Drag to view collections" aria-valuemin="1" aria-valuemax="3" aria-valuenow="1">
-                    <button class="collection-card lightbox-trigger reveal-up" data-title="LUMINA" data-desc="Spring/Summer 2026" aria-label="Open Lumina Collection">
-                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" alt="Lumina Collection Gown">
-                        <div class="collection-meta">
-                            <h3 class="title-medium">LUMINA</h3>
-                            <div class="meta-label">SS / 26</div>
+                <div class="container">
+                    <div class="flipbook-container reveal-up">
+                        <div class="doorways-book-wrapper state-cover" id="doorways-flipbook"
+                            aria-label="Interactive Doorways Photo Book">
+                            <!-- Leaf 5 (Back Cover) -->
+                            <div class="doorways-leaf" data-leaf="5">
+                                <div class="doorways-page doorways-page-front"><img
+                                        src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 9"></div>
+                                <div class="doorways-page doorways-page-back"><img
+                                        src="https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 10"></div>
+                            </div>
+                            <!-- Leaf 4 -->
+                            <div class="doorways-leaf" data-leaf="4">
+                                <div class="doorways-page doorways-page-front"><img
+                                        src="https://images.unsplash.com/photo-1485230895905-eb56f4d1a10a?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 7"></div>
+                                <div class="doorways-page doorways-page-back"><img
+                                        src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 8"></div>
+                            </div>
+                            <!-- Leaf 3 -->
+                            <div class="doorways-leaf" data-leaf="3">
+                                <div class="doorways-page doorways-page-front"><img
+                                        src="https://images.unsplash.com/photo-1558238612-42da66453140?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 5"></div>
+                                <div class="doorways-page doorways-page-back"><img
+                                        src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 6"></div>
+                            </div>
+                            <!-- Leaf 2 -->
+                            <div class="doorways-leaf" data-leaf="2">
+                                <div class="doorways-page doorways-page-front"><img
+                                        src="https://images.unsplash.com/photo-1505322022379-7c3353ee6291?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 3"></div>
+                                <div class="doorways-page doorways-page-back"><img
+                                        src="https://images.unsplash.com/photo-1517409276943-4b62db1dbb28?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 4"></div>
+                            </div>
+                            <!-- Leaf 1 (Front Cover) -->
+                            <div class="doorways-leaf" data-leaf="1">
+                                <div class="doorways-page doorways-page-front"><img
+                                        src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Cover"></div>
+                                <div class="doorways-page doorways-page-back"><img
+                                        src="https://images.unsplash.com/photo-1481018595561-2679c09c13b7?auto=format&fit=crop&q=80&w=1200"
+                                        alt="Page 2"></div>
+                            </div>
                         </div>
-                    </button>
-                    <button class="collection-card lightbox-trigger reveal-up" data-title="OBSIDIAN" data-desc="Autumn/Winter 2026" aria-label="Open Obsidian Collection" style="margin-top: 10vh;">
-                        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&q=80&w=800" alt="Obsidian Collection Structure">
-                        <div class="collection-meta">
-                            <h3 class="title-medium">OBSIDIAN</h3>
-                            <div class="meta-label">AW / 26</div>
+                        <!-- Controls -->
+                        <div class="doorways-controls">
+                            <button class="doorways-btn" id="doorways-prev" aria-label="Previous Page"><i
+                                    class="fas fa-arrow-left"></i> <span>PREV</span></button>
+                            <div class="doorways-indicator" id="doorways-page-indicator" aria-live="polite">COVER</div>
+                            <button class="doorways-btn" id="doorways-next" aria-label="Next Page"><span>NEXT</span> <i
+                                    class="fas fa-arrow-right"></i></button>
                         </div>
-                    </button>
-                    <button class="collection-card lightbox-trigger reveal-up" data-title="MIRAGE" data-desc="Resort 2027" aria-label="Open Mirage Collection">
-                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800" alt="Mirage Collection Fluidity">
-                        <div class="collection-meta">
-                            <h3 class="title-medium">MIRAGE</h3>
-                            <div class="meta-label">RST / 27</div>
-                        </div>
-                    </button>
+                    </div>
                 </div>
             </section>
 
@@ -1757,14 +1919,19 @@
                     <h2 class="title-medium editorial-italic" style="margin-top: 1rem;">From mind to matter.</h2>
                 </div>
 
-                <div class="ba-container reveal-fade" id="ba-container" role="slider" tabindex="0" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-label="Use arrow keys to slide before and after comparison">
+                <div class="ba-container reveal-fade" id="ba-container" role="slider" tabindex="0" aria-valuenow="50"
+                    aria-valuemin="0" aria-valuemax="100"
+                    aria-label="Use arrow keys to slide before and after comparison">
                     <div class="ba-labels">
                         <div class="meta-label">SKETCH</div>
                         <div class="meta-label">SILHOUETTE</div>
                     </div>
-                    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200" alt="Concept sketch of the silhouette" class="ba-image" style="filter: grayscale(1) contrast(1.2);">
+                    <img src="https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&q=80&w=1200"
+                        alt="Concept sketch of the silhouette" class="ba-image"
+                        style="filter: grayscale(1) contrast(1.2);">
                     <div class="ba-overlay" id="ba-overlay">
-                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1200" alt="Final constructed silhouette" class="ba-image">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1200"
+                            alt="Final constructed silhouette" class="ba-image">
                     </div>
                     <div class="ba-handle" id="ba-handle"></div>
                 </div>
@@ -1795,34 +1962,39 @@
             <section id="process" class="theme-ivory" aria-label="The Atelier Process Timeline">
                 <div class="process-container" id="process-pin">
                     <div class="process-bg-num" id="process-bg-num">01</div>
-                    <span class="signature-line" style="position: absolute; left: 50%; top: 0; bottom: 0; height: auto;" aria-hidden="true"></span>
+                    <span class="signature-line" style="position: absolute; left: 50%; top: 0; bottom: 0; height: auto;"
+                        aria-hidden="true"></span>
 
                     <div class="process-stage active" id="stage-0">
                         <div class="process-content">
                             <div class="meta-label">PHASE 01</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">RESEARCH</h3>
-                            <p class="body-text">Exploring architectural volumes, historical references, and material behaviors before a single cut is made.</p>
+                            <p class="body-text">Exploring architectural volumes, historical references, and material
+                                behaviors before a single cut is made.</p>
                         </div>
                     </div>
                     <div class="process-stage" id="stage-1">
                         <div class="process-content">
                             <div class="meta-label">PHASE 02</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">SKETCH & TOILE</h3>
-                            <p class="body-text">Translating two-dimensional thought into three-dimensional space using rough cotton muslin.</p>
+                            <p class="body-text">Translating two-dimensional thought into three-dimensional space using
+                                rough cotton muslin.</p>
                         </div>
                     </div>
                     <div class="process-stage" id="stage-2">
                         <div class="process-content">
                             <div class="meta-label">PHASE 03</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">CONSTRUCT</h3>
-                            <p class="body-text">The meticulous assembly of final fabrics, utilizing hand-stitching and internal corsetry.</p>
+                            <p class="body-text">The meticulous assembly of final fabrics, utilizing hand-stitching and
+                                internal corsetry.</p>
                         </div>
                     </div>
                     <div class="process-stage" id="stage-3">
                         <div class="process-content">
                             <div class="meta-label">PHASE 04</div>
                             <h3 class="title-medium" style="margin: 1rem 0;">FINISH</h3>
-                            <p class="body-text">The final refinement. Invisible hems, hand-applied embellishments, and the final fitting.</p>
+                            <p class="body-text">The final refinement. Invisible hems, hand-applied embellishments, and
+                                the final fitting.</p>
                         </div>
                     </div>
                 </div>
@@ -1835,18 +2007,25 @@
                         <div class="lookbook-left">
                             <div class="eyebrow" style="margin-bottom: 2rem;">05 — LOOKBOOK</div>
                             <h2 class="title-large" id="lb-title" aria-live="polite">LOOK 01</h2>
-                            <p class="editorial-italic" id="lb-desc" aria-live="polite" style="font-size: 1.5rem; margin-top: 1rem;">Structural Silk & Organza Overlay.</p>
+                            <p class="editorial-italic" id="lb-desc" aria-live="polite"
+                                style="font-size: 1.5rem; margin-top: 1rem;">Structural Silk & Organza Overlay.</p>
                             <div class="meta-label" style="margin-top: 4rem;">VOL. IV / 2026</div>
                         </div>
                         <div class="lookbook-right">
-                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 01" data-desc="Structural Silk & Organza Overlay" aria-label="View Look 01">
-                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1000" alt="Look 01: Structural Silk" class="look-img">
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 01"
+                                data-desc="Structural Silk & Organza Overlay" aria-label="View Look 01">
+                                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&q=80&w=1000"
+                                    alt="Look 01: Structural Silk" class="look-img">
                             </button>
-                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 02" data-desc="Asymmetric Wool Crepe" aria-label="View Look 02">
-                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000" alt="Look 02: Asymmetric Wool" class="look-img">
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 02"
+                                data-desc="Asymmetric Wool Crepe" aria-label="View Look 02">
+                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=1000"
+                                    alt="Look 02: Asymmetric Wool" class="look-img">
                             </button>
-                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 03" data-desc="Hand-pleated Tulle" aria-label="View Look 03">
-                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000" alt="Look 03: Hand-pleated Tulle" class="look-img">
+                            <button class="lb-item lightbox-trigger reveal-up" data-title="LOOK 03"
+                                data-desc="Hand-pleated Tulle" aria-label="View Look 03">
+                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
+                                    alt="Look 03: Hand-pleated Tulle" class="look-img">
                             </button>
                         </div>
                     </div>
@@ -1862,7 +2041,8 @@
                 <div class="container">
                     <div class="reels-grid">
                         <button class="reel-card reveal-up" aria-label="Play Paris Fashion Week 25 Reel">
-                            <video class="reel-video" loop playsinline preload="none" poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600">
+                            <video class="reel-video" loop playsinline preload="none"
+                                poster="https://images.unsplash.com/photo-1469334031218-e382a71b716b?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             </video>
                             <div class="reel-overlay" aria-hidden="true">
@@ -1874,7 +2054,8 @@
                             </div>
                         </button>
                         <button class="reel-card reveal-up" aria-label="Play The Making of Oasis Reel">
-                            <video class="reel-video" loop playsinline preload="none" poster="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?auto=format&fit=crop&q=80&w=600">
+                            <video class="reel-video" loop playsinline preload="none"
+                                poster="https://images.unsplash.com/photo-1492633423870-43d1cd2775eb?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             </video>
                             <div class="reel-overlay" aria-hidden="true">
@@ -1886,7 +2067,8 @@
                             </div>
                         </button>
                         <button class="reel-card reveal-up" aria-label="Play Architectural Fluidity Reel">
-                            <video class="reel-video" loop playsinline preload="none" poster="https://images.unsplash.com/photo-1485230895905-eb56f4d1a10a?auto=format&fit=crop&q=80&w=600">
+                            <video class="reel-video" loop playsinline preload="none"
+                                poster="https://images.unsplash.com/photo-1485230895905-eb56f4d1a10a?auto=format&fit=crop&q=80&w=600">
                                 <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                             </video>
                             <div class="reel-overlay" aria-hidden="true">
@@ -1940,11 +2122,15 @@
                     <div class="swiper swiper-testimonial reveal-up" aria-roledescription="carousel">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide" role="group" aria-label="1 of 2">
-                                <h3 class="title-medium editorial-italic" style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"A breathtaking return to structured elegance that defines the modern era."</h3>
+                                <h3 class="title-medium editorial-italic"
+                                    style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"A breathtaking
+                                    return to structured elegance that defines the modern era."</h3>
                                 <div class="meta-label">— VOGUE EDITORIAL</div>
                             </div>
                             <div class="swiper-slide" role="group" aria-label="2 of 2">
-                                <h3 class="title-medium editorial-italic" style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"Wearing Maison Noir is like wearing a second skin composed of pure art."</h3>
+                                <h3 class="title-medium editorial-italic"
+                                    style="max-width: 25ch; margin: 0 auto 2rem; line-height: 1.2;">"Wearing Maison Noir
+                                    is like wearing a second skin composed of pure art."</h3>
                                 <div class="meta-label">— PRIVATE CLIENT</div>
                             </div>
                         </div>
@@ -1959,21 +2145,27 @@
                         <div style="grid-column: span 6;" class="reveal-up">
                             <h2 class="title-medium" style="margin-bottom: 4rem;">ACCLAIM</h2>
                             <div class="accordion-item" id="press">
-                                <button class="accordion-header" aria-expanded="false" aria-controls="content-cfda" id="header-cfda">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="content-cfda"
+                                    id="header-cfda">
                                     <span class="meta-label">CFDA EMERGING DESIGNER</span>
                                     <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
                                 </button>
-                                <div class="accordion-content" id="content-cfda" role="region" aria-labelledby="header-cfda">
-                                    <div class="accordion-inner">Recognized for innovative use of sustainable luxury fabrics in haute couture.</div>
+                                <div class="accordion-content" id="content-cfda" role="region"
+                                    aria-labelledby="header-cfda">
+                                    <div class="accordion-inner">Recognized for innovative use of sustainable luxury
+                                        fabrics in haute couture.</div>
                                 </div>
                             </div>
                             <div class="accordion-item">
-                                <button class="accordion-header" aria-expanded="false" aria-controls="content-bazaar" id="header-bazaar">
+                                <button class="accordion-header" aria-expanded="false" aria-controls="content-bazaar"
+                                    id="header-bazaar">
                                     <span class="meta-label">HARPER'S BAZAAR FEATURE</span>
                                     <i class="fas fa-plus accordion-icon" aria-hidden="true"></i>
                                 </button>
-                                <div class="accordion-content" id="content-bazaar" role="region" aria-labelledby="header-bazaar">
-                                    <div class="accordion-inner">A 10-page editorial spread showcasing the 'Obsidian' collection in the architectural ruins of Rome.</div>
+                                <div class="accordion-content" id="content-bazaar" role="region"
+                                    aria-labelledby="header-bazaar">
+                                    <div class="accordion-inner">A 10-page editorial spread showcasing the 'Obsidian'
+                                        collection in the architectural ruins of Rome.</div>
                                 </div>
                             </div>
                         </div>
@@ -1985,21 +2177,28 @@
 
                             <form id="booking-form" novalidate>
                                 <div class="form-group">
-                                    <input type="text" id="booking-name" name="name" class="form-input" placeholder="Full Name" required autocomplete="name" aria-label="Full Name">
+                                    <input type="text" id="booking-name" name="name" class="form-input"
+                                        placeholder="Full Name" required autocomplete="name" aria-label="Full Name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" id="booking-email" name="email" class="form-input" placeholder="Email Address" required autocomplete="email" aria-label="Email Address">
+                                    <input type="email" id="booking-email" name="email" class="form-input"
+                                        placeholder="Email Address" required autocomplete="email"
+                                        aria-label="Email Address">
                                 </div>
                                 <div class="form-group">
-                                    <select id="booking-service" name="service" class="form-input" required aria-label="Select Service" style="appearance: none;">
-                                        <option value="" disabled selected style="color: var(--text-mut-current)">Select Service...</option>
+                                    <select id="booking-service" name="service" class="form-input" required
+                                        aria-label="Select Service" style="appearance: none;">
+                                        <option value="" disabled selected style="color: var(--text-mut-current)">Select
+                                            Service...</option>
                                         <option value="bespoke" style="color: #000">Bespoke Couture</option>
                                         <option value="bridal" style="color: #000">Bridal</option>
                                         <option value="editorial" style="color: #000">Editorial</option>
                                     </select>
                                 </div>
-                                <button type="submit" class="btn-luxury" id="booking-submit" style="width: 100%; margin-top: 2rem;">Submit Request</button>
-                                <p class="form-msg" id="booking-msg" role="alert" aria-live="polite" style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
+                                <button type="submit" class="btn-luxury" id="booking-submit"
+                                    style="width: 100%; margin-top: 2rem;">Submit Request</button>
+                                <p class="form-msg" id="booking-msg" role="alert" aria-live="polite"
+                                    style="margin-top: 1rem; font-size: 0.85rem; display: none;"></p>
                             </form>
                         </div>
                     </div>
@@ -2009,7 +2208,8 @@
             <!-- 13. FOOTER (DARK) -->
             <footer id="footer" class="theme-dark" aria-label="Site Footer">
                 <div class="container">
-                    <button class="footer-massive reveal-up" id="footer-brand-btn" aria-label="Scroll to top of DIXITA">DIXITA</button>
+                    <button class="footer-massive reveal-up" id="footer-brand-btn"
+                        aria-label="Scroll to top of DIXITA">DIXITA</button>
 
                     <div class="footer-grid reveal-fade" style="margin-top: 6rem;">
                         <div>
@@ -2035,14 +2235,18 @@
                         <div>
                             <div class="eyebrow">NEWSLETTER</div>
                             <form class="newsletter-form" id="newsletter-form" novalidate>
-                                <input type="email" id="nl-email" placeholder="Email Address" required autocomplete="email" aria-label="Email for Newsletter">
-                                <button type="submit" id="nl-submit" aria-label="Subscribe to Newsletter"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
+                                <input type="email" id="nl-email" placeholder="Email Address" required
+                                    autocomplete="email" aria-label="Email for Newsletter">
+                                <button type="submit" id="nl-submit" aria-label="Subscribe to Newsletter"><i
+                                        class="fas fa-arrow-right" aria-hidden="true"></i></button>
                             </form>
-                            <span class="form-msg" id="nl-msg" role="alert" aria-live="polite" style="font-size: 0.85rem; margin-top: 1rem; display: none;"></span>
+                            <span class="form-msg" id="nl-msg" role="alert" aria-live="polite"
+                                style="font-size: 0.85rem; margin-top: 1rem; display: none;"></span>
                         </div>
                     </div>
 
-                    <div style="display: flex; justify-content: space-between; margin-top: 6rem; color: var(--text-mut-current); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;">
+                    <div
+                        style="display: flex; justify-content: space-between; margin-top: 6rem; color: var(--text-mut-current); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em;">
                         <span>© 2026 DIXITA ATELIER.</span>
                         <span>WORLDWIDE</span>
                     </div>
@@ -2055,13 +2259,15 @@
     <!-- GLOBAL LIGHTBOX -->
     <div id="lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Image Gallery Lightbox">
         <button class="fas fa-times lightbox-close" id="lb-close" aria-label="Close Lightbox"></button>
-        <button class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lb-prev" aria-label="Previous Image"></button>
+        <button class="fas fa-chevron-left lightbox-nav lightbox-prev" id="lb-prev"
+            aria-label="Previous Image"></button>
         <button class="fas fa-chevron-right lightbox-nav lightbox-next" id="lb-next" aria-label="Next Image"></button>
 
         <div class="lightbox-content">
             <img src="" alt="Expanded View" class="lightbox-img" id="lb-img">
             <div class="lightbox-meta">
-                <div class="meta-label" id="lb-counter" style="margin-bottom: 1rem; color: var(--accent);" aria-live="polite">01 / 01</div>
+                <div class="meta-label" id="lb-counter" style="margin-bottom: 1rem; color: var(--accent);"
+                    aria-live="polite">01 / 01</div>
                 <h3 class="title-medium" id="lb-title-display">Title</h3>
                 <p class="editorial-italic" id="lb-desc-display" style="margin-top: 0.5rem;">Description</p>
             </div>
@@ -2104,7 +2310,6 @@
             let lenis;
 
             function initLenis() {
-                // Disable Lenis entirely on mobile to allow native optimized momentum scrolling
                 if (typeof Lenis === 'undefined' || state.isMobile) return;
                 lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
                 lenis.on('scroll', ScrollTrigger.update);
@@ -2120,16 +2325,14 @@
                     return;
                 }
 
-                // Prevent scrolling while loader is active
                 document.body.style.overflow = 'hidden';
 
                 const tl = gsap.timeline({
                     onComplete: () => {
-                        loader.style.display = 'none'; 
+                        loader.style.display = 'none';
                         loader.setAttribute('aria-hidden', 'true');
-                        document.body.style.overflow = ''; // Unlock scrolling
-                        
-                        // Initialize animations AFTER loader finishes so they don't break
+                        document.body.style.overflow = '';
+
                         try { initWebGL(); } catch (e) { }
                         try { initReveals(); } catch (e) { }
                         ScrollTrigger.refresh();
@@ -2164,7 +2367,7 @@
                 const nav = document.getElementById('navbar');
                 if (!nav) return;
                 let lastScroll = 0;
-                
+
                 const scrollHandler = () => {
                     const scrollY = window.scrollY;
                     if (scrollY > 50) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
@@ -2207,7 +2410,7 @@
                 state.menuOpen = !state.menuOpen;
                 if (state.menuOpen) {
                     if (lenis) lenis.stop();
-                    document.body.style.overflow = 'hidden'; 
+                    document.body.style.overflow = 'hidden';
                     menu.classList.add('active'); menu.setAttribute('aria-hidden', 'false');
                     toggleBtn.setAttribute('aria-expanded', 'true'); icon.className = 'fas fa-times';
                     gsap.to('.mobile-item', { y: 0, opacity: 1, stagger: 0.05, duration: 0.5, delay: 0.2, ease: "power3.out" });
@@ -2352,19 +2555,98 @@
                 updateActive(); autoRotate();
             }
 
-            function initCollectionsSlider() {
-                const track = document.getElementById('collections-track');
-                if (!track) return; const parent = track.parentElement;
-                let isDown = false, startX, scrollLeft;
-                parent.addEventListener('pointerdown', (e) => {
-                    isDown = true; startX = e.pageX - parent.offsetLeft; scrollLeft = parent.scrollLeft; parent.setPointerCapture(e.pointerId);
+            function initDoorwaysFlipbook() {
+                const bookWrapper = document.getElementById('doorways-flipbook');
+                if (!bookWrapper) return;
+
+                const leaves = Array.from(bookWrapper.querySelectorAll('.doorways-leaf')).reverse();
+                const btnPrev = document.getElementById('doorways-prev');
+                const btnNext = document.getElementById('doorways-next');
+                const pageIndicator = document.getElementById('doorways-page-indicator');
+
+                let currentSpread = 0;
+                const totalLeaves = leaves.length; // 5
+                let isAnimating = false;
+
+                const spreadLabels = ["COVER", "PAGES 2 & 3", "PAGES 4 & 5", "PAGES 6 & 7", "PAGES 8 & 9", "BACK COVER"];
+
+                function updateBook() {
+                    if (currentSpread === 0) {
+                        bookWrapper.className = 'doorways-book-wrapper state-cover';
+                    } else if (currentSpread === totalLeaves) {
+                        bookWrapper.className = 'doorways-book-wrapper state-back';
+                    } else {
+                        bookWrapper.className = 'doorways-book-wrapper state-open';
+                    }
+
+                    leaves.forEach((leaf, index) => {
+                        if (index < currentSpread) {
+                            leaf.style.transform = 'rotateY(-180deg)';
+                            setTimeout(() => { leaf.style.zIndex = index + 1; }, 400);
+                        } else {
+                            leaf.style.transform = 'rotateY(0deg)';
+                            setTimeout(() => { leaf.style.zIndex = totalLeaves - index; }, 400);
+                        }
+                    });
+
+                    pageIndicator.innerText = spreadLabels[currentSpread];
+                    btnPrev.disabled = (currentSpread === 0);
+                    btnNext.disabled = (currentSpread === totalLeaves);
+                }
+
+                leaves.forEach((leaf, index) => { leaf.style.zIndex = totalLeaves - index; });
+                btnPrev.disabled = true;
+
+                function turnNext() {
+                    if (currentSpread < totalLeaves && !isAnimating) {
+                        isAnimating = true;
+                        currentSpread++;
+                        updateBook();
+                        setTimeout(() => { isAnimating = false; }, 850);
+                    }
+                }
+
+                function turnPrev() {
+                    if (currentSpread > 0 && !isAnimating) {
+                        isAnimating = true;
+                        currentSpread--;
+                        updateBook();
+                        setTimeout(() => { isAnimating = false; }, 850);
+                    }
+                }
+
+                btnNext.addEventListener('click', turnNext);
+                btnPrev.addEventListener('click', turnPrev);
+
+                bookWrapper.addEventListener('click', (e) => {
+                    if (e.target.closest('button')) return;
+                    const rect = bookWrapper.getBoundingClientRect();
+                    const isLeftHalf = e.clientX < rect.left + (rect.width / 2);
+                    if (isLeftHalf) turnPrev();
+                    else turnNext();
                 });
-                const stopDrag = (e) => { if (isDown) { isDown = false; parent.releasePointerCapture(e.pointerId); } };
-                parent.addEventListener('pointerup', stopDrag); parent.addEventListener('pointercancel', stopDrag);
-                parent.addEventListener('pointermove', (e) => {
-                    if (!isDown) return;
-                    parent.scrollLeft = scrollLeft - ((e.pageX - parent.offsetLeft - startX) * 2);
+
+                const doorwaysSection = document.getElementById('collections');
+                let inViewport = false;
+                if ('IntersectionObserver' in window) {
+                    new IntersectionObserver(entries => {
+                        inViewport = entries[0].isIntersecting;
+                    }, { threshold: 0.2 }).observe(doorwaysSection);
+                }
+
+                window.addEventListener('keydown', (e) => {
+                    if (!inViewport) return;
+                    if (e.key === 'ArrowLeft') turnPrev();
+                    if (e.key === 'ArrowRight') turnNext();
                 });
+
+                let startX = 0;
+                bookWrapper.addEventListener('touchstart', (e) => { startX = e.changedTouches[0].screenX; }, { passive: true });
+                bookWrapper.addEventListener('touchend', (e) => {
+                    let endX = e.changedTouches[0].screenX;
+                    if (startX - endX > 40) turnNext();
+                    else if (endX - startX > 40) turnPrev();
+                }, { passive: true });
             }
 
             function initComparison() {
@@ -2415,7 +2697,7 @@
             }
 
             function initAtelierProcess() {
-                if (state.isTablet) return; 
+                if (state.isTablet) return;
                 const stages = document.querySelectorAll('.process-stage');
                 const numDisplay = document.getElementById('process-bg-num');
                 if (!stages.length) return;
@@ -2431,7 +2713,7 @@
             }
 
             function initLookbook() {
-                if (state.isTablet) return; 
+                if (state.isTablet) return;
                 const looks = document.querySelectorAll('.lb-item'), titleEl = document.getElementById('lb-title'), descEl = document.getElementById('lb-desc');
                 if (!titleEl || !descEl || !looks.length) return;
                 let currentLook = null;
@@ -2557,19 +2839,19 @@
                     let progress = 0; if (scrollHeight > 0) { progress = Math.max(0, Math.min(100, (scrollTop / scrollHeight) * 100)); }
                     if (bar) bar.style.width = `${progress}%`;
                 };
-                
+
                 if (lenis) {
                     lenis.on('scroll', handleScroll);
                 } else {
                     window.addEventListener('scroll', handleScroll, { passive: true });
                 }
-                
-                const scrollToTop = () => { 
+
+                const scrollToTop = () => {
                     if (lenis) {
-                        lenis.scrollTo(0); 
-                    } else { 
-                        window.scrollTo({ top: 0, behavior: 'smooth' }); 
-                    } 
+                        lenis.scrollTo(0);
+                    } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
                 };
                 if (brandBtt) brandBtt.addEventListener('click', scrollToTop);
 
@@ -2579,7 +2861,7 @@
             }
 
             window.addEventListener('resize', () => {
-                state.isMobile = window.innerWidth <= 768; 
+                state.isMobile = window.innerWidth <= 768;
                 state.isTablet = window.innerWidth <= 992;
                 if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
             });
@@ -2591,7 +2873,7 @@
                 try { initMobileMenu(); } catch (e) { }
                 try { initMarquee(); } catch (e) { }
                 try { initOrbit(); } catch (e) { }
-                try { initCollectionsSlider(); } catch (e) { }
+                try { initDoorwaysFlipbook(); } catch (e) { }
                 try { initComparison(); } catch (e) { }
                 try { initPortfolio(); } catch (e) { }
                 try { initAtelierProcess(); } catch (e) { }
